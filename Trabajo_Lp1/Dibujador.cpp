@@ -31,5 +31,3 @@ void Dibujador::SetA(int A) {
 int Dibujador::GetA() const {
     return A;
 }
-
-

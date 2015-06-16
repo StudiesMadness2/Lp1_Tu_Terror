@@ -14,7 +14,7 @@ private:
 
 public:
     Avatar();
-    Avatar(const Avatar& orig);
+    //Avatar(const Avatar& orig);
     virtual ~Avatar();
 
 };

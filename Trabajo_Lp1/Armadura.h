@@ -4,7 +4,7 @@
  *
  * Created on 5 de junio de 2015, 11:15 AM
  */
-
+#include "Artefacto.h"
 #ifndef ARMADURA_H
 #define	ARMADURA_H
 
@@ -14,9 +14,12 @@ private:
     char * nombre;
     
 public:
-    Armadura();
-    Armadura(const Armadura& orig);
+    Armadura(int def=0);
     virtual ~Armadura();
+    void AsignarArmadura(int, char*);
+    
+    void SetDefensa(int defensa);
+    int GetDefensa() const;
 };
 
 #endif	/* ARMADURA_H */

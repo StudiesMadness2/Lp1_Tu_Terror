@@ -13,8 +13,8 @@ private:
 
 public:
     Artefacto();
-    Artefacto(const Artefacto& orig);
-    virtual ~Artefacto();        
+    virtual ~Artefacto();    
+    void ImprimirArtefacto() const;      
 };
 
 #endif	/* ARTEFACTO_H */

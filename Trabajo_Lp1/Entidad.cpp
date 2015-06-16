@@ -6,34 +6,42 @@
  */
 
 #include "Entidad.h"
+#include <cstdio>
 #include <cstring>
-Entidad::Entidad() {
+
+Entidad::Entidad(int max, int vida) {
+    maxVida = max;
+    VidaActual = vida;
+    nombre = NULL;
 }
 
-Entidad::Entidad(const Entidad& orig) {
-}
 
 Entidad::~Entidad() {
 }
 
-void Entidad::SetSaco(Saco saco) {
-    this->saco = saco;
+void Entidad::SetSaco(Artefacto artefact) {
+    Saco sac;
+    sac.AgregarAlSaco(artefact);
+    this->saco = sac;
+}
+
+int Entidad::GetSacoIndice(){
+    return this->saco.GetIndice();
 }
 
 Saco Entidad::GetSaco() const {
     return saco;
 }
 
-void Entidad::SetNombre(char* nombre) {
-    
-    this->nombre = new char[strlen(nombre) +1];  
-    strcpy(this->nombre , nombre) ; 
+void Entidad::SetNombre(char* name) {
+    this->nombre = new char[strlen(name) + 1];
+    strcpy(this->nombre, name);
 }
 
 char* Entidad::GetNombre() const {
-    char *aux ; 
-    aux = new char[strlen(nombre) +1 ] ; 
-    strcpy(aux , nombre) ; 
+    char *aux;
+    aux = new char[strlen(nombre) + 1 ];
+    strcpy(aux, nombre);
     return aux;
 }
 
@@ -69,3 +77,26 @@ int Entidad::GetPosY() const {
     return posY;
 }
 
+void Entidad::SetArma(Arma arma) {
+    this->arma = arma;
+}
+
+Arma Entidad::GetArma() const {
+    return arma;
+}
+
+void Entidad::SetArmadura(Armadura armadura) {
+    this->armadura = armadura;
+}
+
+Armadura Entidad::GetArmadura() const {
+    return armadura;
+}
+
+void Entidad::SetDanhoBase(int danhoBase) {
+    this->danhoBase = danhoBase;
+}
+
+int Entidad::GetDanhoBase() const {
+    return danhoBase;
+}

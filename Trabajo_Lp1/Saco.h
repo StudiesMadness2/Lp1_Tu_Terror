@@ -11,11 +11,14 @@
 
 class Saco {
 private:
-    Artefacto artefacto[];
+    Artefacto artefacto[10]; //genera un máximo de 10 artefactos en la bolsa
+    int indice;
 public:
     Saco();
-    Saco(const Saco& orig);
     virtual ~Saco();
+    void AgregarAlSaco(Artefacto);
+    int GetIndice();
+    void Imprimir();
 };
 
 #endif	/* SACO_H */

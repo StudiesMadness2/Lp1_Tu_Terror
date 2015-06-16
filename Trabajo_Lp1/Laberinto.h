@@ -43,8 +43,6 @@ public:
     int getN() const;
     void setM(int M);
     int getM() const;
-
-
     // Metodos 
     //  Laberinto creaion(char *);
     void impresion();
@@ -56,8 +54,6 @@ public:
     int getY_Ant() const;
     void setX_Ant(int x_Ant);
     int getX_Ant() const;
-
-
 };
 
 #endif	/* LABERINTO_H */

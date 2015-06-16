@@ -12,7 +12,6 @@ class Dibujador {
 private:
     int A;
     int B;
-
 public:
     Dibujador();
     virtual ~Dibujador();

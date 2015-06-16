@@ -31,7 +31,16 @@ public:
 
     void CargarLaberintos();
     void iniciarPosicionAvatar();
+    
     void intentarmosMoverAvatar(char& , int&);
+    void intentamosInteractuarAvatar(int, int, int, Arma *, Armadura *, PocionCuracion *);
+    void PreguntarPelearConMonstruo(void);
+    void PelearConMonstruo(Monstruo monster);
+    void ImprimirSaco();
+
+
+    void PelearConMonstruo(Monstruo monster);   
+    void meterAlSaco();
 
     void SetDibujador(Dibujador dibujador);
     Dibujador GetDibujador() const;
@@ -41,7 +50,6 @@ public:
     Avatar GetAvatar() const;
     void SetPosLaberintoActual(int posLaberintoActual);
     int GetPosLaberintoActual() const;
-
 };
 
 #endif	/* JUEGO_H */

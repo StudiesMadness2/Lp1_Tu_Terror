@@ -15,4 +15,3 @@ void Celda::SetTipo(int tipo) {
 int Celda::GetTipo() const {
     return tipo;
 }
-

@@ -4,7 +4,6 @@
  * 
  * Created on 5 de junio de 2015, 11:19 AM
  */
-
 #include "Laberinto.h"
 #include "GestorLaberinto.h"
 #include <iostream>
