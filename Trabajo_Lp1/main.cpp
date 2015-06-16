@@ -24,12 +24,8 @@
 #include "Arma.h"
 #include "Armadura.h"
 #include "PocionCuracion.h"
-<<<<<<< HEAD
+
 #include "Artefacto.h"
-=======
-
-
->>>>>>> origin/master
 #include <WINDOWS.h> 
 #include <MMSystem.h>
 using namespace std;
