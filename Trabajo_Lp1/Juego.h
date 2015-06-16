@@ -26,7 +26,7 @@ private:
     Laberinto *arreLaberintos;
 public:
     Juego();
-    Juego(const Juego& orig);
+
     virtual ~Juego();
 
     void CargarLaberintos();

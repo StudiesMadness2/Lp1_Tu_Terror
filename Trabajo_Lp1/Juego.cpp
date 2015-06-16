@@ -17,7 +17,6 @@
 #define DIR_DERECHA   'l'
 #define DIR_IZQUIERDA  'j'
 #include "rlutil.h"
-#include "Juego.h"
 #include <fstream>
 #include <dirent.h>
 #include <stdlib.h>
@@ -26,6 +25,7 @@
 #include<time.h>
 #include <iostream>
 #include "Arma.h"
+#include "Juego.h"
 #include "Armadura.h"
 #include "PocionCuracion.h"
 
@@ -38,9 +38,6 @@ Juego::Juego() {
     monstruo = new Monstruo[10]; // 10 es un ejemplo puede ser cualquie valor 
     arreLaberintos = new Laberinto[10]; // Suponiendo como maximos 10
     posLaberintoActual = 0; // Por empieza en el principio         
-}
-
-Juego::Juego(const Juego& orig) {
 }
 
 Juego::~Juego() {
