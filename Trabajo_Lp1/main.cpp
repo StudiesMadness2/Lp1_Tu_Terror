@@ -63,6 +63,7 @@ int main(int argc, char** argv) {
         if(flag==1){
             nuevoJuego.dibujarEsquema();
 //            nuevoJuego.GetDibujador().
+            nuevoJuego.GetAvatar().mostrarDatosMapa();
             mostrarOpcionesGenerales();                
         }
         
