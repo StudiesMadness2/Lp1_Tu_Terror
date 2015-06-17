@@ -9,6 +9,9 @@
 #include <iomanip>
 #include <iostream>
 #include "Artefacto.h"
+#include "Arma.h"
+#include "Armadura.h"
+#include "PocionCuracion.h"
 #include "Saco.h"
 using namespace std;
 
@@ -19,7 +22,7 @@ Saco::Saco() {
 Saco::~Saco() {
 }
 
-void Saco::AgregarAlSaco(Artefacto artefact){
+void Saco::AgregarAlSaco(Arma artefact){
     if(indice<10){
         artefacto[indice]=artefact;
         cout << "Artefacto agregado al saco" << endl;
@@ -29,12 +32,31 @@ void Saco::AgregarAlSaco(Artefacto artefact){
     }
 }
 
+void Saco::AgregarAlSaco(Armadura artefact){
+    if(indice<10){
+        artefacto[indice]=artefact;
+        cout << "Artefacto agregado al saco" << endl;
+        indice++;
+    }else{
+        cout << "Saco lleno, no puede agregarse el artefacto" << endl;
+    }
+}
+
+void Saco::AgregarAlSaco(PocionCuracion artefact){
+    if(indice<10){
+        artefacto[indice]=artefact;
+        cout << "Artefacto agregado al saco" << endl;
+        indice++;
+    }else{
+        cout << "Saco lleno, no puede agregarse el artefacto" << endl;
+    }
+}
 int Saco::GetIndice(){
     return indice;
 }
 
 void Saco::Imprimir(){
     for(int i=0;i<indice;i++){
-        artefacto[i].ImprimirArtefacto();
+        artefacto[i].Imprimir();
     }
 }

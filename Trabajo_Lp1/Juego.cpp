@@ -19,10 +19,10 @@
 #include "rlutil.h"
 #include <fstream>
 #include <dirent.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <string.h>
-#include<time.h>
+#include <time.h>
 #include <iostream>
 #include "Arma.h"
 #include "Juego.h"
@@ -299,12 +299,6 @@ void Juego::PelearConMonstruo(Monstruo monster) {
     while (cin.get() != '\n');
 
 }
-
-void Juego::meterAlSaco(){
-    
-}
- 
-
 
 void Juego::SetDibujador(Dibujador dibujador) {
 

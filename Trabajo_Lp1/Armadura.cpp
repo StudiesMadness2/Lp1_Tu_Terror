@@ -7,8 +7,11 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <iomanip>
+#include <iostream>
 #include "Artefacto.h"
 #include "Armadura.h"
+using namespace std;
 
 Armadura::Armadura(int def) {
     SetDefensa(def);
@@ -30,4 +33,8 @@ void Armadura::SetDefensa(int defensa) {
 
 int Armadura::GetDefensa() const {
     return defensa;
+}
+
+void Armadura::Imprimir(){
+    cout << "Armadura: " << left << setw(35) << nombre << " - Defensa: " << defensa << endl;
 }

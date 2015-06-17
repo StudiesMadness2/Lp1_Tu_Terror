@@ -4,7 +4,7 @@
  * 
  * Created on 5 de junio de 2015, 11:11 AM
  */
-
+#include "Artefacto.h"
 #include "Entidad.h"
 #include <cstdio>
 #include <cstring>
@@ -19,12 +19,21 @@ Entidad::Entidad(int max, int vida) {
 Entidad::~Entidad() {
 }
 
-void Entidad::SetSaco(Artefacto artefact) {
+void Entidad::SetSaco(Arma artefact) {
     Saco sac;
     sac.AgregarAlSaco(artefact);
     this->saco = sac;
 }
-
+void Entidad::SetSaco(Armadura artefact) {
+    Saco sac;
+    sac.AgregarAlSaco(artefact);
+    this->saco = sac;
+}
+void Entidad::SetSaco(PocionCuracion artefact) {
+    Saco sac;
+    sac.AgregarAlSaco(artefact);
+    this->saco = sac;
+}
 int Entidad::GetSacoIndice(){
     return this->saco.GetIndice();
 }

@@ -9,14 +9,6 @@
 #include "PocionCuracion.h"
 #include "Artefacto.h"
 
-Artefacto::Artefacto() {
-}
-
-
-Artefacto::~Artefacto() {
-}
-
-void Artefacto::ImprimirArtefacto() const{
-    
+void Artefacto::Imprimir(){
     
 }

@@ -7,8 +7,11 @@
 #include <cstring>
 #include <cstdio>
 #include <cstdlib>
+#include <iomanip>
+#include <iostream>
 #include "Artefacto.h" 
 #include "PocionCuracion.h"
+using namespace std;
 
 PocionCuracion::PocionCuracion(int ptos) {
     puntosVida=ptos;
@@ -26,4 +29,8 @@ void PocionCuracion::AsignarPocion(int ptos, char *name){
     puntosVida=ptos;
     nombre = new char[strlen(name)+1];
     strcpy(nombre,name);
+}
+
+void PocionCuracion::Imprimir(){
+    cout << left << setw(35) << nombre << " - Puntos Vida: " << puntosVida << endl;
 }

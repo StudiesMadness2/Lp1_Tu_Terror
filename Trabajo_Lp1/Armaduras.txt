@@ -1,0 +1,10 @@
+3
+4 Horas de Descanso
+50
+10 Horas de Descanso
+75
+16 Horas de Descanso
+90
+
+/* DEFENSA
+ */

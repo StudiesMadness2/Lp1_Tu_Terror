@@ -18,9 +18,8 @@ private:
 
 public:
     Arma(int min=0,int max=0);
-    virtual ~Arma();
     void AsignarArma(int, int, char*);
-    
+    void Imprimir();
     void SetDanhoMax(int danhoMax);
     int GetDanhoMax() const;
     void SetDanhoMin(int danhoMin);

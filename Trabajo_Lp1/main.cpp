@@ -43,15 +43,15 @@ int main(int argc, char** argv) {
     Armadura *Armd;
     PocionCuracion *Poc;
     historiaDelJuego();
-    Juego nuevoJuevo;
+    Juego nuevoJuego;
     Dibujador dibujadorNuevo;
     dibujadorNuevo.SetA(10);
     dibujadorNuevo.SetB(10);
-    nuevoJuevo.SetDibujador(dibujadorNuevo);
-    nuevoJuevo.CargarLaberintos();
-    nuevoJuevo.iniciarPosicionAvatar();
-   // nuevoJuevo.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
-    // nuevoJuevo.GetAvatar().impresionInformacionAvatar() ; 
+    nuevoJuego.SetDibujador(dibujadorNuevo);
+    nuevoJuego.CargarLaberintos();
+    nuevoJuego.iniciarPosicionAvatar();
+   // nuevoJuego.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
+    // nuevoJuego.GetAvatar().impresionInformacionAvatar() ; 
     CargarMonstruos(Mons, numM);
     CargarArmas(ArmA, ArmM, numAA, numAM);
     CargarArmaduras(Armd, numAd);
@@ -61,22 +61,23 @@ int main(int argc, char** argv) {
     PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
     while (1) {       
         if(flag==1){
-            nuevoJuevo.dibujarEsquema();
-//            nuevoJuevo.GetDibujador().
+            nuevoJuego.dibujarEsquema();
+//            nuevoJuego.GetDibujador().
             mostrarOpcionesGenerales();                
         }
         
         LecturaMoviento(c1);
         if (c1 == DIR_ARRIBA || c1 ==DIR_ABAJO || c1 == DIR_DERECHA || c1 ==DIR_IZQUIERDA && c1!=FIN) {
-            nuevoJuevo.intentarmosMoverAvatar(c1, flag);   
+            nuevoJuego.intentarmosMoverAvatar(c1, flag);   
             if(c1 == FIN) {
                 printf("YOU WIN :D\n");
                 break;
             }
         } else if (c1 == 'a') {  // iteractuira con el mousntro o artefacto
-            nuevoJuevo.intentamosInteractuarAvatar(numAA, numAd, numP, ArmA, Armd, Poc);
+            nuevoJuego.intentamosInteractuarAvatar(numAA, numAd, numP, ArmA, Armd, Poc);
         } else if (c1 == 's') {   // usar algo 
-            printf("Saca Objeto\n") ; 
+            printf("Saca Objeto\n"); 
+            nuevoJuego.ImprimirSaco();
         } else if (c1 == FIN) {   // Falta reconocoer Escape
             printf("CLOSE SUCCESFULLY\n");
             break;

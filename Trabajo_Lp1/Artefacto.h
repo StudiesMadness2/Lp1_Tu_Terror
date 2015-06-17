@@ -7,14 +7,12 @@
 
 #ifndef ARTEFACTO_H
 #define	ARTEFACTO_H
-
-class Artefacto { //Hereda a Arma , Armadura y PocionCuracion 
+//Hereda a Arma , Armadura y PocionCuracion
+class Artefacto {  
 private:
 
-public:
-    Artefacto();
-    virtual ~Artefacto();    
-    void ImprimirArtefacto() const;      
+public:    
+    virtual void Imprimir()=0;      
 };
 
 #endif	/* ARTEFACTO_H */

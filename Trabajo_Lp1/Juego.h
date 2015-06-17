@@ -10,6 +10,9 @@
 #include "Dibujador.h"
 #include "Laberinto.h"
 #include "GestorLaberinto.h"
+#include "Arma.h"
+#include "Armadura.h"
+#include "PocionCuracion.h"
 
 #ifndef JUEGO_H
 #define	JUEGO_H
@@ -36,11 +39,7 @@ public:
     void intentamosInteractuarAvatar(int, int, int, Arma *, Armadura *, PocionCuracion *);
     void PreguntarPelearConMonstruo(void);
     void PelearConMonstruo(Monstruo monster);
-    void ImprimirSaco();
-
-
-    void PelearConMonstruo(Monstruo monster);   
-    void meterAlSaco();
+    void ImprimirSaco(); 
 
     void SetDibujador(Dibujador dibujador);
     Dibujador GetDibujador() const;

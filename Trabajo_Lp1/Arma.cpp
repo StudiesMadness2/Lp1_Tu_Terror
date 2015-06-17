@@ -7,17 +7,16 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
+#include <iostream>
+#include <iomanip>
 #include "Artefacto.h"
 #include "Arma.h"
+using namespace std;
 
 Arma::Arma(int min,int max) {
     SetDanhoMin(min);
     SetDanhoMax(max);
     nombre=NULL;
-}
-
-Arma::~Arma() {
-
 }
 
 void Arma::AsignarArma(int min, int max, char *name){
@@ -41,4 +40,8 @@ void Arma::SetDanhoMin(int danhoMin) {
 
 int Arma::GetDanhoMin() const {
     return danhoMin;
+}
+
+void Arma::Imprimir(){
+    cout << "Arma: " << left << setw(35) << nombre << " - Daño: " << danhoMin << "(Min) - " << danhoMax << "(Max)" << endl;
 }

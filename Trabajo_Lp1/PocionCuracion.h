@@ -8,7 +8,7 @@
 #ifndef POCIONCURACION_H
 #define	POCIONCURACION_H
 
-class PocionCuracion : public Artefacto{
+class PocionCuracion : public Artefacto {
 private:
     int puntosVida;
     char *nombre;
@@ -17,6 +17,7 @@ public:
     PocionCuracion(const PocionCuracion& orig);
     virtual ~PocionCuracion();
     void AsignarPocion(int, char*);
+    void Imprimir();
 };
 
 #endif	/* POCIONCURACION_H */

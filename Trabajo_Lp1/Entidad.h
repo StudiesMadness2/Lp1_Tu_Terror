@@ -7,6 +7,8 @@
 #include "Saco.h"
 #include "Arma.h"
 #include "Armadura.h"
+#include "Artefacto.h"
+#include "PocionCuracion.h"
 #ifndef ENTIDAD_H
 #define	ENTIDAD_H
 
@@ -27,7 +29,9 @@ public:
     Entidad(int max=0, int vida=0);
     virtual ~Entidad();
     
-    void SetSaco(Artefacto);
+    void SetSaco(Arma);
+    void SetSaco(Armadura);
+    void SetSaco(PocionCuracion);
     Saco GetSaco() const;
     int GetSacoIndice();
     void SetNombre(char* nombre);

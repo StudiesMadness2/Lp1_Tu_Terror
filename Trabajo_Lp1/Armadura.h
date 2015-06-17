@@ -17,7 +17,7 @@ public:
     Armadura(int def=0);
     virtual ~Armadura();
     void AsignarArmadura(int, char*);
-    
+    void Imprimir();
     void SetDefensa(int defensa);
     int GetDefensa() const;
 };
