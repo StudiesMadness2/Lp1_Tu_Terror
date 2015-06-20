@@ -49,11 +49,13 @@ printf("                                \"\"\"\"\"\"    \n"
 //}
 
 void mostrarOpcionesGenerales() {    
-    printf("\n--OPCIONES:\n");
-    printf("- interactuar(a)\n");
-    printf("- usar i(s)\n");
-    printf("- salir(e)\n");
-    printf("- Escriba una accion         :");
+    printf("\n--OPCIONES: \n");
+    printf("- Mover      -----> Direcciones         \n");
+    printf("- interactuar----->         (a)         \n");
+    printf("- usar       ----->         (b)(numb)   \n");
+    printf("- botar      ----->         (s)(numb)   \n");
+    printf("- salir      ----->         (e)         \n");
+    printf("- Escriba una accion                     :");
 }
 
 void LecturaMoviento(char &c1){

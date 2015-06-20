@@ -22,6 +22,7 @@ public:
     virtual ~Saco();
     void AgregarAlSaco(Artefacto *);
     int estaLleno();
+    int votarArteFacto(int ind);
     //    void AgregarAlSaco(Arma);
     //    void AgregarAlSaco(Armadura);
     //    void AgregarAlSaco(PocionCuracion);

@@ -123,5 +123,16 @@ int Entidad::usarArteFactor(int ind) {
         this->saco[ind]->usar2((*this));
         return 1;
     }
-    return 0 ;
+    return 0;
+}
+
+int Entidad::cantArtefactos() {
+    return this->saco.GetIndice();
+}
+
+int Entidad::botarArtefacto(int ind) {
+    if (this->saco[ind] == NULL) return 0;
+    else
+        return this->saco.votarArteFacto(ind);
+    
 }

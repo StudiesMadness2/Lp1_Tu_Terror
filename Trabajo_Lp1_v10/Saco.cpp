@@ -27,9 +27,22 @@ Saco::~Saco() {
 
 int Saco::estaLleno() {
     if (indice < MAX_ARTEF_EN_SACO) {
-        return 0 ; 
+        return 0;
     }
-    return 1 ;
+    return 1;
+}
+
+int Saco::votarArteFacto(int ind) {
+    int j;
+    if (artefacto[ind] == NULL) {
+        return 0;
+    } else {
+        for (j = ind; j <= indice - 2; j++) {
+            artefacto[j] = artefacto[j + 1];
+        }        
+        indice = indice -1 ;         
+        return 1;
+    }
 }
 
 void Saco::AgregarAlSaco(Artefacto *art) {

@@ -390,10 +390,17 @@ void Juego::cargarArtefactos() {
 
 }
 
-int Juego::usarArtefacto(int ind) {   
-    if (ind >= 0 && ind < MAX_ARTEF_EN_SACO) {
+int Juego::usarArtefacto(int ind) {
+    if (ind >= 0 && ind < this->avatar.cantArtefactos()) {
         return this->avatar.usarArteFactor(ind);
         // Si se puede usar 
     }
     return 0; // Nose puede usar artefacto 
+}
+
+int Juego :: botarArtefacto(int ind) {
+    if (ind >= 0 && ind < this->avatar.cantArtefactos() ) {
+        return this->avatar.botarArtefacto(ind);
+    }
+    return 0;
 }

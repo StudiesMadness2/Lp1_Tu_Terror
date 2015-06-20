@@ -46,8 +46,7 @@ Laberinto GestorLaberinto::crear(char *nombreArchivo) {
                 lab.setX_Sig(j);
                 lab.setY_sig(i);
             }
-            if (c == MONSTRUO) {
-                
+            if (c == MONSTRUO) {                
                 int numb = rand() % 10 + 1;
                 if (numb < 5 && contM > 0) {
                     c = ' ';
@@ -55,8 +54,7 @@ Laberinto GestorLaberinto::crear(char *nombreArchivo) {
                 }
             }
             if (c == ARTEFACTO) {                
-                int numb = rand() % 10 + 1;
-
+                int numb = rand() % 10 + 1;                
                 if (numb < 5 && contA > 0) {
                     c = ' ';
                     contA--;

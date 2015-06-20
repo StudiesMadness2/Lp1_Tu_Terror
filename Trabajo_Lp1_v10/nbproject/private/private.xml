@@ -9,9 +9,13 @@
         <group>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Saco.h</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Juego.cpp</file>
+            <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Saco.cpp</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/PocionCuracion.cpp</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Entidad.cpp</file>
+            <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/GestorLaberinto.cpp</file>
+            <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Juego.h</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Arma.h</file>
+            <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Avatar.cpp</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Armadura.h</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/FuncionesExtras.cpp</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Artefacto.cpp</file>
@@ -19,6 +23,7 @@
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Arma.cpp</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Entidad.h</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/PocionCuracion.h</file>
+            <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Avatar.h</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Armadura.cpp</file>
             <file>file:/C:/Users/Junior/Documents/GitHub/Lp1_Tu_Terror/Trabajo_Lp1_v10/Artefacto.h</file>
         </group>

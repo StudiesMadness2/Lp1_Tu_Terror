@@ -53,16 +53,32 @@ int main(int argc, char** argv) {
 
     //    Arma aaa;
     //    Armadura arm;
+    //    PocionCuracion pc;
     //    arm.AsignarArmadura(100, "Armadura 1");
     //    arm.Imprimir();
     //    aaa.AsignarArma(10, 200, "Arma 1");
     //    aaa.Imprimir();
+    //    pc.AsignarPocion(10, "Armadura 2 ");
     //    cout << endl;
+    //    cout << endl;
+    //    cout << endl;
+
     //    Saco sss;
     //    sss.AgregarAlSaco(&aaa);
     //    sss.AgregarAlSaco(&arm);
+    //    sss.AgregarAlSaco(&pc);
+    //    cout << "En el saco "<< endl ;
     //    sss[0]->Imprimir();
     //    sss[1]->Imprimir();
+    //    sss[2]->Imprimir();
+    //    cout << "Se boto el indice 0\n ";
+    //    sss.votarArteFacto(2);
+    //    sss[0]->Imprimir();
+    //    sss[1]->Imprimir();
+    //    sss[2]->Imprimir();
+    //    
+
+
 
 
 
@@ -78,8 +94,8 @@ int main(int argc, char** argv) {
             nuevoJuego.ImprimirSaco();
             mostrarOpcionesGenerales();
         }
-
         LecturaMoviento(c1);
+        int ind;
         if (c1 == DIR_ARRIBA || c1 == DIR_ABAJO || c1 == DIR_DERECHA || c1 == DIR_IZQUIERDA && c1 != FIN) {
             nuevoJuego.intentarmosMoverAvatar(c1, flag);
             if (c1 == FIN) {
@@ -91,7 +107,6 @@ int main(int argc, char** argv) {
             nuevoJuego.intentamosInteractuarAvatar(numAA, numAd, numP, ArmA, Armd, Poc, flag);
         } else if (c1 == 's') { // usar algo 
             printf("s");
-            int ind;
             scanf("%d", &ind);
             if (!nuevoJuego.usarArtefacto(ind)) {
                 cout << "     Elige un Artefacto Correcto\n";
@@ -101,7 +116,19 @@ int main(int argc, char** argv) {
                 sleep(3); // 
                 flag = 1;
             }
-
+        } else if (c1 == 'b') {
+            printf("%b");
+            scanf("%d", &ind);
+            if (!nuevoJuego.botarArtefacto(ind)) {
+                cout << "     Elige un Artefacto Correcto\n";
+                cout << "- Escriba una accion         :";
+                flag = 0;
+            } else {
+                cout << "Se boto perdio correctamene el artefacto "<< ind << endl;
+                sleep(3); // 
+                flag = 1;
+            }
+            // botar 
         } else if (c1 == FIN) { // Falta reconocoer Escape
             MessageBox(NULL, "CLOSE SUCCESFULLY", "Why bro !!!", MB_OK);
             printf("\n>>>>CLOSE SUCCESFULLY<<<<\n");
