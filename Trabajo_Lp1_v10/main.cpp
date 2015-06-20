@@ -13,7 +13,9 @@
 #include "Arma.h"
 #include "Armadura.h"
 #include "PocionCuracion.h"
+
 #include <unistd.h>
+
 #include "Artefacto.h"
 #include <WINDOWS.h> 
 #include <MMSystem.h>
@@ -99,7 +101,6 @@ int main(int argc, char** argv) {
                 sleep(3); // 
                 flag = 1;
             }
-
 
         } else if (c1 == FIN) { // Falta reconocoer Escape
             MessageBox(NULL, "CLOSE SUCCESFULLY", "Why bro !!!", MB_OK);

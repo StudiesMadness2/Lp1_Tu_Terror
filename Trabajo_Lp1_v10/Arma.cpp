@@ -52,6 +52,5 @@ void Arma::usar() {
 }
 
 void Arma::usar2(class Entidad &E) {
-    cout << "Arma en entidad FALTA CODEAR LO QUE HACE ARMA EN LA ENTIDAD \n";
-    
+    cout << "Arma en entidad FALTA CODEAR LO QUE HACE ARMA EN LA ENTIDAD \n";            
 }

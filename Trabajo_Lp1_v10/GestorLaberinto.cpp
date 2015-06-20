@@ -33,6 +33,7 @@ Laberinto GestorLaberinto::crear(char *nombreArchivo) {
     archEntrad >> m >> n;
     Laberinto lab(m, n);
     c = archEntrad.get(); // Se lee cambio de linea 
+    srand(time(NULL));
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
             c = archEntrad.get();
@@ -46,15 +47,14 @@ Laberinto GestorLaberinto::crear(char *nombreArchivo) {
                 lab.setY_sig(i);
             }
             if (c == MONSTRUO) {
-                srand(time(NULL));
+                
                 int numb = rand() % 10 + 1;
                 if (numb < 5 && contM > 0) {
                     c = ' ';
                     contM--;
                 }
             }
-            if (c == ARTEFACTO) {
-                srand(time(NULL));
+            if (c == ARTEFACTO) {                
                 int numb = rand() % 10 + 1;
 
                 if (numb < 5 && contA > 0) {
