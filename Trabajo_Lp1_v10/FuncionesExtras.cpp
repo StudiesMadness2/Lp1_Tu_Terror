@@ -18,6 +18,18 @@ using namespace std;
 
 
 void historiaDelJuego() {
+printf("                                \"\"\"\"\"\"    \n"       
+"                               ^-O-O-^          \n"
+"                          ---ooO--U--Ooo-----   \n"                    
+"             ==========================================\n"
+"             |    Welcome to Studies Madness 8D ..!.  | \n"
+"             ==========================================\n"
+"                          ------------------- \n"
+"                              |__|__| \n"
+"                               || || \n"
+"                              ooO Ooo \n\n");
+							                            		
+    
     printf("        En un mundo muy muy lejano habia una vez...   \n"
            "        No! Alumno PUCP, esta historia no empieza asi,\n"
            "            Esta es la realidad, TU REALIDAD\n"

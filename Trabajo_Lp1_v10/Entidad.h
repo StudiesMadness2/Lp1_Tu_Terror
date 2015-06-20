@@ -52,6 +52,7 @@ public:
     int GetDanhoBase() const;
     int poseeElSacoLLeno();
     int usarArteFactor(int);
+    friend class Artefacto ;
 };
 
 #endif	/* ENTIDAD_H */

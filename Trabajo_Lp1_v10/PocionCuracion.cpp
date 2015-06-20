@@ -33,8 +33,13 @@ void PocionCuracion::AsignarPocion(int ptos, char *name) {
 }
 
 void PocionCuracion::Imprimir() {
-    cout<<left<<setw(15) << "Pocion"<<"|  " << left << setw(35) << nombre <<"|  " << " - Puntos Vida  : " <<right<<setw(10) << puntosVida<< endl;
+    cout << left << setw(15) << "Pocion" << "|  " << left << setw(35) << nombre << "|  " << " - Puntos Vida  : " << right << setw(10) << puntosVida << endl;
 }
-void PocionCuracion:: usar(){
+
+void PocionCuracion::usar() {
     cout << "uso Pocion\n";
+}
+
+void PocionCuracion ::usar2(class Entidad &E) {
+    cout <<"Curacion Entidad fALTA CODEAR LO QUE HACE POCION EN LA ENTIDAD\n";
 }

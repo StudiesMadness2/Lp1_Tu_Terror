@@ -19,6 +19,7 @@ public:
     void AsignarPocion(int, char*);
     void Imprimir();
     void usar();
+    void usar2(class Entidad &E);
 };
 
 #endif	/* POCIONCURACION_H */

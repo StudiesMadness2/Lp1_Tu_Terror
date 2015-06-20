@@ -21,6 +21,7 @@ public:
     void SetDanhoMin(int danhoMin);
     int GetDanhoMin() const;
     void usar();
+    void usar2(class Entidad &E);
 };
 
 #endif	/* ARMA_H */

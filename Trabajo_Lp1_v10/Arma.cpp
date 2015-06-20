@@ -44,9 +44,14 @@ int Arma::GetDanhoMin() const {
 }
 
 void Arma::Imprimir() {
-    cout <<left<<setw(15)<<"Arma"<<"|  " << left << setw(35) << nombre << "|  " <<" - Danho        : " <<  danhoMin << "(Min) - " << danhoMax << "(Max)" << endl;
+    cout << left << setw(15) << "Arma" << "|  " << left << setw(35) << nombre << "|  " << " - Danho        : " << danhoMin << "(Min) - " << danhoMax << "(Max)" << endl;
 }
 
 void Arma::usar() {
     cout << "uso Arma \n";
+}
+
+void Arma::usar2(class Entidad &E) {
+    cout << "Arma en entidad FALTA CODEAR LO QUE HACE ARMA EN LA ENTIDAD \n";
+    
 }
