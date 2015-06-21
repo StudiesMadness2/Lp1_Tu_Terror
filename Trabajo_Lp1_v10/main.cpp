@@ -113,7 +113,7 @@ int main(int argc, char** argv) {
                 cout << "- Escriba una accion         :";
                 flag = 0;
             } else {
-                sleep(3); // 
+               // sleep(3); // 
                 flag = 1;
             }
         } else if (c1 == 'b') {
@@ -125,7 +125,7 @@ int main(int argc, char** argv) {
                 flag = 0;
             } else {
                 cout << "Se boto perdio correctamene el artefacto "<< ind << endl;
-                sleep(3); // 
+               // sleep(3); // 
                 flag = 1;
             }
             // botar 

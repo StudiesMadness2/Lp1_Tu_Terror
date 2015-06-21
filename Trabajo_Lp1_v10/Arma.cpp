@@ -11,6 +11,9 @@
 #include <iomanip>
 #include "Artefacto.h"
 #include "Arma.h"
+#include "Entidad.h"
+
+
 using namespace std;
 
 Arma::Arma(int min, int max) {
@@ -51,6 +54,15 @@ void Arma::usar() {
     cout << "uso Arma \n";
 }
 
-void Arma::usar2(class Entidad &E) {
-    cout << "Arma en entidad FALTA CODEAR LO QUE HACE ARMA EN LA ENTIDAD \n";            
+void Arma::usar2(class Entidad &E, int ind) {
+    if (E.GetArma().GetDanhoMax() == 0 && E.GetArma().GetDanhoMin() == 0) {
+        E.SetArma(*this);
+        E.botarArtefacto(ind);
+    } else {
+        Arma aux = *this;
+        Arma actual = E.GetArma();
+        E.botarArtefacto(ind);
+        E.agregarArtefactoAlSaco(&actual);
+        E.SetArma(aux);
+    }
 }

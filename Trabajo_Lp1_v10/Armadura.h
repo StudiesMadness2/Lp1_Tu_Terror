@@ -20,7 +20,7 @@ public:
     void SetDefensa(int defensa);
     int GetDefensa() const;
     void  usar();
-    void usar2(class Entidad &E);
+    void usar2(class Entidad &E,int ind);
 };
 
 #endif	/* ARMADURA_H */

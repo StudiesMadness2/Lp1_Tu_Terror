@@ -12,6 +12,7 @@
 #include "Artefacto.h"
 #include "Armadura.h"
 #include "Arma.h"
+#include "Entidad.h"
 using namespace std;
 
 Armadura::Armadura(int def) {
@@ -45,7 +46,18 @@ void Armadura::usar() {
     cout << "uso Armadura \n";
 }
 
-void Armadura::usar2(class Entidad &E) {
-    cout << "Armadura Entidad  fALTA CODEAR LO QUE HACE ARMADURA EN LA ENTIDAD" ; ;
+void Armadura::usar2(class Entidad &E,int ind) {
+    cout << "Armadura Entidad  fALTA CODEAR LO QUE HACE ARMADURA EN LA ENTIDAD" ;
+    if (E.GetArmadura().defensa == 0) {
+        E.SetArmadura(*this);
+    } else {
+        Armadura aux = *this;
+        Armadura actual = E.GetArmadura();
+        E.botarArtefacto(ind);
+        E.agregarArtefactoAlSaco(&actual);
+        E.SetArmadura(aux);
+    }
+    cin.get();
+    while (cin.get() != '\n');
 
 }

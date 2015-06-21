@@ -120,7 +120,7 @@ int Entidad::poseeElSacoLLeno() {
 
 int Entidad::usarArteFactor(int ind) {
     if (this->saco[ind]) {
-        this->saco[ind]->usar2((*this));
+        this->saco[ind]->usar2(*this,ind);
         return 1;
     }
     return 0;

@@ -40,6 +40,7 @@ void PocionCuracion::usar() {
     cout << "uso Pocion\n";
 }
 
-void PocionCuracion ::usar2(class Entidad &E) {
+void PocionCuracion ::usar2(class Entidad &E,int ind) {
     cout <<"Curacion Entidad fALTA CODEAR LO QUE HACE POCION EN LA ENTIDAD\n";
+    while (cin.get() != '\n');
 }

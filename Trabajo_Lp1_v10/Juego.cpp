@@ -191,7 +191,7 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
                                     break;
                                 }
                             }
-                            if (this->avatar.GetSaco().GetIndice() < 10) LaberintoActual.getCelda()[y + f][x + k].SetTipo(ADENTRO);
+                            if (this->avatar.GetSaco().GetIndice() < 11) LaberintoActual.getCelda()[y + f][x + k].SetTipo(ADENTRO);
                             break;
                     }
 
@@ -286,6 +286,7 @@ void Juego::PelearConMonstruo(Monstruo monster) {
         }
         monster.SetVidaActual(monster.GetVidaActual() - danhoA);
     }
+    
     if ((avatar.GetVidaActual() <= 0)) {
         cout << "HAS PERDIDO\n" << endl;
     } else {
@@ -393,7 +394,7 @@ void Juego::cargarArtefactos() {
 int Juego::usarArtefacto(int ind) {
     if (ind >= 0 && ind < this->avatar.cantArtefactos()) {
         return this->avatar.usarArteFactor(ind);
-        // Si se puede usar 
+        // Sí se puede usar 
     }
     return 0; // Nose puede usar artefacto 
 }
