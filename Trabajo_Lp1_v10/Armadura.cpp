@@ -33,16 +33,17 @@ int Armadura::GetDefensa() const {
 }
 
 void Armadura::Imprimir() {
-    cout << "Armadura: " << left << setw(20) << nombre << " - Defensa      : " << left << setw(3) << defensa << "         " <<char(186) << endl;
+    cout << "Armadura: " << left << setw(20) << nombre << " - Defensa      : " << left << setw(3) << defensa << "         " << char(186) << endl;
 }
 
 void Armadura::usar() {
     cout << "uso Armadura \n";
 }
 
-void Armadura::usar2(class Entidad &E,int ind) {
-    if (E.GetArmadura()== NULL) {
+void Armadura::usar2(class Entidad &E, int ind) {
+    if (E.GetArmadura() == NULL) {
         E.SetArmadura(this);
+        E.botarArtefacto(ind);
     } else {
         Armadura *aux = this;
         Armadura *actual = E.GetArmadura();

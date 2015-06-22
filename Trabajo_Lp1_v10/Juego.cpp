@@ -153,7 +153,7 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
     flag = 0;
     for (int f = -1; f < 2; f++) {
         for (int k = -1; k < 2; k++) { //recorrido alrededor del Avatar
-            if (!(f == 0 && k == 0)) { // para evitar que revise la posicicion actual del Avatar                
+            if (!(f == k) && !(k == (-f))) { // para evitar que revise la posicicion actual del Avatar                
                 tipo = (char) LaberintoActual.getCelda()[y + f][x + k].GetTipo();
                 if (tipo == MONSTRUO || tipo == ARTEFACTO) {
                     int val, pelea;

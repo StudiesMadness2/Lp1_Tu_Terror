@@ -37,7 +37,7 @@ int main(int argc, char** argv) {
     Juego nuevoJuego;
     Dibujador dibujadorNuevo;
     dibujadorNuevo.SetA(10);
-    dibujadorNuevo.SetB(10);
+    dibujadorNuevo.SetB(8);
     nuevoJuego.SetDibujador(dibujadorNuevo);
     nuevoJuego.CargarLaberintos(MaxLevel);
     nuevoJuego.iniciarPosicionAvatar();

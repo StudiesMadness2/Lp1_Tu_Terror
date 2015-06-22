@@ -30,43 +30,65 @@ int Dibujador::GetA() const {
 
 void Dibujador::dibujarEsquemaVersion2(Laberinto &lab, Avatar Ava) {
     int x, y, m, n, i_abajo, i_arriba, j_izq, j_der;
+    
     m = lab.getM();
     n = lab.getN();
+    
     x = Ava.GetPosX();
     y = Ava.GetPosY();
+    
     i_abajo = y + B;
     i_arriba = y - B;
+    
     j_izq = x - A;
     j_der = x + A;
+    
     system("cls");
     printf("\n");
-    for (int i = i_arriba; i <= i_abajo; i++) {
+    for (int i = i_arriba; i <= i_abajo; i++) { //aquí se modifica el alto y bajo del mapa
+        
         rlutil::setColor(7);
-        for (int k = 0; k < 70 - (j_der - j_izq) / 2; k++)printf(" ");        
-        for (int j = j_izq; j <= j_der; j++) {
+        
+        for (int k = 0; k < 70 - (j_der - j_izq) / 2; k++)printf(" ");     
+        
+        for (int j = j_izq - 3; j <= j_der +3; j++) {
+            
             if ((i < 0 || j < 0) || (i > m - 1 || j > n - 1)) {
                 rlutil::setColor(112);
                 printf("%c", '-');
                 continue;
             }
+            
             char celda = (char) lab.getCelda()[i][j].GetTipo();
+            
             if (x == j && y == i) {
+                
                 rlutil::setColor(114);
                 printf("%c", IMAG_AVATAR);
+                
             } else if (celda == '-' || celda == '+') {
+                
                 rlutil::setColor(121); // Entra  y Sale
                 printf("%c", celda);
+                
             } else if (celda == 'M' ||
+                    
                     celda == 'A') {
                 rlutil::setColor(124);
                 printf("%c", celda);
+                
             } else {
+                
                 rlutil::setColor(112); // 96 176 112
                 printf("%c", celda);
+                
             }
         }
+        
         rlutil::setColor(7);
         printf("\n");        
+        
     }
+    
     rlutil::setColor(7);
 }

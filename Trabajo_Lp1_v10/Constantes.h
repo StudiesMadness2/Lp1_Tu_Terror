@@ -13,7 +13,7 @@
 #define SIGUIENTE '+'
 #define MONSTRUO 'M'
 #define ARTEFACTO 'A'
-#define FIN 'e'
+#define FIN 'p'
 #define IMAG_AVATAR '&'
 #define DIR_ARRIBA  'i'
 #define DIR_ABAJO    'k'

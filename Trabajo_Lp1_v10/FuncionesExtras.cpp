@@ -53,9 +53,9 @@ void mostrarOpcionesGenerales() {
     for(int i=0;i<46;i++) cout << " ";cout << char(186) << "  OPCIONES:                                   " << char(186) << endl;
     //for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Mover        -----> Direcciones         " << endl;
     for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Interactuar  ----->  (a)              " << char(186) << endl;
-    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Usar         ----->  (b)(numero)      " << char(186) << endl;
-    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Botar        ----->  (s)(numero)      " << char(186) << endl;
-    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Salir        ----->  (e)              " << char(186) << endl;
+    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Usar         ----->  (s)(numero)      " << char(186) << endl;
+    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Botar        ----->  (b)(numero)      " << char(186) << endl;
+    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Salir        ----->  (p)              " << char(186) << endl;
     for(int i=0;i<46;i++) cout << " ";cout << char(200);
     for(int i=0;i<46;i++) cout << char(205);
     cout << char(188) << endl ;
