@@ -22,6 +22,7 @@
 #include <fstream>
 #include <iomanip>
 
+
 using namespace std;
 
 Juego::Juego() {
@@ -69,17 +70,17 @@ void Juego::CargarLaberintos(int MaxLevel) {
     leerLaberintos(arreNombArch, cant_Labs);
     desordenar(indices, cant_Labs);
     arreLaberintos = new Laberinto[cant_Labs];
-    int tam= int (MaxLevel/cant_Labs);
+    int tam = int (MaxLevel / cant_Labs);
     for (int i = 0; i < cant_Labs; i++) {
         arreLaberintos[i] = gestorLaberinto.crear(arreNombArch[indices[i]]);
-        if(i==cant_Labs-1) arreLaberintos[i].setNivelesMonstruo(tam, i*tam, MaxLevel);
-        else arreLaberintos[i].setNivelesMonstruo(tam, i*tam, (i*tam)+tam);
-        
+        if (i == cant_Labs - 1) arreLaberintos[i].setNivelesMonstruo(tam, i * tam, MaxLevel);
+        else arreLaberintos[i].setNivelesMonstruo(tam, i*tam, (i * tam) + tam);
+
     }
     posLaberintoActual = 0;
     LaberintoActual = arreLaberintos[0];
     cantidadDeLaberintos = cant_Labs;
-    
+
     return;
 }
 
@@ -153,20 +154,27 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
     flag = 0;
     for (int f = -1; f < 2; f++) {
         for (int k = -1; k < 2; k++) { //recorrido alrededor del Avatar
-            if (!(f == k) && !(k == (-f))) { // para evitar que revise la posicicion actual del Avatar                
+            
+            if (!(f == k) && !(k == (-f))) { // para evitar que revise la posicicion actual del Avatar y en cruz
+                
                 tipo = (char) LaberintoActual.getCelda()[y + f][x + k].GetTipo();
+                
                 if (tipo == MONSTRUO || tipo == ARTEFACTO) {
+                    
                     int val, pelea;
                     flag = 1;
+                    
                     switch (tipo) {
+                        
                         case MONSTRUO:
                             pelea = PreguntarPelearConMonstruo(this->posLaberintoActual);
                             PlaySound(NULL, NULL, 0);
                             PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
-                            if(pelea==1) LaberintoActual.getCelda()[y + f][x + k].SetTipo(ADENTRO);
+                            if (pelea == 1) LaberintoActual.getCelda()[y + f][x + k].SetTipo(ADENTRO);
                             k = 3;
                             f = 3; //para salir del bucle
                             break;
+                            
                         case ARTEFACTO:
                             if (this->avatar.poseeElSacoLLeno()) {
                                 cout << "Se lleno el saco\n";
@@ -179,21 +187,21 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
                                 {
                                     //TIPO ARMA                                    
                                     val = rand() % numAA;
-                                    this->avatar.agregarArtefactoAlSaco(&ArmA[val],0);
+                                    this->avatar.agregarArtefactoAlSaco(&ArmA[val], 0);
                                     break;
                                 }
                                 case 1:
                                 {
                                     //TIPO ARMADURA                                    
                                     val = rand() % numAd;
-                                    this->avatar.agregarArtefactoAlSaco(&Armd[val],0);
+                                    this->avatar.agregarArtefactoAlSaco(&Armd[val], 0);
                                     break;
                                 }
                                 case 2:
                                 {
                                     //TIPO POCION                                    
                                     val = rand() % numP;
-                                    this->avatar.agregarArtefactoAlSaco(&Poc[val],0);
+                                    this->avatar.agregarArtefactoAlSaco(&Poc[val], 0);
                                     break;
                                 }
                             }
@@ -207,6 +215,139 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
     }
 }
 
+void impresionDeMonstruos() {
+    int asciiMonster = rand() % 5;
+    switch (asciiMonster) {
+        case 0:
+            printf("           \\                  /\n"
+                    "    _________))                ((__________\n"
+                    "   /.-------./\\    \\    /    //\\.--------.\\\n"
+                    "  //#######//##\\   ))  ((   //##\\########\\\n"
+                    " //#######//###((  ((    ))  ))###\\########\\\n"
+                    "((#######((#####\\  \\  //  //#####))########))\n"
+                    " \\##' `###\\######\\  \\)(/  //######/####' `##/\n"
+                    "  )'    ``#)'  `##\\`->oo<-'/##'  `(#''     `(\n"
+                    "          (       ``\\`..'/''       )\n"
+                    "                     \\'''\n"
+                    "                      `- )\n"
+                    "                      / /\n"
+                    "                     ( /\\  \n"
+                    "                     /\\| \\\n"
+                    "                    (  \\\n"
+                    "                        )\n"
+                    "                       /\n"
+                    "                      (\n\n");
+            break;
+        case 1:
+            printf("  ,/         \\.\n"
+                    " ((           ))\n"
+                    "  \\`.       ,'/\n"
+                    "   )')     (`(\n"
+                    " ,'`/       \\,`.\n"
+                    "(`-(         )-')\n"
+                    " \\-'\\,-'\"`-./`-/\n"
+                    "  \\-')     (`-/\n"
+                    "  /`'       `'\\\n"
+                    " (  _       _  )\n"
+                    " | ( \\     / ) |\n"
+                    " |  `.\\   /,'  |\n"
+                    " |    `\\ /'    |\n"
+                    " (              )\n"
+                    "  \\           /\n"
+                    "   \\         /\n"
+                    "    `.     ,'\n"
+                    "hh    `-.-'\n\n");
+            break;
+        case 2:
+            printf("              ._                                            ,\n"
+                    "               (`)..                                    ,.-')\n"
+                    "                (',.)-..                            ,.-(..`)\n"
+                    "                 (,.' ,.)-..                    ,.-(. `.. )\n"
+                    "                  (,.' ..' .)-..            ,.-( `.. `.. )\n"
+                    "                   (,.' ,.'  ..')-.     ,.-( `. `.. `.. )\n"
+                    "                    (,.'  ,.' ,.'  )-.-('   `. `.. `.. )\n"
+                    "                     ( ,.' ,.'    _== ==_     `.. `.. )\n"
+                    "                      ( ,.'   _==' ~  ~  `==_    `.. )\n"
+                    "                       \\  _=='   ----..----  `==_   )\n"
+                    "                    ,.-:    ,----___.  .___----.    -..\n"
+                    "                ,.-'   (   _--====_  \\/  _====--_   )  `-..\n"
+                    "            ,.-'   .__.'`.  `-_I0_-'    `-_0I_-'  .'`.__.  `-..\n"
+                    "        ,.-'.'   .'      (          |  |          )      `.   `.-..\n"
+                    "    ,.-'    :    `___--- '`.__.    / __ \\    .__.' `---___'    :   `-..\n"
+                    "  -'_________`-____________'__ \\  (O)  (O)  / __`____________-'________`-\n"
+                    "                              \\ . _  __  _ . /\n"
+                    "                               \\ `V-'  `-V' |\n"
+                    "                                | \\ \\ | /  /\n"
+                    "                                 V \\ ~| ~/V\n"
+                    "                                  |  \\  /|\n"
+                    "                                   \\~ | V             - JGG\n"
+                    "                                    \\  |\n"
+                    "                                     VV\n\n");
+            break;
+        case 3:
+            printf("                   .\n"
+                    "                 ....8ob.\n"
+                    "              o88888888888b.\n"
+                    "          ..o888888888888888b..\n"
+                    "          888888888888888P""888P\n"
+                    "         8888888888888888888888.\n"
+                    "        d88888888888888888888888bc.\n"
+                    "       o8888888888888888" "\"38888Poo..\n"
+                    "      .8888888888P888888        \"38888888\n"
+                    "      88888888888 8888888eeeeee.   \"\"38\"8\n"
+                    "     P\" 888888888 \"\"'\"\"\"       `\"\"o._.oP\n"
+                    "        8888888888.\n"
+                    "        88888888888\n"
+                    "        '888888888 8b.\n"
+                    "         \"88888888b  \"\"\"\"3booooooo..\n"
+                    "          \"888888888888888b         \"b.\n"
+                    "           \"8888888888888888888888b    \"8\n"
+                    "            \"8888888888888888888888888   b\n"
+                    "                \"\"888888888888888888888  c\n"
+                    "                   \"8888888888888888888  P\n"
+                    "                    \"88888888888888888888\"\n"
+                    "                    .88888888888888888888\n"
+                    "                   .888NICK8888888888888P    (c) by Nick 28.02.99\n"
+                    "                 od888888888888888888P\n\n");
+            break;
+        case 4:
+            printf("                 __\n"
+                    "                / _\\ #\n"
+                    "                \\c /  #\n"
+                    "                / \\___ #\n"
+                    "                \\`----`#==>  \n"
+                    "                |  \\  #\n"
+                    "     ,%.-\"\"\"---'`--'\\#_\n"
+                    "    %%/             |__`\\\n"
+                    "   .%'\\     |   \\   /  //\n"
+                    "   ,%' >   .'----\\ |  [/\n"
+                    "      < <<`       ||\n"
+                    "       `\\\\       ||\n"
+                    "         )\\\\      )\\\n\n");
+            break;
+    }
+}
+
+void Juego::MostrarDatosPrevioBatalla(Monstruo monster) {
+    cout << endl << "El monstruo tiene:\n" << endl;
+    cout << "vida: " << monster.GetMaxVida() << endl;
+    cout << "Danho base: " << monster.GetDanhoBase() << endl;
+
+    if (monster.GetArmadura() != NULL)
+        cout << "armadura:" << monster.GetArmadura()->GetDefensa() << endl;
+    else
+        cout << "armadura: No tiene" << endl;
+    if (monster.GetArma() != NULL) {
+        cout << "arma (danho max): " << monster.GetArma()->GetDanhoMax() << endl;
+        cout << "arma (danho min): " << monster.GetArma()->GetDanhoMin() << endl;
+    } else
+        cout << "arma: No tiene" << endl;
+
+    cout << endl << "tienes " << this->GetAvatar().GetVidaActual() << " de vida actual\n" << endl;
+
+    printf("\n\n Deseas pelear con el monstruo ('yes' or 'no') ?   ");
+}
+
 int Juego::PreguntarPelearConMonstruo(int numLab) {
 
     PlaySound(NULL, NULL, 0);
@@ -215,40 +356,8 @@ int Juego::PreguntarPelearConMonstruo(int numLab) {
     Monstruo monster;
     system("cls");
 
-    printf(".          O7OI77Z$77I7$$7$.           \n"
-            "         .77O$8II77$I7887I7$$7          \n"
-            "       .7+77I$8ZI$O$7O:77$7?+77..       \n"
-            "     .87++I$77:+++I7?==ZZIZ?IZ8$7$.     \n"
-            "   .877OI7=Z7IN~IZ8.8.8IO,7777$7O7I.   \n"
-            "  .7$777$7Z8..8O8DZI8O8.O$777O$$$$$$..  \n"
-            " .$$7$$$$I$ON,.O.~Z~~+~8I7$7$Z7$OD=??7. \n"
-            " .O+$+Z$78ID8Z$=7777$=+I777$$778?O?$?+,.\n"
-            ".?Z?OI?O$7OZ7I$$7I7$7$7777O$77$Z.,+I78..\n"
-            ".++8II+Z$77ZO$7777$7I7$$$$7777$:.       \n"
-            "    .~7$77777$$Z8O$$$7777777$Z77O..     \n"
-            "  .O$Z7$Z77$777777777777777Z$O$O$$I..   \n"
-            " .:777777Z$$$77777$I77777$$$$777IIZ7.   \n"
-            " .II77777$.78Z$$$$$$Z$$$$8O.77777777O.. \n"
-            " .I77777$7. ..Z$$ZZ$$ZZZ....$OI77III$$. \n"
-            ".+O$I777II.     ..... ..     .=8$78+I    \n"
-            "                                         \n");
-
-    cout << endl << "El monstruo tiene:\n" << endl;
-    cout << "vida: " << monster.GetMaxVida() << endl;
-    cout << "Danho base: " << monster.GetDanhoBase() << endl;
-    if (monster.GetArmadura()!=NULL)
-        cout << "armadura:" << monster.GetArmadura()->GetDefensa() << endl;
-    else
-        cout << "armadura: No tiene" << endl;
-    if (monster.GetArma()!=NULL) {
-        cout << "arma (danho max): " << monster.GetArma()->GetDanhoMax() << endl;
-        cout << "arma (danho min): " << monster.GetArma()->GetDanhoMin() << endl;
-    } else
-        cout << "arma: No tiene" << endl;
-
-    cout << endl << "tienes " << this->GetAvatar().GetVidaActual() << " de vida actual\n" << endl;
-
-    printf("\n\n Deseas pelear con el monstruo?  ");
+    impresionDeMonstruos();
+    MostrarDatosPrevioBatalla(monster);
     gets(linea);
     int yes, no, flag;
 
@@ -265,47 +374,139 @@ int Juego::PreguntarPelearConMonstruo(int numLab) {
     return flag;
 }
 
+void imprimirAtaqueMonstruo() {
+    cout << "El Curso usa ";
+    int num = rand() % 5;
+    switch (num) {
+        case 0:
+            cout << "Final imposible" << endl;
+            break;
+        case 1:
+            cout << "Prueba tipo C" << endl;
+            break;
+        case 2:
+            cout << "Laboratorio innovador" << endl;
+            break;
+        case 3:
+            cout << "Parcial Nivel asiatico" << endl;
+            break;
+        case 4:
+            cout << "Practica Troll" << endl;
+            break;
+    }
+}
+
+void imprimirContraAtaqueMonstruo() {
+    cout << "Usaste :";
+    int num = rand() % 6;
+    switch (num) {
+        case 0:
+            cout << "Kit Completo en Tetrix" << endl;
+            break;
+        case 1:
+            cout << "Planchon salvaje" << endl;
+            break;
+        case 2:
+            cout << "Usb salvador" << endl;
+            break;
+        case 3:
+            cout << "Estudiar con anticipacion" << endl;
+            break;
+        case 4:
+            cout << "Amanecida Hardcore" << endl;
+            break;
+        case 5:
+            cout << "Camara de entrenamiento de Goku" << endl;
+            break;
+    }
+    cout << endl;
+
+}
+
 void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
 
     int max = 0;
-    if(monster.GetArma()!=NULL) max=monster.GetArma()->GetDanhoMax();
+    if (monster.GetArma() != NULL) max = monster.GetArma()->GetDanhoMax();
     int min = 0;
-    if(monster.GetArma()!=NULL) min=monster.GetArma()->GetDanhoMin();
+    if (monster.GetArma() != NULL) min = monster.GetArma()->GetDanhoMin();
 
     int aleatorioMonster = rand() % (max - min + 1);
     int danhoM = monster.GetDanhoBase() + aleatorioMonster;
-//vverificar null
+
     max = 0;
-    if(avatar.GetArma()!=NULL) max=avatar.GetArma()->GetDanhoMax();
+    if (avatar.GetArma() != NULL) max = avatar.GetArma()->GetDanhoMax();
     min = 0;
-    if(avatar.GetArma()!=NULL) min=avatar.GetArma()->GetDanhoMin();
+    if (avatar.GetArma() != NULL) min = avatar.GetArma()->GetDanhoMin();
 
     int aleatorioAvatar = rand() % (max - min + 1);
     int danhoA = avatar.GetDanhoBase() + aleatorioAvatar;
-
+    system("cls");
     while ((avatar.GetVidaActual() > 0) && (monster.GetVidaActual() > 0)) {
 
-        if (avatar.GetArmadura() != NULL) {
-            danhoM = (int) (danhoM * (avatar.GetArmadura()->GetDefensa() / 100));
-        }
-        int vidaActualAvatar = avatar.GetVidaActual();
-        avatar.SetVidaActual(vidaActualAvatar - danhoM);
+        char opcion;
 
-        if (monster.GetArmadura() != 0) {
-            danhoA = (int) (danhoA * (monster.GetArmadura()->GetDefensa() / 100));
+        cout << "Elija una opcion: " << endl;
+        cout << "a) Atacar!" << endl;
+        cout << "f) Retirarse del curso" << endl << endl << "? ";
+        cin >> opcion;
+
+        while (1) {
+            
+            int a = (opcion=='a') ? 1:0;
+            int f = (opcion=='f') ? 1:0;
+            
+            if (a || f ) break;
+            
+            cout << "Debe seleccionar una de las dos opciones ";
+            cin >> opcion;
         }
-        monster.SetVidaActual(monster.GetVidaActual() - danhoA);
+        if (opcion == 'a') {
+            imprimirAtaqueMonstruo();
+            imprimirContraAtaqueMonstruo();
+
+            if (avatar.GetArmadura() != NULL) {
+                danhoM = (int) (danhoM - (avatar.GetArmadura()->GetDefensa()/10));
+            }
+            int vidaActualAvatar = avatar.GetVidaActual();
+            avatar.SetVidaActual(vidaActualAvatar - danhoM);
+
+            if (monster.GetArmadura() != 0) {
+                danhoA = (int) (danhoA - (monster.GetArmadura()->GetDefensa()/10));
+            }
+            monster.SetVidaActual(monster.GetVidaActual() - danhoA);
+        }
+        if (opcion == 'f'){
+            system("cls");
+            int huida = rand() %101;
+            if(huida <25){
+                cout << "Te retiraste del curso" << endl;
+                break;
+            }
+            else{
+                cout << "No has podido retirarte del curso :( " << endl;
+                cout << "sigue luchando campeon!\n" << endl;
+            }
+        }
+        cout << "El monstruo tiene " << monster.GetVidaActual() << "de vida\n" << endl;
+        cout << "tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
+
     }
-    
+
     if ((avatar.GetVidaActual() <= 0)) {
         cout << "HAS PERDIDO\n" << endl;
-        flag=0;
+        flag = 0;
     } else {
+
         cout << "Ganaste la Batalla! Felicitaciones!\n" << endl;
-        flag=1;
+        flag = 1;
+        cout << "tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
+        int num = rand() % 10;
+
+        cout << "Te has ganado un:  \n\n";
+
     }
 
-    cout << "tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
+
 
     cout << "Aprente una tecla para continuar: ";
     while (cin.get() != '\n');
@@ -327,34 +528,45 @@ void Juego::dibujarEsquema() {
     int posY_Avatar = this->avatar.GetPosY();
     int mitad_ancho = this->dibujador.GetA();
     int mitad_alto = this->dibujador.GetB();
+    
     int i_arriba, i_abajo, j_izq, j_der;
     i_arriba = posY_Avatar - mitad_alto;
+    
     if (i_arriba < 0) i_arriba = 0;
     i_abajo = posY_Avatar + mitad_alto;
+    
     if (i_abajo > m - 1) i_abajo = m - 1;
     j_izq = posX_Avatar - mitad_ancho;
+    
     if (j_izq < 0) j_izq = 0;
     j_der = posX_Avatar + mitad_ancho;
+    
     if (j_der > n - 1) j_der = n - 1;
     //for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
-
+    
     system("cls");
+    
     for (int i = i_arriba; i <= i_abajo; i++) {
         //     for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" "); // Para poder centrar el esquema
 
         for (int j = j_izq; j <= j_der; j++) {
+            
             char celda = (char) this->LaberintoActual.getCelda()[i][j].GetTipo();
+            
             if (avatar.GetPosX() == j && avatar.GetPosY() == i) {
                 rlutil::setColor(114);
                 printf("%c", IMAG_AVATAR);
-            } else if (celda == '-' || celda == '+') {
+            }
+            else if (celda == '-' || celda == '+') {
                 rlutil::setColor(121); // Entra  y Sale
                 printf("%c", celda);
-            } else if (celda == 'M' ||
+            } 
+            else if (celda == 'M' ||
                     celda == 'A') {
                 rlutil::setColor(124);
                 printf("%c", celda);
-            } else {
+            } 
+            else {
                 rlutil::setColor(112); // 96 176 112
                 printf("%c", celda);
             }
@@ -393,17 +605,23 @@ int Juego::GetPosLaberintoActual() const {
 }
 
 void Juego::ImprimirSaco() {
-    for(int i=0;i<36;i++) cout << " ";cout << char(186);
-    for(int i=0;i<66;i++) cout << " ";cout << char(186) << endl;
-    for(int i=0;i<36;i++) cout << " ";cout << char(186) << "  Elementos en el Saco: ";
-    for(int i=0;i<42;i++) cout << " ";cout << char(186) << endl ;
+    for (int i = 0; i < 36; i++) cout << " ";
+    cout << char(186);
+    for (int i = 0; i < 66; i++) cout << " ";
+    cout << char(186) << endl;
+    for (int i = 0; i < 36; i++) cout << " ";
+    cout << char(186) << "  Elementos en el Saco: ";
+    for (int i = 0; i < 42; i++) cout << " ";
+    cout << char(186) << endl;
     for (int i = 0; i < this->avatar.GetSaco().GetIndice(); i++) {
-        for(int j=0;j<36;j++) cout << " ";cout << char(186) << "  " << right << setw(2) << i << "  ";
+        for (int j = 0; j < 36; j++) cout << " ";
+        cout << char(186) << "  " << right << setw(2) << i << "  ";
         this->avatar.GetSaco()[i]->Imprimir();
     }
-    for(int i=0;i<36;i++) cout << " ";cout << char(200);
-    for(int i=0;i<66;i++) cout << char(205);
-    cout << char(188) << endl ;
+    for (int i = 0; i < 36; i++) cout << " ";
+    cout << char(200);
+    for (int i = 0; i < 66; i++) cout << char(205);
+    cout << char(188) << endl;
 }
 
 void Juego::cargarArtefactos() {
@@ -418,8 +636,8 @@ int Juego::usarArtefacto(int ind) {
     return 0; // Nose puede usar artefacto 
 }
 
-int Juego :: botarArtefacto(int ind) {
-    if (ind >= 0 && ind < this->avatar.cantArtefactos() ) {
+int Juego::botarArtefacto(int ind) {
+    if (ind >= 0 && ind < this->avatar.cantArtefactos()) {
         return this->avatar.botarArtefacto(ind);
     }
     return 0;

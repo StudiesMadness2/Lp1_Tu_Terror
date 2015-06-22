@@ -9,8 +9,8 @@
 
 Monstruo::Monstruo(int level) {
     nivel = level;
-    this->SetMaxVida(100*(level+1));
-    this->SetVidaActual(100*(level+1));
+    this->SetMaxVida(400*(level+1));
+    this->SetVidaActual(400*(level+1));
     this->SetDanhoBase(30*(level+1));
 }
 

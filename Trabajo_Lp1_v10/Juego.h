@@ -38,6 +38,11 @@ public:
     void intentarmosMoverAvatar(char&, int&);
     void intentamosInteractuarAvatar(int, int, int, Arma *, Armadura *, PocionCuracion *, int& flag);
     int PreguntarPelearConMonstruo(int);
+    friend void impresionDeMonstruos();
+    friend void imprimirAtaqueMonstruo();
+    friend void imprimirContraAtaqueMonstruo();
+
+    void MostrarDatosPrevioBatalla(Monstruo);
     void PelearConMonstruo(Monstruo monster, int &flag);
     void ImprimirSaco();
 
@@ -54,10 +59,10 @@ public:
 
     void cargarArtefactos();
 
-    int usarArtefacto( int ) ;
-    int botarArtefacto( int );
+    int usarArtefacto(int);
+    int botarArtefacto(int);
 
-    
+
 
 };
 

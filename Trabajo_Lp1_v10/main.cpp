@@ -54,36 +54,46 @@ int main(int argc, char** argv) {
             nuevoJuego.ImprimirSaco();
             mostrarOpcionesGenerales();
         }
+        
         LecturaMoviento(c1);
         int ind;
+        
         if (c1 == DIR_ARRIBA || c1 == DIR_ABAJO || c1 == DIR_DERECHA || c1 == DIR_IZQUIERDA && c1 != FIN) {
+            
             nuevoJuego.intentarmosMoverAvatar(c1, flag);
+            
             if (c1 == FIN) {
                 MessageBox(NULL, "Y0U WIN", "Congratulations", MB_OK);
                 printf("\nYOU WIN :D\n");
                 break;
             }
         } else if (c1 == 'a') { // iteractuira con el monstruo o artefacto
+            
             nuevoJuego.intentamosInteractuarAvatar(numAA, numAd, numP, ArmA, Armd, Poc, flag);
+            
         } else if (c1 == 's') { // usar algo 
             printf("s");
             scanf("%d", &ind);
+            
             if (!nuevoJuego.usarArtefacto(ind)) {
                 for(int i=0;i<46;i++) putchar(' ');cout << "     Elige un Artefacto Correcto\n";
                 for(int i=0;i<46;i++) putchar(' ');cout << "  Escriba una accion         :";
                 flag = 0;
-            } else {
+            }
+            else {
                // sleep(3); // 
                 flag = 1;
             }
         } else if (c1 == 'b') {
             printf("%b");
             scanf("%d", &ind);
+            
             if (!nuevoJuego.botarArtefacto(ind)) {
                 for(int i=0;i<46;i++) putchar(' ');cout << "     Elige un Artefacto Correcto\n";
                 for(int i=0;i<46;i++) putchar(' ');cout << "  Escriba una accion         :";
                 flag = 0;
-            } else {
+            } 
+            else {
                 for(int i=0;i<46;i++) putchar(' ');cout << "Se boto perdio correctamene el artefacto "<< ind << endl;
                // sleep(3); // 
                 flag = 1;

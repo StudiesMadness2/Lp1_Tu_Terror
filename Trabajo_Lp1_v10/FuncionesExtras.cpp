@@ -18,6 +18,28 @@ using namespace std;
 
 
 void historiaDelJuego() {
+    
+    cout << endl << endl;
+    
+for(int i=0;i<33;i++) cout << " ";printf("               _=====_                               _=====_\n");
+for(int i=0;i<33;i++) cout << " ";printf("              / _____ \\                             / _____ \\\n");
+for(int i=0;i<33;i++) cout << " ";printf("            +.-'_____'-.---------------------------.-'_____'-.+\n");
+for(int i=0;i<33;i++) cout << " ";printf("           /   |     |  '.        S O N Y        .'  |  _  |   \\\n");
+for(int i=0;i<33;i++) cout << " ";printf("          / ___| /|\\ |___ \\                     / ___| /_\\ |___ \\\n");
+for(int i=0;i<33;i++) cout << " ";printf("         / |      |      | ;  __           _   ; | _         _ | ;\n");
+for(int i=0;i<33;i++) cout << " ";printf("         | | <---   ---> | | |__|         |_:> | ||_|       (_)| |\n");
+for(int i=0;i<33;i++) cout << " ";printf("         | |___   |   ___| ;SELECT       START ; |___       ___| ;\n");
+for(int i=0;i<33;i++) cout << " ";printf("         |\\    | \\|/ |    /  _     ___      _   \\    | (X) |    /|\n");
+for(int i=0;i<33;i++) cout << " ";printf("         | \\   |_____|  .','" "', |___|  ,'" "', '.  |_____|  .' |\n");
+for(int i=0;i<33;i++) cout << " ";printf("         |  '-.______.-' /       \\ANALOG/       \\  '-._____.-'   |\n");
+for(int i=0;i<33;i++) cout << " ";printf("         |               |       |------|       |                |\n");
+for(int i=0;i<33;i++) cout << " ";printf("         |              /\\       /      \\       /\\               |\n");
+for(int i=0;i<33;i++) cout << " ";printf("         |             /  '.___.'        '.___.'  \\              |\n");
+for(int i=0;i<33;i++) cout << " ";printf("         |            /                            \\             |\n");
+for(int i=0;i<33;i++) cout << " ";printf("          \\          /                              \\           /\n");
+for(int i=0;i<33;i++) cout << " ";printf("           \\________/                                \\_________/\n");
+for(int i=0;i<33;i++) cout << " ";printf("\n\n\n");
+
 for(int i=0;i<36;i++) cout << " ";printf("                                                         .--.\n"); 
 for(int i=0;i<36;i++) cout << " ";printf("                                                        /  .  \\\n"); 
 for(int i=0;i<36;i++) cout << " ";printf("                                                       |\\_/|   |\n"); 
@@ -34,7 +56,8 @@ for(int i=0;i<36;i++) cout << " ";printf("    |       |          ESTO ES ... STU
 for(int i=0;i<36;i++) cout << " ";printf("    |       |        QUIERES EMPEZAR? (PRESIONA ENTER :D)      /\n");
 for(int i=0;i<36;i++) cout << " ";printf("     \\      |------------------------------------------------'       \n");
 for(int i=0;i<36;i++) cout << " ";printf("      \\    /       \n");
-for(int i=0;i<36;i++) cout << " ";printf("       `--'                            ");
+for(int i=0;i<36;i++) cout << " ";printf("       `--'                            \n");
+
 while (cin.get() != '\n');
 }
 
