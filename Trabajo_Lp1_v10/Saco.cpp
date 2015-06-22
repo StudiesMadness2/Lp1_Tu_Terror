@@ -45,51 +45,17 @@ int Saco::votarArteFacto(int ind) {
     }
 }
 
-void Saco::AgregarAlSaco(Artefacto *art) {
+void Saco::AgregarAlSaco(Artefacto *art, int flag) {
     if (indice < MAX_ARTEF_EN_SACO) {
         //cout << ">>>" << indice << "<<<" ; 
         artefacto[indice] = art;
         indice++;
     }
 }
-//void Saco::AgregarAlSaco(Arma artefact){
-//    if(indice<10){
-//        artefacto[indice]=artefact;
-//        cout << "Artefacto agregado al saco" << endl;
-//        indice++;
-//    }else{
-//        cout << "Saco lleno, no puede agregarse el artefacto" << endl;
-//    }
-//}
-//
-//void Saco::AgregarAlSaco(Armadura artefact){
-//    if(indice<10){
-//        artefacto[indice]=artefact;
-//        cout << "Artefacto agregado al saco" << endl;
-//        indice++;
-//    }else{
-//        cout << "Saco lleno, no puede agregarse el artefacto" << endl;
-//    }
-//}
-//
-//void Saco::AgregarAlSaco(PocionCuracion artefact){
-//    if(indice<10){
-//        artefacto[indice]=artefact;
-//        cout << "Artefacto agregado al saco" << endl;
-//        indice++;
-//    }else{
-//        cout << "Saco lleno, no puede agregarse el artefacto" << endl;
-//    }
-//}
 
 int Saco::GetIndice() {
     return indice;
 }
-//void Saco::Imprimir(){
-//    for(int i=0;i<indice;i++){
-//        artefacto[i].Imprimir();
-//    }
-//}
 
 Artefacto* Saco::operator[](int ind) {
     return artefacto[ind]; // Puntero artefacto

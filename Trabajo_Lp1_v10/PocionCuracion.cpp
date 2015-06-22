@@ -11,6 +11,7 @@
 #include <iostream>
 #include "Artefacto.h" 
 #include "PocionCuracion.h"
+#include "Entidad.h"
 using namespace std;
 
 PocionCuracion::PocionCuracion(int ptos) {
@@ -33,7 +34,7 @@ void PocionCuracion::AsignarPocion(int ptos, char *name) {
 }
 
 void PocionCuracion::Imprimir() {
-    cout << left << setw(15) << "Pocion" << "|  " << left << setw(35) << nombre << "|  " << " - Puntos Vida  : " << right << setw(10) << puntosVida << endl;
+    cout << "Pocion:   " << left << setw(20) << nombre << " - Puntos Vida  : " << left << setw(3) << puntosVida << "         " << char(186) << endl;
 }
 
 void PocionCuracion::usar() {
@@ -41,6 +42,11 @@ void PocionCuracion::usar() {
 }
 
 void PocionCuracion ::usar2(class Entidad &E,int ind) {
-    cout <<"Curacion Entidad fALTA CODEAR LO QUE HACE POCION EN LA ENTIDAD\n";
-    while (cin.get() != '\n');
+    if(E.GetVidaActual()<E.GetMaxVida()){
+        E.botarArtefacto(ind);
+        if((E.GetVidaActual()+this->puntosVida)>E.GetMaxVida())
+            E.SetVidaActual(E.GetMaxVida());
+        else
+            E.SetVidaActual(E.GetVidaActual()+this->puntosVida);
+    }
 }

@@ -1,10 +1,3 @@
-/* 
- * File:   Dibujador.cpp
- * Author: alulab14
- * 
- * Created on 5 de junio de 2015, 11:24 AM
- */
-
 #include "Dibujador.h"
 #include "Avatar.h"
 #include "Constantes.h"
@@ -35,7 +28,7 @@ int Dibujador::GetA() const {
     return A;
 }
 
-void Dibujador::dibujarEsquemaVersion2(Laberinto &lab, Avatar &Ava) {
+void Dibujador::dibujarEsquemaVersion2(Laberinto &lab, Avatar Ava) {
     int x, y, m, n, i_abajo, i_arriba, j_izq, j_der;
     m = lab.getM();
     n = lab.getN();
@@ -76,7 +69,4 @@ void Dibujador::dibujarEsquemaVersion2(Laberinto &lab, Avatar &Ava) {
         printf("\n");        
     }
     rlutil::setColor(7);
-
-
-
 }

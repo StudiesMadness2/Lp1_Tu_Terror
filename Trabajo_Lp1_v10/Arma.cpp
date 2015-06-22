@@ -47,7 +47,7 @@ int Arma::GetDanhoMin() const {
 }
 
 void Arma::Imprimir() {
-    cout << left << setw(15) << "Arma" << "|  " << left << setw(35) << nombre << "|  " << " - Danho        : " << danhoMin << "(Min) - " << danhoMax << "(Max)" << endl;
+    cout << "Arma:     " << left << setw(20) << nombre << " - Danho: " << left << setw(3) << danhoMin << "(Min) - " << left << setw(3) << danhoMax << "(Max) " << char(186) << endl;
 }
 
 void Arma::usar() {
@@ -55,14 +55,14 @@ void Arma::usar() {
 }
 
 void Arma::usar2(class Entidad &E, int ind) {
-    if (E.GetArma().GetDanhoMax() == 0 && E.GetArma().GetDanhoMin() == 0) {
-        E.SetArma(*this);
+    if (E.GetArma()== NULL) {
+        E.SetArma(this);
         E.botarArtefacto(ind);
     } else {
-        Arma aux = *this;
-        Arma actual = E.GetArma();
+        Arma *aux = this;
+        Arma *actual = E.GetArma();
         E.botarArtefacto(ind);
-        E.agregarArtefactoAlSaco(&actual);
+        E.agregarArtefactoAlSaco(actual, 1);
         E.SetArma(aux);
     }
 }

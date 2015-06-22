@@ -22,13 +22,13 @@ private:
     char* nombre;
     Saco saco;
     int items;
-    Armadura armadura;
-    Arma arma;
+    Armadura *armadura;
+    Arma *arma;
 
 public:
     Entidad(int max = 0, int vida = 0);
     virtual ~Entidad();
-    void agregarArtefactoAlSaco(Artefacto*);
+    void agregarArtefactoAlSaco(Artefacto*, int);
     // void SetSaco(Arma);
     //    void SetSaco(Armadura);
     //    void SetSaco(PocionCuracion);    
@@ -44,16 +44,16 @@ public:
     int GetPosX() const;
     void SetPosY(int posY);
     int GetPosY() const;
-    void SetArma(Arma arma);
-    Arma GetArma() const;
-    void SetArmadura(Armadura armadura);
-    Armadura GetArmadura() const;
     void SetDanhoBase(int danhoBase);
     int GetDanhoBase() const;
     int poseeElSacoLLeno();
     int usarArteFactor(int);
     int botarArtefacto(int);
     int cantArtefactos();
+    void SetArma(Arma* arma);
+    Arma* GetArma() const;
+    void SetArmadura(Armadura* armadura);
+    Armadura* GetArmadura() const;
     friend class Artefacto;
 };
 

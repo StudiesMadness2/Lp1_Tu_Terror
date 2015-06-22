@@ -112,8 +112,14 @@ double Laberinto::getPctArtefacto() const {
     return pctArtefacto;
 }
 
-void Laberinto::setNivelesMonstruo(int* nivelesMonstruo) {
-    this->nivelesMonstruo = nivelesMonstruo;
+void Laberinto::setNivelesMonstruo(int tam, int ini, int fin) {
+    this->nivelesMonstruo = new int[tam+2];
+    int j=1;
+    this->nivelesMonstruo[0]=tam;
+    for(int i=ini;i<=fin;i++){
+        this->nivelesMonstruo[j]=i;
+        j++;
+    }
 }
 
 int* Laberinto::getNivelesMonstruo() const {

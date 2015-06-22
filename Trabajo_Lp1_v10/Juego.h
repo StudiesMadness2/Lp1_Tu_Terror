@@ -32,13 +32,13 @@ public:
 
     virtual ~Juego();
 
-    void CargarLaberintos();
+    void CargarLaberintos(int);
     void iniciarPosicionAvatar();
 
     void intentarmosMoverAvatar(char&, int&);
     void intentamosInteractuarAvatar(int, int, int, Arma *, Armadura *, PocionCuracion *, int& flag);
-    void PreguntarPelearConMonstruo(void);
-    void PelearConMonstruo(Monstruo monster);
+    int PreguntarPelearConMonstruo(int);
+    void PelearConMonstruo(Monstruo monster, int &flag);
     void ImprimirSaco();
 
     void SetDibujador(Dibujador dibujador);

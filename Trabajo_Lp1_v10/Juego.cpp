@@ -63,18 +63,23 @@ void leerLaberintos(char arreNombArch2[][50], int &cant) {
     archivoLab.close();
 }
 
-void Juego::CargarLaberintos() {
+void Juego::CargarLaberintos(int MaxLevel) {
     int cant_Labs = 0, indices[100] = {0};
     char arreNombArch[50][50] = {0};
     leerLaberintos(arreNombArch, cant_Labs);
     desordenar(indices, cant_Labs);
     arreLaberintos = new Laberinto[cant_Labs];
+    int tam= int (MaxLevel/cant_Labs);
     for (int i = 0; i < cant_Labs; i++) {
         arreLaberintos[i] = gestorLaberinto.crear(arreNombArch[indices[i]]);
+        if(i==cant_Labs-1) arreLaberintos[i].setNivelesMonstruo(tam, i*tam, MaxLevel);
+        else arreLaberintos[i].setNivelesMonstruo(tam, i*tam, (i*tam)+tam);
+        
     }
     posLaberintoActual = 0;
     LaberintoActual = arreLaberintos[0];
     cantidadDeLaberintos = cant_Labs;
+    
     return;
 }
 
@@ -151,13 +156,14 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
             if (!(f == 0 && k == 0)) { // para evitar que revise la posicicion actual del Avatar                
                 tipo = (char) LaberintoActual.getCelda()[y + f][x + k].GetTipo();
                 if (tipo == MONSTRUO || tipo == ARTEFACTO) {
-                    int val;
+                    int val, pelea;
                     flag = 1;
                     switch (tipo) {
                         case MONSTRUO:
-                            PreguntarPelearConMonstruo();
+                            pelea = PreguntarPelearConMonstruo(this->posLaberintoActual);
                             PlaySound(NULL, NULL, 0);
                             PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
+                            if(pelea==1) LaberintoActual.getCelda()[y + f][x + k].SetTipo(ADENTRO);
                             k = 3;
                             f = 3; //para salir del bucle
                             break;
@@ -173,21 +179,21 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
                                 {
                                     //TIPO ARMA                                    
                                     val = rand() % numAA;
-                                    this->avatar.agregarArtefactoAlSaco(&ArmA[val]);
+                                    this->avatar.agregarArtefactoAlSaco(&ArmA[val],0);
                                     break;
                                 }
                                 case 1:
                                 {
                                     //TIPO ARMADURA                                    
                                     val = rand() % numAd;
-                                    this->avatar.agregarArtefactoAlSaco(&Armd[val]);
+                                    this->avatar.agregarArtefactoAlSaco(&Armd[val],0);
                                     break;
                                 }
                                 case 2:
                                 {
                                     //TIPO POCION                                    
                                     val = rand() % numP;
-                                    this->avatar.agregarArtefactoAlSaco(&Poc[val]);
+                                    this->avatar.agregarArtefactoAlSaco(&Poc[val],0);
                                     break;
                                 }
                             }
@@ -201,7 +207,7 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
     }
 }
 
-void Juego::PreguntarPelearConMonstruo(void) {
+int Juego::PreguntarPelearConMonstruo(int numLab) {
 
     PlaySound(NULL, NULL, 0);
     PlaySound(("Doom_Level_1.wav"), NULL, SND_ASYNC);
@@ -230,13 +236,13 @@ void Juego::PreguntarPelearConMonstruo(void) {
     cout << endl << "El monstruo tiene:\n" << endl;
     cout << "vida: " << monster.GetMaxVida() << endl;
     cout << "Danho base: " << monster.GetDanhoBase() << endl;
-    if (monster.GetArmadura().GetDefensa() != 0)
-        cout << "armadura:" << monster.GetArmadura().GetDefensa() << endl;
+    if (monster.GetArmadura()!=NULL)
+        cout << "armadura:" << monster.GetArmadura()->GetDefensa() << endl;
     else
         cout << "armadura: No tiene" << endl;
-    if (monster.GetArma().GetDanhoMax() != 0) {
-        cout << "arma (danho max): " << monster.GetArma().GetDanhoMax() << endl;
-        cout << "arma (danho min): " << monster.GetArma().GetDanhoMin() << endl;
+    if (monster.GetArma()!=NULL) {
+        cout << "arma (danho max): " << monster.GetArma()->GetDanhoMax() << endl;
+        cout << "arma (danho min): " << monster.GetArma()->GetDanhoMin() << endl;
     } else
         cout << "arma: No tiene" << endl;
 
@@ -244,7 +250,7 @@ void Juego::PreguntarPelearConMonstruo(void) {
 
     printf("\n\n Deseas pelear con el monstruo?  ");
     gets(linea);
-    int yes, no;
+    int yes, no, flag;
 
     while (1) {
         yes = (strcmp(linea, "yes") == 0) ? 1 : 0; //si es igual a "yes"
@@ -254,43 +260,49 @@ void Juego::PreguntarPelearConMonstruo(void) {
         gets(linea);
     }
     if (yes) { // en caso acepte la batalla
-        PelearConMonstruo(monster);
+        PelearConMonstruo(monster, flag);
     }
-
+    return flag;
 }
 
-void Juego::PelearConMonstruo(Monstruo monster) {
+void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
 
-    int max = monster.GetArma().GetDanhoMax();
-    int min = monster.GetArma().GetDanhoMin();
+    int max = 0;
+    if(monster.GetArma()!=NULL) max=monster.GetArma()->GetDanhoMax();
+    int min = 0;
+    if(monster.GetArma()!=NULL) min=monster.GetArma()->GetDanhoMin();
 
     int aleatorioMonster = rand() % (max - min + 1);
     int danhoM = monster.GetDanhoBase() + aleatorioMonster;
-
-    max = avatar.GetArma().GetDanhoMax();
-    min = avatar.GetArma().GetDanhoMin();
+//vverificar null
+    max = 0;
+    if(avatar.GetArma()!=NULL) max=avatar.GetArma()->GetDanhoMax();
+    min = 0;
+    if(avatar.GetArma()!=NULL) min=avatar.GetArma()->GetDanhoMin();
 
     int aleatorioAvatar = rand() % (max - min + 1);
     int danhoA = avatar.GetDanhoBase() + aleatorioAvatar;
 
     while ((avatar.GetVidaActual() > 0) && (monster.GetVidaActual() > 0)) {
 
-        if (avatar.GetArmadura().GetDefensa() != 0) {
-            danhoM = (int) (danhoM * (avatar.GetArmadura().GetDefensa() / 100));
+        if (avatar.GetArmadura() != NULL) {
+            danhoM = (int) (danhoM * (avatar.GetArmadura()->GetDefensa() / 100));
         }
         int vidaActualAvatar = avatar.GetVidaActual();
         avatar.SetVidaActual(vidaActualAvatar - danhoM);
 
-        if (monster.GetArmadura().GetDefensa() != 0) {
-            danhoA = (int) (danhoA * (monster.GetArmadura().GetDefensa() / 100));
+        if (monster.GetArmadura() != 0) {
+            danhoA = (int) (danhoA * (monster.GetArmadura()->GetDefensa() / 100));
         }
         monster.SetVidaActual(monster.GetVidaActual() - danhoA);
     }
     
     if ((avatar.GetVidaActual() <= 0)) {
         cout << "HAS PERDIDO\n" << endl;
+        flag=0;
     } else {
         cout << "Ganaste la Batalla! Felicitaciones!\n" << endl;
+        flag=1;
     }
 
     cout << "tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
@@ -381,10 +393,17 @@ int Juego::GetPosLaberintoActual() const {
 }
 
 void Juego::ImprimirSaco() {
+    for(int i=0;i<36;i++) cout << " ";cout << char(186);
+    for(int i=0;i<66;i++) cout << " ";cout << char(186) << endl;
+    for(int i=0;i<36;i++) cout << " ";cout << char(186) << "  Elementos en el Saco: ";
+    for(int i=0;i<42;i++) cout << " ";cout << char(186) << endl ;
     for (int i = 0; i < this->avatar.GetSaco().GetIndice(); i++) {
-        cout << "--> " << right << setw(2) << i << "  ";
+        for(int j=0;j<36;j++) cout << " ";cout << char(186) << "  " << right << setw(2) << i << "  ";
         this->avatar.GetSaco()[i]->Imprimir();
     }
+    for(int i=0;i<36;i++) cout << " ";cout << char(200);
+    for(int i=0;i<66;i++) cout << char(205);
+    cout << char(188) << endl ;
 }
 
 void Juego::cargarArtefactos() {

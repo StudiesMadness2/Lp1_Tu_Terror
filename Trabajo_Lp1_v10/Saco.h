@@ -20,7 +20,7 @@ private:
 public:
     Saco();
     virtual ~Saco();
-    void AgregarAlSaco(Artefacto *);
+    void AgregarAlSaco(Artefacto *, int);
     int estaLleno();
     int votarArteFacto(int ind);
     //    void AgregarAlSaco(Arma);

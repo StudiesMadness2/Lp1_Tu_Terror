@@ -1,9 +1,3 @@
-/* 
- * File:   Armadura.cpp
- * Author: alulab14
- * 
- * Created on 5 de junio de 2015, 11:15 AM
- */
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -39,7 +33,7 @@ int Armadura::GetDefensa() const {
 }
 
 void Armadura::Imprimir() {
-    cout << left << setw(15) << "Armadura" << "|  " << left << setw(35) << nombre << "|  " << " - Defensa      : " << right << setw(10) << defensa << endl;
+    cout << "Armadura: " << left << setw(20) << nombre << " - Defensa      : " << left << setw(3) << defensa << "         " <<char(186) << endl;
 }
 
 void Armadura::usar() {
@@ -47,17 +41,13 @@ void Armadura::usar() {
 }
 
 void Armadura::usar2(class Entidad &E,int ind) {
-    cout << "Armadura Entidad  fALTA CODEAR LO QUE HACE ARMADURA EN LA ENTIDAD" ;
-    if (E.GetArmadura().defensa == 0) {
-        E.SetArmadura(*this);
+    if (E.GetArmadura()== NULL) {
+        E.SetArmadura(this);
     } else {
-        Armadura aux = *this;
-        Armadura actual = E.GetArmadura();
+        Armadura *aux = this;
+        Armadura *actual = E.GetArmadura();
         E.botarArtefacto(ind);
-        E.agregarArtefactoAlSaco(&actual);
+        E.agregarArtefactoAlSaco(actual, 1);
         E.SetArmadura(aux);
     }
-    cin.get();
-    while (cin.get() != '\n');
-
 }

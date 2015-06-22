@@ -1,9 +1,3 @@
-/* 
- * File:   main.cpp
- * Author: alulab14
- *
- * Created on 5 de junio de 2015, 10:57 AM
- */
 #include "Constantes.h"
 #include <cstdlib>
 #include <cstdio>
@@ -22,6 +16,7 @@
 #include <iostream>
 using namespace std;
 
+
 int main(int argc, char** argv) {
     //system("mode CON: COLS=50");
     system("mode 140, 45");
@@ -33,56 +28,21 @@ int main(int argc, char** argv) {
     Armadura *Armd;
     PocionCuracion *Poc;
     historiaDelJuego();
+    // Monstruos 
+    int MaxLevel = CargarMonstruos(Mons, numM);
+    // Artefactos 
+    CargarArmas(ArmA, ArmM, numAA, numAM);
+    CargarArmaduras(Armd, numAd);
+    CargarPociones(Poc, numP);
     Juego nuevoJuego;
     Dibujador dibujadorNuevo;
     dibujadorNuevo.SetA(10);
     dibujadorNuevo.SetB(10);
     nuevoJuego.SetDibujador(dibujadorNuevo);
-    nuevoJuego.CargarLaberintos();
+    nuevoJuego.CargarLaberintos(MaxLevel);
     nuevoJuego.iniciarPosicionAvatar();
     // nuevoJuego.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
     // nuevoJuego.GetAvatar().impresionInformacionAvatar() ; 
-
-    // Monstruos 
-    CargarMonstruos(Mons, numM);
-    // Artefactos 
-    CargarArmas(ArmA, ArmM, numAA, numAM);
-    CargarArmaduras(Armd, numAd);
-    CargarPociones(Poc, numP);
-
-
-    //    Arma aaa;
-    //    Armadura arm;
-    //    PocionCuracion pc;
-    //    arm.AsignarArmadura(100, "Armadura 1");
-    //    arm.Imprimir();
-    //    aaa.AsignarArma(10, 200, "Arma 1");
-    //    aaa.Imprimir();
-    //    pc.AsignarPocion(10, "Armadura 2 ");
-    //    cout << endl;
-    //    cout << endl;
-    //    cout << endl;
-
-    //    Saco sss;
-    //    sss.AgregarAlSaco(&aaa);
-    //    sss.AgregarAlSaco(&arm);
-    //    sss.AgregarAlSaco(&pc);
-    //    cout << "En el saco "<< endl ;
-    //    sss[0]->Imprimir();
-    //    sss[1]->Imprimir();
-    //    sss[2]->Imprimir();
-    //    cout << "Se boto el indice 0\n ";
-    //    sss.votarArteFacto(2);
-    //    sss[0]->Imprimir();
-    //    sss[1]->Imprimir();
-    //    sss[2]->Imprimir();
-    //    
-
-
-
-
-
-
 
     PlaySound(NULL, NULL, 0); //Funcion para detener un sonido
     PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
@@ -109,8 +69,8 @@ int main(int argc, char** argv) {
             printf("s");
             scanf("%d", &ind);
             if (!nuevoJuego.usarArtefacto(ind)) {
-                cout << "     Elige un Artefacto Correcto\n";
-                cout << "- Escriba una accion         :";
+                for(int i=0;i<46;i++) putchar(' ');cout << "     Elige un Artefacto Correcto\n";
+                for(int i=0;i<46;i++) putchar(' ');cout << "  Escriba una accion         :";
                 flag = 0;
             } else {
                // sleep(3); // 
@@ -120,18 +80,19 @@ int main(int argc, char** argv) {
             printf("%b");
             scanf("%d", &ind);
             if (!nuevoJuego.botarArtefacto(ind)) {
-                cout << "     Elige un Artefacto Correcto\n";
-                cout << "- Escriba una accion         :";
+                for(int i=0;i<46;i++) putchar(' ');cout << "     Elige un Artefacto Correcto\n";
+                for(int i=0;i<46;i++) putchar(' ');cout << "  Escriba una accion         :";
                 flag = 0;
             } else {
-                cout << "Se boto perdio correctamene el artefacto "<< ind << endl;
+                for(int i=0;i<46;i++) putchar(' ');cout << "Se boto perdio correctamene el artefacto "<< ind << endl;
                // sleep(3); // 
                 flag = 1;
             }
             // botar 
         } else if (c1 == FIN) { // Falta reconocoer Escape
             MessageBox(NULL, "CLOSE SUCCESFULLY", "Why bro !!!", MB_OK);
-            printf("\n>>>>CLOSE SUCCESFULLY<<<<\n");
+            putchar('\n');
+            for(int i=0;i<36;i++) cout << " ";printf(">>>>CLOSE SUCCESFULLY<<<<\n");
             break;
         } else flag = 0;
     }

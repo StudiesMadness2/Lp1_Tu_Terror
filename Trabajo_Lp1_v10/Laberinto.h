@@ -36,7 +36,7 @@ public:
     int* getNivelesArtefacto() const;
     void setPctArtefacto(double pctArtefacto);
     double getPctArtefacto() const;
-    void setNivelesMonstruo(int* nivelesMonstruo);
+    void setNivelesMonstruo(int tam, int ini, int fin);
     int* getNivelesMonstruo() const;
     void setPctMonstruo(double pctMonstruo);
     double getPctMonstruo() const;

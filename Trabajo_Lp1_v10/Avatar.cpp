@@ -1,9 +1,3 @@
-/* 
- * File:   Avatar.cpp
- * Author: alulab14
- * 
- * Created on 5 de junio de 2015, 11:17 AM
- */
 #include "Entidad.h"
 #include "Avatar.h"
 #include <iostream>
@@ -29,7 +23,12 @@ Avatar::~Avatar() {
 }
 
 void Avatar::mostrarDatosMapa(){
-    cout << "Vida: " << this->GetVidaActual() << endl;
-    cout << "X: " << this->GetPosX() << " Y: " << this->GetPosY() << endl << endl;        
-    
+    cout << endl;
+    for(int i=0;i<36;i++) cout << " "; cout << char(201);
+    for(int i=0;i<66;i++) cout << char(205);
+    cout << char(187) << endl ;
+    for(int i=0;i<36;i++) cout << " ";cout << char(186) << "  Vida: " << left << setw(4) << this->GetVidaActual() ;
+    for(int i=0;i<35;i++) cout << " ";cout << "Danho Base: " << left << setw(4) << this->GetDanhoBase() << "   " << char(186) << endl;
+    for(int i=0;i<36;i++) cout << " ";cout << char(186) << "  X: " << left << setw(3) << this->GetPosX() << " Y: " << left << setw(3) << this->GetPosY(); 
+    for(int i=0;i<51;i++) cout << " ";cout << char(186) << endl;
 }

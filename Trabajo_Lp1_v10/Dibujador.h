@@ -21,7 +21,7 @@ public:
     int GetB() const;
     void SetA(int A);
     int GetA() const;
-    void dibujarEsquemaVersion2(Laberinto &lab, Avatar &Av);
+    void dibujarEsquemaVersion2(Laberinto &lab, Avatar Av);
 };
 
 #endif	/* DIBUJADOR_H */
