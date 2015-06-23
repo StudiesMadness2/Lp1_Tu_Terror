@@ -80,7 +80,8 @@ void Dibujador::dibujarEsquemaVersion2(Laberinto &lab, Avatar Ava) {
             } else {
                 
                 rlutil::setColor(112); // 96 176 112
-                printf("%c", celda);
+                if(celda==ADENTRO) printf("%c", celda);
+                else printf("%c", PAREDVISUAL);
                 
             }
         }
