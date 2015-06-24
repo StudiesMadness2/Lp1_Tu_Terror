@@ -43,7 +43,9 @@ int main(int argc, char** argv) {
     nuevoJuego.SetDibujador(dibujadorNuevo);
     nuevoJuego.CargarLaberintos(MaxLevel);
     nuevoJuego.iniciarPosicionAvatar();
+    
     nuevoJuego.distribuirMonstruosXLaberinto(Mons,numM,ArmM,numAM,Armd,numAd,Poc,numP);
+    
     // nuevoJuego.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
     // nuevoJuego.GetAvatar().impresionInformacionAvatar() ; 
 

@@ -9,17 +9,21 @@
 #ifndef MONSTRUO_H
 #define	MONSTRUO_H
 
-class Monstruo : public Entidad{
+class Monstruo : public Entidad {
 private:
     int nivel;
-    int imagen ; 
+    int imagen;
 public:
-    Monstruo(int level=0);
+    Monstruo(int level = 0);
     virtual ~Monstruo();
-    void AsignarMons(int level, int max, int vida, char*name);    
-    Entidad GetDatos() const;
+    void AsignarMons(int level, int max, int vida, char*name, int);
+   // void AsignarImagen(int);
     void imp();
-    int GetNivel() const;    
+    
+    Entidad GetDatos() const;
+    int GetNivel() const;
+    void SetImagen(int imagen);
+    int GetImagen() const;
 };
 
 #endif	/* MONSTRUO_H */

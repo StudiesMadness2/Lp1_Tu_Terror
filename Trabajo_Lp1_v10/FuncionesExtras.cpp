@@ -118,7 +118,7 @@ void LecturaMoviento(char &c1){
 int CargarMonstruos(Monstruo *&Mons, int &numM){
     ifstream archM("Monstruos.txt");
     char cadena[100], nombre[100];
-    int nivel, max, maxLevel=0;
+    int nivel, max, maxLevel=0,imagen;
     archM.getline(cadena, 100);
     numM = atoi(cadena);
     Mons = new Monstruo[numM];
@@ -129,10 +129,12 @@ int CargarMonstruos(Monstruo *&Mons, int &numM){
         nivel = atoi(cadena);
         archM.getline(cadena, 100);
         max = atoi(cadena);
+        archM.getline(cadena, 100);
+        imagen = atoi(cadena);
         if(maxLevel<nivel) maxLevel=nivel;
         //archM.getline(cadena, 100);
         //archM.getline(cadena, 100);
-        Mons[i].AsignarMons(nivel,max,max,nombre);
+        Mons[i].AsignarMons(nivel,max,max,nombre,imagen);
     }
     archM.close();
     return maxLevel;

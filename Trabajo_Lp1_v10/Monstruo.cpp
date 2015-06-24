@@ -6,8 +6,11 @@
  */
 #include "Entidad.h"
 #include "Monstruo.h"
-#include <iostream> 
+#include <iostream>
+#include <cstdlib>
+
 using namespace std; 
+
 Monstruo::Monstruo(int level) {
     
     nivel = level;
@@ -20,13 +23,18 @@ Monstruo::~Monstruo() {
 
 }
 
-void Monstruo::AsignarMons(int level, int max, int vida, char *name){
+
+void Monstruo::AsignarMons(int level, int max, int vida, char *name,int imagen){
     nivel = level;
     this->SetNombre(name);
     this->SetMaxVida(max);
     this->SetVidaActual(vida);
+    this->SetImagen(imagen);
 }
 
+//void Monstruo::AsignarImagen(int imagen){
+//    this->SetImagen(imagen);
+//}
 
 void  Monstruo :: imp(){
   cout << this->GetNombre() ; 
@@ -37,4 +45,12 @@ void  Monstruo :: imp(){
 
 int Monstruo::GetNivel() const {
     return nivel;
+}
+
+void Monstruo::SetImagen(int imagen) {
+    this->imagen = imagen;
+}
+
+int Monstruo::GetImagen() const {
+    return imagen;
 }

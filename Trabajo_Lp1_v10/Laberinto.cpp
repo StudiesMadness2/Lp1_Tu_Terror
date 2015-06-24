@@ -77,33 +77,23 @@ void Laberinto::distribuirArtefactosMonstruos(Arma* armas, int numArmas, Armadur
 
 void Laberinto::distribuirMonstruosRandom(Monstruo *Mons, int numM, Arma* armas, int numArmas, Armadura *armaduras, int numArmaDuras, PocionCuracion *pociones, int numPociones) {
     char casilla;
-    int indMonst;
+    int indMonst, indImagen;
     
-   for (int i = 0; i < M; i++) {
-        for (int j = 0; j < N; j++) 
-            cout <<  getCasilla(i, j);   
-        cout <<endl ;
-   }
-    srand(time(NULL));
     for (int i = 0; i < M; i++) {
         for (int j = 0; j < N; j++) {
             casilla =  getCasilla(i, j);         
             
             if (casilla == MONSTRUO) {                
                 cout << casilla ; 
+                srand(time(NULL));
+              
+                indMonst = (rand()+i+j) % numM;
                 
-                indMonst = rand() % numM;
                 monstruosXlab[cantMonstruos].AsignarMons(Mons[indMonst].GetNivel(), Mons[indMonst].GetMaxVida(),
-                        Mons[indMonst].GetVidaActual(), Mons[indMonst].GetNombre());
+                        Mons[indMonst].GetVidaActual(), Mons[indMonst].GetNombre(), Mons[indMonst].GetImagen());
                 monstruosXlab[cantMonstruos].SetPosX(i);
                 monstruosXlab[cantMonstruos].SetPosY(j);
-                distribuirArtefactosMonstruos(armas, numArmas, armaduras, numArmaDuras, pociones, numPociones);
-
-                //                cout << i << j;
-                //                int cantArtefactos = monstruosXlab[cantMonstruos].GetSaco().GetIndice();
-                //                for (int d = 0; d < cantArtefactos; d++) {
-                //                    (monstruosXlab[cantMonstruos].GetSaco())[d]->Imprimir();
-                //                }                
+                distribuirArtefactosMonstruos(armas, numArmas, armaduras, numArmaDuras, pociones, numPociones);         
                 cantMonstruos++;
             }
         }

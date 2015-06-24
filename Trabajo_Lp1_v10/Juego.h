@@ -38,7 +38,7 @@ public:
     void intentarmosMoverAvatar(char&, int&);
     void intentamosInteractuarAvatar(int, int, int, Arma *, Armadura *, PocionCuracion *, int& flag);
     int PreguntarPelearConMonstruo(int, int , int);
-    friend void impresionDeMonstruos();
+    void impresionDeMonstruos(int,int, int);
     friend void imprimirAtaqueMonstruo();
     friend void imprimirContraAtaqueMonstruo();
 

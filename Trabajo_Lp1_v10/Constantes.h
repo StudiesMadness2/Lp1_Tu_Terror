@@ -28,5 +28,16 @@
 
 #define MAX_ARTEF_EN_SACO 10
 
+#define CREAR for (int i = 0; i < 
+#define ESPACIOS ; i++) cout << " "
+
+#define IMAGEN_MONSTRUO 5
+
+#define CENTAURO 45
+#define CABALLO 33
+#define STARDEMON 33
+#define MURCIELAGO 33
+#define CASCO 55
+
 #endif	/* CONSTANTES_H */
 

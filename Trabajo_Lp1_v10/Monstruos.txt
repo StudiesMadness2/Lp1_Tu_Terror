@@ -2,33 +2,43 @@
 Gestion y Direccion de Empresas
 1
 50
+0
 Seguridad Integral
 1
 50
+1
 Electronica Digital
 2
 70
+2
 Bases de Datos
 3
 85
+3
 Fundamentos de Programacion
 4
 100
+4
 Algoritmia
 4
 100
+0
 Lenguaje de Programacion
 5
 120
+1
 Organizacion y Arquitectura de Computadoras
 5
 120
+2
 Aplicaciones de Ciencias de la Computacion
 6
 145
+3
 Ingenieria de Software
 8
 170
+4
 
 /* NOMBRE
  * NIVEL

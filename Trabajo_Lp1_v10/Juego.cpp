@@ -224,212 +224,117 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
     }
 }
 
-void impresionDeMonstruos() {
-    int asciiMonster = rand() % 5;
-    switch (asciiMonster) {
+void Juego::impresionDeMonstruos(int indLabActual, int x, int y) {
+    
+    int num = this->arreLaberintos[indLabActual].busquedaMonstruo( x , y ).GetImagen();
+    
+    switch (num) {
         case 0:
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("           \\                  /\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("    _________))                ((__________\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("   /.-------./\\    \\    /    //\\.--------.\\\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("  //#######//##\\   ))  ((   //##\\########\\\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf(" //#######//###((  ((    ))  ))###\\########\\\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("((#######((#####\\  \\  //  //#####))########))\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf(" \\##' `###\\######\\  \\)(/  //######/####' `##/\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("  )'    ``#)'  `##\\`->oo<-'/##'  `(#''     `(\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("          (       ``\\`..'/''       )\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                     \\'''\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                      `- )\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                      / /\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                     ( /\\  \n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                     /\\| \\\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                    (  \\\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                        )\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                       /\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                      (\n\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("           \\                  /\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("    _________))                ((__________\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("   /.-------./\\    \\    /    //\\.--------.\\\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("  //#######//##\\   ))  ((   //##\\########\\\n");
+            CREAR MURCIELAGO ESPACIOS;            printf(" //#######//###((  ((    ))  ))###\\########\\\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("((#######((#####\\  \\  //  //#####))########))\n");
+            CREAR MURCIELAGO ESPACIOS;            printf(" \\##' `###\\######\\  \\)(/  //######/####' `##/\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("  )'    ``#)'  `##\\`->oo<-'/##'  `(#''     `(\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("          (       ``\\`..'/''       )\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("                     \\'''\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("                      `- )\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("                      / /\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("                     ( /\\  \n");
+            CREAR MURCIELAGO ESPACIOS;            printf("                     /\\| \\\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("                    (  \\\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("                        )\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("                       /\n");
+            CREAR MURCIELAGO ESPACIOS;            printf("                      (\n\n");
             break;
         case 1:
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf("  ,/         \\.\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf(" ((           ))\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf("  \\`.       ,'/\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf("   )')     (`(\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf(" ,'`/       \\,`.\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf("(`-(         )-')\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf(" \\-'\\,-'\"`-./`-/\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf("  \\-')     (`-/\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf("  /`'       `'\\\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf(" (  _       _  )\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf(" | ( \\     / ) |\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf(" |  `.\\   /,'  |\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf(" |    `\\ /'    |\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf(" (              )\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf("  \\           /\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf("   \\         /\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf("    `.     ,'\n");
-            for (int i = 0; i < 55; i++) cout << " ";
-            printf("hh    `-.-'\n\n");
+            CREAR CASCO ESPACIOS;            printf("  ,/         \\.\n");
+            CREAR CASCO ESPACIOS;            printf(" ((           ))\n");
+            CREAR CASCO ESPACIOS;            printf("  \\`.       ,'/\n");
+            CREAR CASCO ESPACIOS;            printf("   )')     (`(\n");
+            CREAR CASCO ESPACIOS;            printf(" ,'`/       \\,`.\n");
+            CREAR CASCO ESPACIOS;            printf("(`-(         )-')\n");
+            CREAR CASCO ESPACIOS;            printf(" \\-'\\,-'\"`-./`-/\n");
+            CREAR CASCO ESPACIOS;            printf("  \\-')     (`-/\n");
+            CREAR CASCO ESPACIOS;            printf("  /`'       `'\\\n");
+            CREAR CASCO ESPACIOS;            printf(" (  _       _  )\n");
+            CREAR CASCO ESPACIOS;            printf(" | ( \\     / ) |\n");
+            CREAR CASCO ESPACIOS;            printf(" |  `.\\   /,'  |\n");
+            CREAR CASCO ESPACIOS;            printf(" |    `\\ /'    |\n");
+            CREAR CASCO ESPACIOS;            printf(" (              )\n");
+            CREAR CASCO ESPACIOS;            printf("  \\           /\n");
+            CREAR CASCO ESPACIOS;            printf("   \\  ||||   /\n");
+            CREAR CASCO ESPACIOS;            printf("    `.     ,'\n");
+            CREAR CASCO ESPACIOS;            printf("      `-.-'\n\n");
             break;
         case 2:
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("              ._                                            ,\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("               (`)..                                    ,.-')\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                (',.)-..                            ,.-(..`)\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                 (,.' ,.)-..                    ,.-(. `.. )\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                  (,.' ..' .)-..            ,.-( `.. `.. )\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                   (,.' ,.'  ..')-.     ,.-( `. `.. `.. )\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                    (,.'  ,.' ,.'  )-.-('   `. `.. `.. )\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                     ( ,.' ,.'    _== ==_     `.. `.. )\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                      ( ,.'   _==' ~  ~  `==_    `.. )\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                       \\  _=='   ----..----  `==_   )\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                    ,.-:    ,----___.  .___----.    -..\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                ,.-'   (   _--====_  \\/  _====--_   )  `-..\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("            ,.-'   .__.'`.  `-_I0_-'    `-_0I_-'  .'`.__.  `-..\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("        ,.-'.'   .'      (          |  |          )      `.   `.-..\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("    ,.-'    :    `___--- '`.__.    / __ \\    .__.' `---___'    :   `-..\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("  -'_________`-____________'__ \\  (O)  (O)  / __`____________-'________`-\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                              \\ . _  __  _ . /\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                               \\ `V-'  `-V' |\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                                | \\ \\ | /  /\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                                 V \\ ~| ~/V\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                                  |  \\  /|\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                                   \\~ | V \n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                                    \\  |\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                                     VV\n\n");
+            CREAR STARDEMON ESPACIOS;            printf("              ._                                            ,\n");
+            CREAR STARDEMON ESPACIOS;            printf("               (`)..                                    ,.-')\n");
+            CREAR STARDEMON ESPACIOS;            printf("                (',.)-..                            ,.-(..`)\n");
+            CREAR STARDEMON ESPACIOS;            printf("                 (,.' ,.)-..                    ,.-(. `.. )\n");
+            CREAR STARDEMON ESPACIOS;            printf("                  (,.' ..' .)-..            ,.-( `.. `.. )\n");
+            CREAR STARDEMON ESPACIOS;            printf("                   (,.' ,.'  ..')-.     ,.-( `. `.. `.. )\n");
+            CREAR STARDEMON ESPACIOS;            printf("                    (,.'  ,.' ,.'  )-.-('   `. `.. `.. )\n");
+            CREAR STARDEMON ESPACIOS;            printf("                     ( ,.' ,.'    _== ==_     `.. `.. )\n");
+            CREAR STARDEMON ESPACIOS;            printf("                      ( ,.'   _==' ~  ~  `==_    `.. )\n");
+            CREAR STARDEMON ESPACIOS;            printf("                       \\  _=='   ----..----  `==_   )\n");
+            CREAR STARDEMON ESPACIOS;            printf("                    ,.-:    ,----___.  .___----.    -..\n");
+            CREAR STARDEMON ESPACIOS;            printf("                ,.-'   (   _--====_  \\/  _====--_   )  `-..\n");
+            CREAR STARDEMON ESPACIOS;            printf("            ,.-'   .__.'`.  `-_I0_-'    `-_0I_-'  .'`.__.  `-..\n");
+            CREAR STARDEMON ESPACIOS;            printf("        ,.-'.'   .'      (          |  |          )      `.   `.-..\n");
+            CREAR STARDEMON ESPACIOS;            printf("    ,.-'    :    `___--- '`.__.    / __ \\    .__.' `---___'    :   `-..\n");
+            CREAR STARDEMON ESPACIOS;            printf("  -'_________`-____________'__ \\  (O)  (O)  / __`____________-'________`-\n");
+            CREAR STARDEMON ESPACIOS;            printf("                              \\ . _  __  _ . /\n");
+            CREAR STARDEMON ESPACIOS;            printf("                               \\ `V-'  `-V' |\n");
+            CREAR STARDEMON ESPACIOS;            printf("                                | \\ \\ | /  /\n");
+            CREAR STARDEMON ESPACIOS;            printf("                                 V \\ ~| ~/V\n");
+            CREAR STARDEMON ESPACIOS;            printf("                                  |  \\  /|\n");
+            CREAR STARDEMON ESPACIOS;            printf("                                   \\~ | V \n");
+            CREAR STARDEMON ESPACIOS;            printf("                                    \\  |\n");
+            CREAR STARDEMON ESPACIOS;            printf("                                     VV\n\n");
             break;
         case 3:
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                   .\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                 ....8ob.\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("              o88888888888b.\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("          ..o888888888888888b..\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("          888888888888888P""888P\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("         8888888888888888888888.\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("        d88888888888888888888888bc.\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("       o8888888888888888" "\"38888Poo..\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("      .8888888888P888888        \"38888888\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("      88888888888 8888888eeeeee.   \"\"38\"8\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("     P\" 888888888 \"\"'\"\"\"       `\"\"o._.oP\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("        8888888888.\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("        88888888888\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("        '888888888 8b.\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("         \"88888888b  \"\"\"\"3booooooo..\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("          \"888888888888888b         \"b.\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("           \"8888888888888888888888b    \"8\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("            \"8888888888888888888888888   b\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                \"\"888888888888888888888  c\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                   \"8888888888888888888  P\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                    \"88888888888888888888\"\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                    .88888888888888888888\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                   .888NICK8888888888888P\n");
-            for (int i = 0; i < 33; i++) cout << " ";
-            printf("                 od888888888888888888P\n\n");
+            CREAR CABALLO ESPACIOS;            printf("                   .\n");
+            CREAR CABALLO ESPACIOS;            printf("                 ....8ob.\n");
+            CREAR CABALLO ESPACIOS;            printf("              o88888888888b.\n");
+            CREAR CABALLO ESPACIOS;            printf("          ..o888888888888888b..\n");
+            CREAR CABALLO ESPACIOS;            printf("          888888888888888P""888P\n");
+            CREAR CABALLO ESPACIOS;            printf("         8888888888888888888888.\n");
+            CREAR CABALLO ESPACIOS;            printf("        d88888888888888888888888bc.\n");
+            CREAR CABALLO ESPACIOS;            printf("       o8888888888888888" "\"38888Poo..\n");
+            CREAR CABALLO ESPACIOS;            printf("      .8888888888P888888        \"38888888\n");
+            CREAR CABALLO ESPACIOS;            printf("      88888888888 8888888eeeeee.   \"\"38\"8\n");
+            CREAR CABALLO ESPACIOS;            printf("     P\" 888888888 \"\"'\"\"\"       `\"\"o._.oP\n");
+            CREAR CABALLO ESPACIOS;            printf("        8888888888.\n");
+            CREAR CABALLO ESPACIOS;            printf("        88888888888\n");
+            CREAR CABALLO ESPACIOS;            printf("        '888888888 8b.\n");
+            CREAR CABALLO ESPACIOS;            printf("         \"88888888b  \"\"\"\"3booooooo..\n");
+            CREAR CABALLO ESPACIOS;            printf("          \"888888888888888b         \"b.\n");
+            CREAR CABALLO ESPACIOS;            printf("           \"8888888888888888888888b    \"8\n");
+            CREAR CABALLO ESPACIOS;            printf("            \"8888888888888888888888888   b\n");
+            CREAR CABALLO ESPACIOS;            printf("                \"\"888888888888888888888  c\n");
+            CREAR CABALLO ESPACIOS;            printf("                   \"8888888888888888888  P\n");
+            CREAR CABALLO ESPACIOS;            printf("                    \"88888888888888888888\"\n");
+            CREAR CABALLO ESPACIOS;            printf("                    .88888888888888888888\n");
+            CREAR CABALLO ESPACIOS;            printf("                   .888NICK8888888888888P\n");
+            CREAR CABALLO ESPACIOS;            printf("                 od888888888888888888P\n\n");
             break;
         case 4:
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("                 __\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("                / _\\ #\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("                \\c /  #\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("                / \\___ #\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("                \\`----`#==>  \n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("                |  \\  #\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("     ,%.-\"\"\"---'`--'\\#_\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("    %%/             |__`\\\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("   .%'\\     |   \\   /  //\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("   ,%' >   .'----\\ |  [/\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("      < <<`       ||\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("       `\\\\       ||\n");
-            for (int i = 0; i < 45; i++) cout << " ";
-            printf("         )\\\\      )\\\n\n");
+            CREAR CENTAURO ESPACIOS;            printf("                 __\n");
+            CREAR CENTAURO ESPACIOS;            printf("                / _\\ #\n");
+            CREAR CENTAURO ESPACIOS;            printf("                \\c /  #\n");
+            CREAR CENTAURO ESPACIOS;            printf("                / \\___ #\n");
+            CREAR CENTAURO ESPACIOS;            printf("                \\`----`#==>  \n");
+            CREAR CENTAURO ESPACIOS;            printf("                |  \\  #\n");
+            CREAR CENTAURO ESPACIOS;            printf("     ,%.-\"\"\"---'`--'\\#_\n");
+            CREAR CENTAURO ESPACIOS;            printf("    %%/             |__`\\\n");
+            CREAR CENTAURO ESPACIOS;            printf("   .%'\\     |   \\   /  //\n");
+            CREAR CENTAURO ESPACIOS;            printf("   ,%' >   .'----\\ |  [/\n");
+            CREAR CENTAURO ESPACIOS;            printf("      < <<`       ||\n");
+            CREAR CENTAURO ESPACIOS;            printf("       `\\\\       ||\n");
+            CREAR CENTAURO ESPACIOS;            printf("         )\\\\      )\\\n\n");
             break;
     }
 }
@@ -464,7 +369,7 @@ int Juego::PreguntarPelearConMonstruo(int indLabActual, int x, int y) {
     //busquedaMonstruo(this->LaberintoActual.)
     Monstruo monster = this->arreLaberintos[indLabActual].busquedaMonstruo( x , y );
     system("cls");
-    impresionDeMonstruos();
+    impresionDeMonstruos(indLabActual,x,y);
     MostrarDatosPrevioBatalla(monster);
     gets(linea);
     int yes, no, flag;
@@ -536,12 +441,12 @@ void imprimirContraAtaqueMonstruo() {
 }
 
 void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
-
+    char opcion[30];
     system("cls");
     int a, f, s, r = 0;
     while ((avatar.GetVidaActual() > 0) && (monster.GetVidaActual() > 0)) {
         if (!r) {
-            char opcion[30];
+            
             cout << "Elija una opcion: " << endl;
             cout << "a) Atacar!" << endl;
             cout << "r) Ataque automatico" << endl;
@@ -576,7 +481,8 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
             system("cls");
             int huida = rand() % 101;
             if (huida < 25) {
-                cout << "Te retiraste del curso" << endl;
+                cout << "Te retiraste del curso\n" << endl;
+                cout << "Perdiste la mitad de tu vida\n" << endl;
                 int quitaVida = avatar.GetVidaActual();
                 quitaVida = (int) (quitaVida / 2);
                 int vidaRestada = avatar.GetVidaActual() - quitaVida;
@@ -631,6 +537,13 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
         if ((monster.GetVidaActual() > 0) && !r) {
             cout << "El monstruo tiene " << monster.GetVidaActual() << " de vida\n" << endl;
             cout << "Tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
+            
+            cout << "Elija una opcion: " << endl;
+            cout << "a) Atacar!" << endl;
+            cout << "r) Ataque automatico" << endl;
+            cout << "s) Usar artefacto (sin implementar)" << endl;
+            cout << "f) Retirarse del curso" << endl << endl << "? ";
+            cin >> opcion;
         }
         if ((monster.GetVidaActual() <= 0)) {
             cout << "Venciste al Monstruo" << endl;
@@ -650,7 +563,7 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
 
         cout << "Ganaste la Batalla! Felicitaciones!\n" << endl;
         flag = 1;
-        cout << "tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
+       // cout << "tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
         int num = rand() % 10;
 
         cout << "Te has ganado un:  \n\n";
