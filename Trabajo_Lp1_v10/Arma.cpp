@@ -66,3 +66,12 @@ void Arma::usar2(class Entidad &E, int ind) {
         E.SetArma(aux);
     }
 }
+
+void Arma::SetNombre(char* nombre) {
+    this->nombre = new char[strlen(nombre)+1]; 
+    strcpy(this->nombre,nombre);
+}
+
+char* Arma::GetNombre() const {
+    return nombre;
+}

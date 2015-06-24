@@ -8,19 +8,24 @@
 #ifndef ARMADURA_H
 #define	ARMADURA_H
 
-class Armadura : public Artefacto{
+class Armadura : public Artefacto {
 private:
     int defensa;
-    char * nombre;    
+    char * nombre;
 public:
-    Armadura(int def=0);
+    Armadura(int def = 0);
     virtual ~Armadura();
     void AsignarArmadura(int, char*);
     void Imprimir();
+    
     void SetDefensa(int defensa);
     int GetDefensa() const;
-    void  usar();
-    void usar2(class Entidad &E,int ind);
+    void SetNombre(char* nombre);
+    char* GetNombre() const;
+    
+    void usar();
+    void usar2(class Entidad &E, int ind);
+
 };
 
 #endif	/* ARMADURA_H */

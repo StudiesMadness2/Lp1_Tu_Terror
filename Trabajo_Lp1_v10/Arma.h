@@ -7,21 +7,25 @@
 #include "Artefacto.h"
 #ifndef ARMA_H
 #define	ARMA_H
-class Arma : public Artefacto {    
+
+class Arma : public Artefacto {
 private:
     int danhoMin;
     int danhoMax;
     char* nombre;
 public:
-    Arma(int min=0,int max=0);
+    Arma(int min = 0, int max = 0);
     void AsignarArma(int, int, char*);
     void Imprimir();
     void SetDanhoMax(int danhoMax);
     int GetDanhoMax() const;
     void SetDanhoMin(int danhoMin);
     int GetDanhoMin() const;
+    void SetNombre(char* nombre);
+    char* GetNombre() const;
     void usar();
-    void usar2(class Entidad &E,int ind);
+    void usar2(class Entidad &E, int ind);
+
 };
 
 #endif	/* ARMA_H */

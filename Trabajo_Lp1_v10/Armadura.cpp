@@ -52,3 +52,12 @@ void Armadura::usar2(class Entidad &E, int ind) {
         E.SetArmadura(aux);
     }
 }
+
+void Armadura::SetNombre(char* nombre) {
+    this->nombre = new char[strlen(nombre)+1];
+    strcpy(this->nombre,nombre);
+}
+
+char* Armadura::GetNombre() const {
+    return nombre;
+}
