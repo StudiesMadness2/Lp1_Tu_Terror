@@ -37,7 +37,7 @@ public:
 
     void intentarmosMoverAvatar(char&, int&);
     void intentamosInteractuarAvatar(int, int, int, Arma *, Armadura *, PocionCuracion *, int& flag);
-    int PreguntarPelearConMonstruo(int);
+    int PreguntarPelearConMonstruo(int, int , int);
     friend void impresionDeMonstruos();
     friend void imprimirAtaqueMonstruo();
     friend void imprimirContraAtaqueMonstruo();
@@ -62,8 +62,8 @@ public:
     int usarArtefacto(int);
     int botarArtefacto(int);
 
-
-
+    void distribuirMonstruosXLaberinto(Monstruo *Mons, int numM, Arma *armas, int numA, Armadura *armaduras, int numArmad, PocionCuracion *pociones , int numPociones);
+    
 };
 
 #endif	/* JUEGO_H */

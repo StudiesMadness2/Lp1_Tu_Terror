@@ -9,6 +9,8 @@
 #define	LABERINTO_H
 
 #include "Celda.h"
+#include "Monstruo.h"
+#define CAP 40 
 
 class Laberinto {
 private:
@@ -23,11 +25,12 @@ private:
     int x_Sig;
     int y_sig;
     Celda **celda;
-
+    Monstruo monstruosXlab[CAP];
+    int cantMonstruos;
 public:
     // Constuctores y destructores 
     Laberinto();
-    Laberinto(int  m , int n);
+    Laberinto(int m, int n);
     virtual ~Laberinto();
     // Get y Set 
     void setCelda(Celda** celda);
@@ -39,10 +42,8 @@ public:
     void setNivelesMonstruo(int tam, int ini, int fin);
     int* getNivelesMonstruo() const;
     void setPctMonstruo(double pctMonstruo);
-    double getPctMonstruo() const;
-    void setN(int N);
+    double getPctMonstruo() const;   
     int getN() const;
-    void setM(int M);
     int getM() const;
     // Metodos 
     //  Laberinto creaion(char *);
@@ -55,6 +56,11 @@ public:
     int getY_Ant() const;
     void setX_Ant(int x_Ant);
     int getX_Ant() const;
+    char getCasilla(int x , int y) ; 
+    void distribuirMonstruosRandom(Monstruo *Mons, int numM,Arma* armas, int numArmas, Armadura *armaduras, int numArmad, PocionCuracion *pociones, int numPociones);
+    void distribuirArtefactosMonstruos( Arma* armas, int numArmas, Armadura *armaduras, int numArmad, PocionCuracion *pociones, int numPociones);
+    Monstruo busquedaMonstruo( int, int   );
+    int getCantMonstruos() const;
 };
 
 #endif	/* LABERINTO_H */

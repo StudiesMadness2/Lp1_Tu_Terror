@@ -34,13 +34,16 @@ int main(int argc, char** argv) {
     CargarArmas(ArmA, ArmM, numAA, numAM);
     CargarArmaduras(Armd, numAd);
     CargarPociones(Poc, numP);
+    
     Juego nuevoJuego;
     Dibujador dibujadorNuevo;
     dibujadorNuevo.SetA(10);
     dibujadorNuevo.SetB(8);
+    
     nuevoJuego.SetDibujador(dibujadorNuevo);
     nuevoJuego.CargarLaberintos(MaxLevel);
     nuevoJuego.iniciarPosicionAvatar();
+    nuevoJuego.distribuirMonstruosXLaberinto(Mons,numM,ArmM,numAM,Armd,numAd,Poc,numP);
     // nuevoJuego.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
     // nuevoJuego.GetAvatar().impresionInformacionAvatar() ; 
 
@@ -48,13 +51,12 @@ int main(int argc, char** argv) {
     PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
     while (1) {
         if (flag == 1) {
-            // nuevoJuego.dibujarEsquema();            
+         //   nuevoJuego.dibujarEsquema();            
             nuevoJuego.dibujador2();
             nuevoJuego.GetAvatar().mostrarDatosMapa();
             nuevoJuego.ImprimirSaco();
             mostrarOpcionesGenerales();
-        }
-        
+        }        
         LecturaMoviento(c1);
         int ind;
         

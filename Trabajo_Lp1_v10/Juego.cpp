@@ -72,15 +72,13 @@ void Juego::CargarLaberintos(int MaxLevel) {
     arreLaberintos = new Laberinto[cant_Labs];
     int tam = int (MaxLevel / cant_Labs);
     for (int i = 0; i < cant_Labs; i++) {
-        arreLaberintos[i] = gestorLaberinto.crear(arreNombArch[indices[i]]);
         if (i == cant_Labs - 1) arreLaberintos[i].setNivelesMonstruo(tam, i * tam, MaxLevel);
         else arreLaberintos[i].setNivelesMonstruo(tam, i*tam, (i * tam) + tam);
-
+        arreLaberintos[i] = gestorLaberinto.crear(arreNombArch[indices[i]]);
     }
     posLaberintoActual = 0;
     LaberintoActual = arreLaberintos[0];
     cantidadDeLaberintos = cant_Labs;
-
     return;
 }
 
@@ -91,6 +89,14 @@ void Juego::iniciarPosicionAvatar() {
     this->avatar.SetPosY(this->LaberintoActual.getY_Ant());
     int b = this->LaberintoActual.getY_Ant();
     //  printf("%d ",b) ; 
+}
+
+void Juego::distribuirMonstruosXLaberinto(Monstruo *Mons, int numM, Arma* armas, int numArmas, Armadura *armaduras, int numArmad, PocionCuracion *pociones, int numPociones) {
+    for (int i = 0; i < cantidadDeLaberintos; i++) {
+        arreLaberintos[i].distribuirMonstruosRandom(Mons, numM, armas, numArmas, armaduras, numArmad, pociones, numPociones);
+        cout << endl <<cantidadDeLaberintos <<endl ; 
+        cout << arreLaberintos[i].getCantMonstruos() << endl ; 
+    }
 }
 
 void Juego::intentarmosMoverAvatar(char& movimiento, int &flag) {
@@ -152,6 +158,7 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
     int x = avatar.GetPosX();
     srand(time(NULL));
     flag = 0;
+    int g , h ; 
     for (int f = -1; f < 2; f++) {
         for (int k = -1; k < 2; k++) { //recorrido alrededor del Avatar
 
@@ -167,7 +174,9 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
                     switch (tipo) {
 
                         case MONSTRUO:
-                            pelea = PreguntarPelearConMonstruo(this->posLaberintoActual);
+                            g  = y + f ; 
+                            h   = x + k ; 
+                            pelea = PreguntarPelearConMonstruo(this->posLaberintoActual, y + f, x + k);
                             PlaySound(NULL, NULL, 0);
                             PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
                             if (pelea == 1) LaberintoActual.getCelda()[y + f][x + k].SetTipo(ADENTRO);
@@ -427,6 +436,7 @@ void impresionDeMonstruos() {
 
 void Juego::MostrarDatosPrevioBatalla(Monstruo monster) {
     cout << endl << "El monstruo tiene:\n" << endl;
+    cout << "Nombre :"<< monster.GetNombre()<<endl;
     cout << "vida: " << monster.GetMaxVida() << endl;
     cout << "Danho base: " << monster.GetDanhoBase() << endl;
 
@@ -445,14 +455,15 @@ void Juego::MostrarDatosPrevioBatalla(Monstruo monster) {
     printf("\n\n Deseas pelear con el monstruo ('yes' or 'no') ?   ");
 }
 
-int Juego::PreguntarPelearConMonstruo(int numLab) {
+
+int Juego::PreguntarPelearConMonstruo(int indLabActual, int x, int y) {
 
     PlaySound(NULL, NULL, 0);
     PlaySound(("Doom_Level_1.wav"), NULL, SND_ASYNC);
     char linea[30];
-    Monstruo monster;
+    //busquedaMonstruo(this->LaberintoActual.)
+    Monstruo monster = this->arreLaberintos[indLabActual].busquedaMonstruo( x , y );
     system("cls");
-
     impresionDeMonstruos();
     MostrarDatosPrevioBatalla(monster);
     gets(linea);
@@ -561,12 +572,16 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
 
 
         }
-
         if (f) {
             system("cls");
             int huida = rand() % 101;
             if (huida < 25) {
                 cout << "Te retiraste del curso" << endl;
+                int quitaVida = avatar.GetVidaActual();
+                quitaVida = (int) (quitaVida / 2);
+                int vidaRestada = avatar.GetVidaActual() - quitaVida;
+                if (vidaRestada < 0) avatar.SetVidaActual(1);
+                else avatar.SetVidaActual(vidaRestada);
                 break;
             } else {
                 cout << "No has podido retirarte del curso :( " << endl;
@@ -575,7 +590,7 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
         }
 
         if (a || r || f || s) {
-            
+
             system("cls");
             if (a || !r || s || f)imprimirAtaqueMonstruo();
             if (a && !r && !s && !f)imprimirContraAtaqueMonstruo();
@@ -654,60 +669,60 @@ Dibujador Juego::GetDibujador() const {
     return dibujador;
 }
 
-void Juego::dibujarEsquema() {
-    int posX_Avatar = this->avatar.GetPosX();
-    int m = this->LaberintoActual.getM();
-    int n = this->LaberintoActual.getN();
-    int posY_Avatar = this->avatar.GetPosY();
-    int mitad_ancho = this->dibujador.GetA();
-    int mitad_alto = this->dibujador.GetB();
-
-    int i_arriba, i_abajo, j_izq, j_der;
-    i_arriba = posY_Avatar - mitad_alto;
-
-    if (i_arriba < 0) i_arriba = 0;
-    i_abajo = posY_Avatar + mitad_alto;
-
-    if (i_abajo > m - 1) i_abajo = m - 1;
-    j_izq = posX_Avatar - mitad_ancho;
-
-    if (j_izq < 0) j_izq = 0;
-    j_der = posX_Avatar + mitad_ancho;
-
-    if (j_der > n - 1) j_der = n - 1;
-    //for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
-
-    system("cls");
-
-    for (int i = i_arriba; i <= i_abajo; i++) {
-        //     for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" "); // Para poder centrar el esquema
-
-        for (int j = j_izq; j <= j_der; j++) {
-
-            char celda = (char) this->LaberintoActual.getCelda()[i][j].GetTipo();
-
-            if (avatar.GetPosX() == j && avatar.GetPosY() == i) {
-                rlutil::setColor(114);
-                printf("%c", IMAG_AVATAR);
-            } else if (celda == '-' || celda == '+') {
-                rlutil::setColor(121); // Entra  y Sale
-                printf("%c", celda);
-            } else if (celda == 'M' ||
-                    celda == 'A') {
-                rlutil::setColor(124);
-                printf("%c", celda);
-            } else {
-                rlutil::setColor(112); // 96 176 112
-                printf("%c", celda);
-            }
-        }
-        printf("\n");
-    }
-    rlutil::setColor(7); // Restablece Co
-    printf("\n");
-    //   for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
-    //printf("====Esquema_Avatar====\n");
-}
+//void Juego::dibujarEsquema() {
+//    int posX_Avatar = this->avatar.GetPosX();
+//    int m = this->LaberintoActual.getM();
+//    int n = this->LaberintoActual.getN();
+//    int posY_Avatar = this->avatar.GetPosY();
+//    int mitad_ancho = this->dibujador.GetA();
+//    int mitad_alto = this->dibujador.GetB();
+//
+//    int i_arriba, i_abajo, j_izq, j_der;
+//    i_arriba = posY_Avatar - mitad_alto;
+//
+//    if (i_arriba < 0) i_arriba = 0;
+//    i_abajo = posY_Avatar + mitad_alto;
+//
+//    if (i_abajo > m - 1) i_abajo = m - 1;
+//    j_izq = posX_Avatar - mitad_ancho;
+//
+//    if (j_izq < 0) j_izq = 0;
+//    j_der = posX_Avatar + mitad_ancho;
+//
+//    if (j_der > n - 1) j_der = n - 1;
+//    //for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
+//
+//    system("cls");
+//
+//    for (int i = i_arriba; i <= i_abajo; i++) {
+//        //     for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" "); // Para poder centrar el esquema
+//
+//        for (int j = j_izq; j <= j_der; j++) {
+//
+//            char celda = (char) this->LaberintoActual.getCelda()[i][j].GetTipo();
+//
+//            if (avatar.GetPosX() == j && avatar.GetPosY() == i) {
+//                rlutil::setColor(114);
+//                printf("%c", IMAG_AVATAR);
+//            } else if (celda == '-' || celda == '+') {
+//                rlutil::setColor(121); // Entra  y Sale
+//                printf("%c", celda);
+//            } else if (celda == 'M' ||
+//                    celda == 'A') {
+//                rlutil::setColor(124);
+//                printf("%c", celda);
+//            } else {
+//                rlutil::setColor(112); // 96 176 112
+//                printf("%c", celda);
+//            }
+//        }
+//        printf("\n");
+//    }
+//    rlutil::setColor(7); // Restablece Co
+//    printf("\n");
+//    //   for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
+//    //printf("====Esquema_Avatar====\n");
+//}
 
 void Juego::dibujador2() {
     dibujador.dibujarEsquemaVersion2(LaberintoActual, avatar);

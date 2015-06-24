@@ -28,10 +28,7 @@ private:
 public:
     Entidad(int max = 0, int vida = 0);
     virtual ~Entidad();
-    void agregarArtefactoAlSaco(Artefacto*, int);
-    // void SetSaco(Arma);
-    //    void SetSaco(Armadura);
-    //    void SetSaco(PocionCuracion);    
+    void agregarArtefactoAlSaco(Artefacto*, int);  
     Saco GetSaco() const;
     //    int GetSacoIndice();
     void SetNombre(char* nombre);

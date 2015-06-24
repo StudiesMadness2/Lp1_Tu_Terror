@@ -6,6 +6,7 @@
  */
 #include "Laberinto.h"
 #include "GestorLaberinto.h"
+#include "FuncionesExtras.h"
 #include <iostream>
 using namespace std;
 
@@ -13,6 +14,7 @@ using namespace std;
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>  
+#include "Constantes.h"
 
 Laberinto::Laberinto() {
     M = 30;
@@ -22,6 +24,7 @@ Laberinto::Laberinto() {
     nivelesArtefacto = NULL;
     nivelesMonstruo = NULL;
     celda = NULL;
+    cantMonstruos = 0;
     //    celda = new Celda*[M];
     //    for (int i = 0; i < M; i++) {
     //        celda[i] = new Celda[N];
@@ -30,22 +33,96 @@ Laberinto::Laberinto() {
 
 Laberinto::Laberinto(int m, int n) {
     M = m;
-    N = n;    
+    N = n;
     srand(unsigned(time(NULL)));
     pctArtefacto = (rand() % 1000) / 1000.0;
     pctMonstruo = (rand() % 1000) / 1000.0;
     nivelesArtefacto = new int[10]; // Falta 
-    nivelesMonstruo = new int[10];  // Falta 
+    nivelesMonstruo = new int[10]; // Falta 
     celda = new Celda*[M];
     for (int i = 0; i < M; i++) {
         celda[i] = new Celda[N];
     }
+    cantMonstruos = 0;
 }
 
 Laberinto::~Laberinto() {
 
 }
 
+char Laberinto::getCasilla(int x, int y) {
+    return this->celda[x][y].GetTipo();
+}
+
+void Laberinto::distribuirArtefactosMonstruos(Arma* armas, int numArmas, Armadura *armaduras, int numArmad, PocionCuracion *pociones, int numPociones) {
+
+    int random;
+    srand(unsigned(time(NULL)));
+    random = rand() % 3; // 0 ,1 , 2 // tipos de artefacto
+    switch (random) {
+        case 0:
+            random = rand() % numArmas;
+            monstruosXlab[cantMonstruos].agregarArtefactoAlSaco(&armas[random], 0);
+            break;
+        case 1:
+            random = rand() % numArmad;
+            monstruosXlab[cantMonstruos].agregarArtefactoAlSaco(& armaduras[random], 0);
+            break;
+        case 2:
+            random = rand() % numPociones;
+            monstruosXlab[cantMonstruos].agregarArtefactoAlSaco(&pociones[random], 0);
+            break;
+    }
+}
+
+void Laberinto::distribuirMonstruosRandom(Monstruo *Mons, int numM, Arma* armas, int numArmas, Armadura *armaduras, int numArmaDuras, PocionCuracion *pociones, int numPociones) {
+    char casilla;
+    int indMonst;
+    
+   for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) 
+            cout <<  getCasilla(i, j);   
+        cout <<endl ;
+   }
+    srand(time(NULL));
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            casilla =  getCasilla(i, j);         
+            
+            if (casilla == MONSTRUO) {                
+                cout << casilla ; 
+                
+                indMonst = rand() % numM;
+                monstruosXlab[cantMonstruos].AsignarMons(Mons[indMonst].GetNivel(), Mons[indMonst].GetMaxVida(),
+                        Mons[indMonst].GetVidaActual(), Mons[indMonst].GetNombre());
+                monstruosXlab[cantMonstruos].SetPosX(i);
+                monstruosXlab[cantMonstruos].SetPosY(j);
+                distribuirArtefactosMonstruos(armas, numArmas, armaduras, numArmaDuras, pociones, numPociones);
+
+                //                cout << i << j;
+                //                int cantArtefactos = monstruosXlab[cantMonstruos].GetSaco().GetIndice();
+                //                for (int d = 0; d < cantArtefactos; d++) {
+                //                    (monstruosXlab[cantMonstruos].GetSaco())[d]->Imprimir();
+                //                }                
+                cantMonstruos++;
+            }
+        }
+    }
+}
+
+Monstruo Laberinto::busquedaMonstruo(int x, int y) {
+    for (int i = 0; i < cantMonstruos; i++) {
+        if (monstruosXlab[i].GetPosX() == x && monstruosXlab[i].GetPosY() == y) {
+            return monstruosXlab[i];
+        }
+    }
+    cout << "El mosntruos no esta NO DEBERIA PASAR POR AQUI" << endl;
+    return Monstruo(0);
+}
+
+int Laberinto::getCantMonstruos() const {
+    return cantMonstruos;
+}
 
 void Laberinto::impresion() {
     for (int i = 0; i < M; i++) {
@@ -113,11 +190,11 @@ double Laberinto::getPctArtefacto() const {
 }
 
 void Laberinto::setNivelesMonstruo(int tam, int ini, int fin) {
-    this->nivelesMonstruo = new int[tam+2];
-    int j=1;
-    this->nivelesMonstruo[0]=tam;
-    for(int i=ini;i<=fin;i++){
-        this->nivelesMonstruo[j]=i;
+    this->nivelesMonstruo = new int[tam + 2];
+    int j = 1;
+    this->nivelesMonstruo[0] = tam;
+    for (int i = ini; i <= fin; i++) {
+        this->nivelesMonstruo[j] = i;
         j++;
     }
 }
@@ -134,16 +211,8 @@ double Laberinto::getPctMonstruo() const {
     return pctMonstruo;
 }
 
-void Laberinto::setN(int N) {
-    this->N = N;
-}
-
 int Laberinto::getN() const {
     return N;
-}
-
-void Laberinto::setM(int M) {
-    this->M = M;
 }
 
 int Laberinto::getM() const {

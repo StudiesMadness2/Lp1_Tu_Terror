@@ -12,11 +12,14 @@
 class Monstruo : public Entidad{
 private:
     int nivel;
+    int imagen ; 
 public:
     Monstruo(int level=0);
     virtual ~Monstruo();
-    void AsignarMons(int, int, int, char*);    
+    void AsignarMons(int level, int max, int vida, char*name);    
     Entidad GetDatos() const;
+    void imp();
+    int GetNivel() const;    
 };
 
 #endif	/* MONSTRUO_H */

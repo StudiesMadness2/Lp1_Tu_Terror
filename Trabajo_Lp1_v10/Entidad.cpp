@@ -24,25 +24,6 @@ Entidad::~Entidad() {
 void Entidad::agregarArtefactoAlSaco(Artefacto* art, int flag) {
     (this->saco).AgregarAlSaco(art, flag);
 }
-//void Entidad::SetSaco(Arma artefact) {
-//    Saco sac;
-//    sac.AgregarAlSaco(artefact);
-//    this->saco = sac;
-//}
-//void Entidad::SetSaco(Armadura artefact) {
-//    Saco sac;
-//    sac.AgregarAlSaco(artefact);
-//    this->saco = sac;
-//}
-//void Entidad::SetSaco(PocionCuracion artefact) {
-//    Saco sac;
-//    sac.AgregarAlSaco(artefact);
-//    this->saco = sac;
-//}
-//int Entidad::GetSacoIndice(){
-//    return this->saco.GetIndice();
-//}
-//
 
 Saco Entidad::GetSaco() const {
     return saco;
@@ -97,9 +78,9 @@ void Entidad::SetDanhoBase(int danhoBase) {
 }
 
 int Entidad::GetDanhoBase() const {
-    int danhoExtra=0;
-    if(this->GetArma()) danhoExtra=this->GetArma()->GetDanhoMin();
-    return (danhoBase+danhoExtra);
+    int danhoExtra = 0;
+    if (this->GetArma()) danhoExtra = this->GetArma()->GetDanhoMin();
+    return (danhoBase + danhoExtra);
 }
 
 int Entidad::poseeElSacoLLeno() {
@@ -108,7 +89,7 @@ int Entidad::poseeElSacoLLeno() {
 
 int Entidad::usarArteFactor(int ind) {
     if (this->saco[ind]) {
-        this->saco[ind]->usar2(*this,ind);
+        this->saco[ind]->usar2(*this, ind);
         return 1;
     }
     return 0;
@@ -137,6 +118,5 @@ Armadura* Entidad::GetArmadura() const {
 int Entidad::botarArtefacto(int ind) {
     if (this->saco[ind] == NULL) return 0;
     else
-        return this->saco.votarArteFacto(ind);
-    
+        return this->saco.botarArteFacto(ind);
 }

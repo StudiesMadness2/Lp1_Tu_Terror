@@ -12,6 +12,7 @@ public:
     int GetTipo() const;
     virtual void usar( ) = 0;
     virtual void usar2(class Entidad &E,int ind)=0;
+    
 };
 
 #endif	/* ARTEFACTO_H */

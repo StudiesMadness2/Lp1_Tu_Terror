@@ -9,9 +9,6 @@
 #include <iomanip>
 #include <iostream>
 #include "Artefacto.h"
-#include "Arma.h"
-#include "Armadura.h"
-#include "PocionCuracion.h"
 #include "Saco.h"
 #include "Constantes.h"
 using namespace std;
@@ -32,15 +29,15 @@ int Saco::estaLleno() {
     return 1;
 }
 
-int Saco::votarArteFacto(int ind) {
+int Saco::botarArteFacto(int ind) {
     int j;
     if (artefacto[ind] == NULL) {
         return 0;
     } else {
         for (j = ind; j <= indice - 2; j++) {
             artefacto[j] = artefacto[j + 1];
-        }        
-        indice = indice -1 ;         
+        }
+        indice = indice - 1;
         return 1;
     }
 }
@@ -60,3 +57,4 @@ int Saco::GetIndice() {
 Artefacto* Saco::operator[](int ind) {
     return artefacto[ind]; // Puntero artefacto
 }
+
