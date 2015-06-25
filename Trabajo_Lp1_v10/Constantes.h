@@ -28,8 +28,8 @@
 
 #define MAX_ARTEF_EN_SACO 10
 
-#define CREAR for (int i = 0; i < 
-#define ESPACIOS ; i++) cout << " "
+#define CREAR for (int constante = 0; constante < 
+#define ESPACIOS ; constante++) cout << " " //recordar usar #include <iostream> para usar ESPACIOS
 #define BASICOS 33
 #define GENERALES 46
 

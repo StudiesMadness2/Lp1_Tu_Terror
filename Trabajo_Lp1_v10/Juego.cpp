@@ -343,6 +343,25 @@ void Juego::impresionDeMonstruos(int indLabActual, int x, int y) {
     }
 }
 
+void ImprimirOpcionesDeBatalla(){
+    CREAR BASICOS+4 ESPACIOS; cout << char(201);
+    for(int i=0;i<66;i++) cout << char(205);
+    cout << char(187) << endl ;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " Elija una opcion:                  ";
+    CREAR BASICOS-3 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " a) Atacar!                         ";
+    CREAR BASICOS-3 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " r) Ataque automatico               ";
+    CREAR BASICOS-3 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " s) Usar artefacto (sin implementar)";
+    CREAR BASICOS-3 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " f) Retirarse del curso             ";
+    CREAR BASICOS-3 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(200);
+    for (int i = 0; i < 66; i++) cout << char(205); cout << char(188) << endl << endl; 
+    CREAR BASICOS+4 ESPACIOS; cout << "? ";
+}
+
 void Juego::MostrarDatosPrevioBatalla(Monstruo monster) {
     cout << endl;
     CREAR BASICOS+4 ESPACIOS; cout << char(201);
@@ -409,9 +428,30 @@ int Juego::PreguntarPelearConMonstruo(int indLabActual, int x, int y) {
         gets(linea);
     }
     if (yes) { // en caso acepte la batalla
-        PelearConMonstruo(monster, flag);
+        PelearConMonstruo(monster, flag,indLabActual,x,y);
     }
     return flag;
+}
+
+void Juego::botarArtefactoGrafico() {
+    int x, y;
+    x = avatar.GetPosX();
+    y = avatar.GetPosY();
+
+    int cont = 0;
+    char c;
+    for (int f = -1; f < 3 && cont != 1 ; f++) {
+        for (int k = -1; k < 2  && cont != 1 ; k++) { //recorrido alrededor del Avatar
+            if (!(f == k) && !(k == (-f))) {
+                c = arreLaberintos[posLaberintoActual].getCelda()[y + k ][ x + f ].GetTipo();
+                if (c == ADENTRO) {
+                    arreLaberintos[posLaberintoActual].getCelda()[y + k ][ x + f ].SetTipo('A');
+                    cont++;
+                }
+            }            
+        }
+
+    }
 }
 
 void imprimirAtaqueMonstruo() {
@@ -473,29 +513,24 @@ void imprimirContraAtaqueMonstruo() {
     cout << char(188) << endl << endl << endl;
 }
 
-void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
+void Juego::PelearConMonstruo(Monstruo monster, int &flag,int indLabActual,int x,int y) {
     char opcion[30];
     system("cls");
     int a, f, s, r = 0;
     while ((avatar.GetVidaActual() > 0) && (monster.GetVidaActual() > 0)) {
         if (!r) {
             system("cls");
-            CREAR BASICOS+4 ESPACIOS; cout << char(201);
-            for(int i=0;i<66;i++) cout << char(205);
-            cout << char(187) << endl ;
-            CREAR BASICOS+4 ESPACIOS; cout << char(186) << " Elija una opcion:                  ";
-            CREAR BASICOS-2 ESPACIOS; cout << char(186) << endl;
-            CREAR BASICOS+4 ESPACIOS; cout << char(186) << " a) Atacar!                         ";
-            CREAR BASICOS-2 ESPACIOS; cout << char(186) << endl;
-            CREAR BASICOS+4 ESPACIOS; cout << char(186) << " r) Ataque automatico               ";
-            CREAR BASICOS-2 ESPACIOS; cout << char(186) << endl;
-            CREAR BASICOS+4 ESPACIOS; cout << char(186) << " s) Usar artefacto (sin implementar)";
-            CREAR BASICOS-2 ESPACIOS; cout << char(186) << endl;
-            CREAR BASICOS+4 ESPACIOS; cout << char(186) << " f) Retirarse del curso             ";
-            CREAR BASICOS-2 ESPACIOS; cout << char(186) << endl;
-            CREAR BASICOS+4 ESPACIOS; cout << char(200);
-            for (int i = 0; i < 66; i++) cout << char(205); cout << char(188) << endl << endl; 
-            CREAR BASICOS+4 ESPACIOS; cout << "? ";
+            
+            impresionDeMonstruos(indLabActual,x,y);
+            //////////////////////////////////////77
+            CREAR BASICOS+4 ESPACIOS;
+            cout << char(201);
+            for (int i = 0; i < 66; i++) cout << char(205);
+            cout << char(187) << endl;
+            this->ImprimirSaco();
+            ///////////////////////////////////////77
+            ImprimirOpcionesDeBatalla();
+            
             cin >> opcion;
 
             while (1) {
@@ -517,14 +552,32 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
         }
 
         if (s) {
-        //FALTA CODEAR
-
-
+            int ind;
+            
+            system("cls");
+            
+            CREAR BASICOS+4 ESPACIOS;
+            cout << char(201);
+            for (int i = 0; i < 66; i++) cout << char(205);
+            cout << char(187) << endl;
+            this->ImprimirSaco();
+            
+            cout << endl << "Elija un artefacto: ";
+            cin >> ind;
+            
+            while (!usarArtefacto(ind)) {
+                for (int i = 0; i < 46; i++) putchar(' ');
+                cout << "     Elige un Artefacto Correcto\n";
+                for (int i = 0; i < 46; i++) putchar(' ');
+                cout << "  Escriba una accion         :";
+                flag = 0;
+            }
+            
         }
         if (f) {
             system("cls");
             int huida = rand() % 101;
-            if (huida < 25) {
+            if (huida < 51) {
                 cout << endl;
                 CREAR BASICOS+4 ESPACIOS; cout << "Te retiraste del curso" << endl;
                 CREAR BASICOS+4 ESPACIOS; cout << "Pero... Perdiste la mitad de tu vida" << endl << endl;
@@ -701,4 +754,52 @@ int Juego::botarArtefacto(int ind) {
         return this->avatar.botarArtefacto(ind);
     }
     return 0;
+}
+
+void Juego::historiaDelJuego() {
+    
+    cout << endl << endl;
+    
+CREAR BASICOS ESPACIOS;printf("               _=====_                                  _=====_\n");
+CREAR BASICOS ESPACIOS;printf("              / _____ \\                                / _____ \\\n");
+CREAR BASICOS ESPACIOS;printf("            +.-'_____'-.------------------------------.-'_____'-.+\n");
+CREAR BASICOS ESPACIOS;printf("           /   |     |  '.         S O N Y          .'  |  _  |   \\\n");
+CREAR BASICOS ESPACIOS;printf("          / ___| /|\\ |___ \\                        / ___| /_\\ |___ \\\n");
+CREAR BASICOS ESPACIOS;printf("         / |      |      | ;  __              _   ; | _         _ | ;\n");
+CREAR BASICOS ESPACIOS;printf("         | | <---   ---> | | |__|            |_:> | ||_|       (_)| |\n");
+CREAR BASICOS ESPACIOS;printf("         | |___   |   ___| ;SELECT          START ; |___       ___| ;\n");
+CREAR BASICOS ESPACIOS;printf("         |\\    | \\|/ |    /   _      ___       _   \\    | (X) |    /|\n");
+CREAR BASICOS ESPACIOS;printf("         | \\   |_____|  .' ,'\" \"',  |___|   ,'\" \"', '.  |_____|  .' |\n");
+CREAR BASICOS ESPACIOS;printf("         |  '-.______.-'  /       \\ ANALOG /       \\  '-._____.-'   |\n");
+CREAR BASICOS ESPACIOS;printf("         |               |         |------|        |                |\n");
+CREAR BASICOS ESPACIOS;printf("         |              / \\       /        \\       / \\              |\n");
+CREAR BASICOS ESPACIOS;printf("         |             /   '.___.'          '.___.'   \\             |\n");
+CREAR BASICOS ESPACIOS;printf("         |            /                                \\            |\n");
+CREAR BASICOS ESPACIOS;printf("          \\          /                                  \\          /\n");
+CREAR BASICOS ESPACIOS;printf("           \\________/                                    \\________/\n");
+CREAR BASICOS ESPACIOS;printf("\n\n\n"); 
+
+CREAR BASICOS+3 ESPACIOS;printf("                                                         .--.\n"); 
+CREAR BASICOS+3 ESPACIOS;printf("                                                        /  .  \\\n"); 
+CREAR BASICOS+3 ESPACIOS;printf("                                                       |\\_/|   |\n"); 
+CREAR BASICOS+3 ESPACIOS;printf("                                                       |   |  /|\n"); 
+CREAR BASICOS+3 ESPACIOS;printf("      .------------------------------------------------------' |\n");
+CREAR BASICOS+3 ESPACIOS;printf("     /  .-.       En un mundo muy muy lejano habia una vez...  |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |  /   \\   No! Alumno PUCP, esta historia no empieza asi,  |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    | |\\_.  |       Esta es la realidad, TU REALIDAD           |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |\\|  | /|    Pero no te preocupes! Te vamos a ayudar :)    |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    | `---' |  Para que te prepares muy bien para sobrevivir   |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |       |              en esta Jungla PUCP!                |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |       |                                                  |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |       |          ESTO ES ... STUDIES MADNESS 8D          |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |       |        QUIERES EMPEZAR? (ESCRIBA SU NOMBRE )     /\n");
+CREAR BASICOS+3 ESPACIOS;printf("     \\      |------------------------------------------------'       \n");
+CREAR BASICOS+3 ESPACIOS;printf("      \\    /       \n");
+CREAR BASICOS+3 ESPACIOS;printf("       `--'                            \n");
+
+CREAR BASICOS+8 ESPACIOS; printf("Nombre: ");
+char nombre[200];
+cin.getline(nombre,200);
+if (strlen(nombre)>50) nombre[50]='\0';
+avatar.SetNombre(nombre);
 }

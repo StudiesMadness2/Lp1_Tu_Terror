@@ -29,7 +29,7 @@ void Avatar::mostrarDatosMapa(){
     CREAR BASICOS+4 ESPACIOS; cout << char(201);
     for(int i=0;i<66;i++) cout << char(205);
     cout << char(187) << endl ;
-    CREAR BASICOS+4 ESPACIOS;cout << char(186) << "  Tu Datos!  "; CREAR GENERALES+7 ESPACIOS;cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS;cout << char(186) << "  Alumno: " << this->GetNombre() ;CREAR GENERALES- (strlen(this->GetNombre())-10) ESPACIOS;cout << char(186) << endl;
     CREAR BASICOS+4 ESPACIOS;cout << char(186) << "  Vida: " << left << setw(4) << this->GetVidaActual() << "  ";
     for(int i=0;i<this->getVidas();i++) cout << char(3);
     if(this->getVidas()==4) cout << " (PRIMA)";

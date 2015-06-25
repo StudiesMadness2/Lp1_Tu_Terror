@@ -8,7 +8,6 @@
 #ifndef FUNCIONESEXTRAS_H
 #define	FUNCIONESEXTRAS_H
 
-void historiaDelJuego() ; 
 void mostrarOpciones(); 
 void mostrarOpcionesGenerales() ; 
 void LecturaMoviento(char &c1);

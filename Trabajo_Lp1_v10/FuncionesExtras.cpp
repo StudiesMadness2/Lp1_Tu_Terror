@@ -15,52 +15,6 @@
 #define KEY_RIGHT 77
 using namespace std;
 
-
-
-void historiaDelJuego() {
-    
-    cout << endl << endl;
-    
-CREAR BASICOS ESPACIOS;printf("               _=====_                                  _=====_\n");
-CREAR BASICOS ESPACIOS;printf("              / _____ \\                                / _____ \\\n");
-CREAR BASICOS ESPACIOS;printf("            +.-'_____'-.------------------------------.-'_____'-.+\n");
-CREAR BASICOS ESPACIOS;printf("           /   |     |  '.         S O N Y          .'  |  _  |   \\\n");
-CREAR BASICOS ESPACIOS;printf("          / ___| /|\\ |___ \\                        / ___| /_\\ |___ \\\n");
-CREAR BASICOS ESPACIOS;printf("         / |      |      | ;  __              _   ; | _         _ | ;\n");
-CREAR BASICOS ESPACIOS;printf("         | | <---   ---> | | |__|            |_:> | ||_|       (_)| |\n");
-CREAR BASICOS ESPACIOS;printf("         | |___   |   ___| ;SELECT          START ; |___       ___| ;\n");
-CREAR BASICOS ESPACIOS;printf("         |\\    | \\|/ |    /   _      ___       _   \\    | (X) |    /|\n");
-CREAR BASICOS ESPACIOS;printf("         | \\   |_____|  .' ,'\" \"',  |___|   ,'\" \"', '.  |_____|  .' |\n");
-CREAR BASICOS ESPACIOS;printf("         |  '-.______.-'  /       \\ ANALOG /       \\  '-._____.-'   |\n");
-CREAR BASICOS ESPACIOS;printf("         |               |         |------|        |                |\n");
-CREAR BASICOS ESPACIOS;printf("         |              / \\       /        \\       / \\              |\n");
-CREAR BASICOS ESPACIOS;printf("         |             /   '.___.'          '.___.'   \\             |\n");
-CREAR BASICOS ESPACIOS;printf("         |            /                                \\            |\n");
-CREAR BASICOS ESPACIOS;printf("          \\          /                                  \\          /\n");
-CREAR BASICOS ESPACIOS;printf("           \\________/                                    \\________/\n");
-CREAR BASICOS ESPACIOS;printf("\n\n\n"); 
-
-CREAR BASICOS+3 ESPACIOS;printf("                                                         .--.\n"); 
-CREAR BASICOS+3 ESPACIOS;printf("                                                        /  .  \\\n"); 
-CREAR BASICOS+3 ESPACIOS;printf("                                                       |\\_/|   |\n"); 
-CREAR BASICOS+3 ESPACIOS;printf("                                                       |   |  /|\n"); 
-CREAR BASICOS+3 ESPACIOS;printf("      .------------------------------------------------------' |\n");
-CREAR BASICOS+3 ESPACIOS;printf("     /  .-.       En un mundo muy muy lejano habia una vez...  |\n");
-CREAR BASICOS+3 ESPACIOS;printf("    |  /   \\   No! Alumno PUCP, esta historia no empieza asi,  |\n");
-CREAR BASICOS+3 ESPACIOS;printf("    | |\\_.  |       Esta es la realidad, TU REALIDAD           |\n");
-CREAR BASICOS+3 ESPACIOS;printf("    |\\|  | /|    Pero no te preocupes! Te vamos a ayudar :)    |\n");
-CREAR BASICOS+3 ESPACIOS;printf("    | `---' |  Para que te prepares muy bien para sobrevivir   |\n");
-CREAR BASICOS+3 ESPACIOS;printf("    |       |              en esta Jungla PUCP!                |\n");
-CREAR BASICOS+3 ESPACIOS;printf("    |       |                                                  |\n");
-CREAR BASICOS+3 ESPACIOS;printf("    |       |          ESTO ES ... STUDIES MADNESS 8D          |\n");
-CREAR BASICOS+3 ESPACIOS;printf("    |       |        QUIERES EMPEZAR? (PRESIONA ENTER :D)     /\n");
-CREAR BASICOS+3 ESPACIOS;printf("     \\      |------------------------------------------------'       \n");
-CREAR BASICOS+3 ESPACIOS;printf("      \\    /       \n");
-CREAR BASICOS+3 ESPACIOS;printf("       `--'                            \n");
-
-while (cin.get() != '\n');
-}
-
 void mostrarOpcionesGenerales() {    
     cout << endl;
     CREAR GENERALES ESPACIOS; cout << char(201);

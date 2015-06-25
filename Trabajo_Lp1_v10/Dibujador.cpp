@@ -63,8 +63,8 @@ void Dibujador::dibujarEsquemaVersion2(Laberinto &lab, Avatar Ava) {
 
         for (int j = j_izq - 3; j <= j_der + 3; j++) {
             if ((i < 0 || j < 0) || (i > m - 1 || j > n - 1)) {
-                rlutil::setColor(112);
-                printf("%c", '-');
+                rlutil::setColor(7);
+                printf("%c", 178);
                 continue;
             }
             celda = lab.getCasilla(i, j);

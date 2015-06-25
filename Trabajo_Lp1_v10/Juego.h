@@ -41,10 +41,12 @@ public:
     void impresionDeMonstruos(int,int, int);
     friend void imprimirAtaqueMonstruo();
     friend void imprimirContraAtaqueMonstruo();
+    void botarArtefactoGrafico() ;
 
     void MostrarDatosPrevioBatalla(Monstruo);
-    void PelearConMonstruo(Monstruo monster, int &flag);
+    void PelearConMonstruo(Monstruo monster, int &flag, int,int,int);
     void ImprimirSaco();
+    friend void ImprimirOpcionesDeBatalla();
 
     void SetDibujador(Dibujador dibujador);
     Dibujador GetDibujador() const;
@@ -64,6 +66,8 @@ public:
 
     void distribuirMonstruosXLaberinto(Monstruo *Mons, int numM, Arma *armas, int numA, Armadura *armaduras, int numArmad, PocionCuracion *pociones , int numPociones);
     
+    void historiaDelJuego();
+
 };
 
 #endif	/* JUEGO_H */
