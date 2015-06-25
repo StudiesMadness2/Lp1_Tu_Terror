@@ -21,68 +21,61 @@ void historiaDelJuego() {
     
     cout << endl << endl;
     
-for(int i=0;i<33;i++) cout << " ";printf("               _=====_                               _=====_\n");
-for(int i=0;i<33;i++) cout << " ";printf("              / _____ \\                             / _____ \\\n");
-for(int i=0;i<33;i++) cout << " ";printf("            +.-'_____'-.---------------------------.-'_____'-.+\n");
-for(int i=0;i<33;i++) cout << " ";printf("           /   |     |  '.        S O N Y        .'  |  _  |   \\\n");
-for(int i=0;i<33;i++) cout << " ";printf("          / ___| /|\\ |___ \\                     / ___| /_\\ |___ \\\n");
-for(int i=0;i<33;i++) cout << " ";printf("         / |      |      | ;  __           _   ; | _         _ | ;\n");
-for(int i=0;i<33;i++) cout << " ";printf("         | | <---   ---> | | |__|         |_:> | ||_|       (_)| |\n");
-for(int i=0;i<33;i++) cout << " ";printf("         | |___   |   ___| ;SELECT       START ; |___       ___| ;\n");
-for(int i=0;i<33;i++) cout << " ";printf("         |\\    | \\|/ |    /  _     ___      _   \\    | (X) |    /|\n");
-for(int i=0;i<33;i++) cout << " ";printf("         | \\   |_____|  .','" "', |___|  ,'" "', '.  |_____|  .' |\n");
-for(int i=0;i<33;i++) cout << " ";printf("         |  '-.______.-' /       \\ANALOG/       \\  '-._____.-'   |\n");
-for(int i=0;i<33;i++) cout << " ";printf("         |               |       |------|       |                |\n");
-for(int i=0;i<33;i++) cout << " ";printf("         |              /\\       /      \\       /\\               |\n");
-for(int i=0;i<33;i++) cout << " ";printf("         |             /  '.___.'        '.___.'  \\              |\n");
-for(int i=0;i<33;i++) cout << " ";printf("         |            /                            \\             |\n");
-for(int i=0;i<33;i++) cout << " ";printf("          \\          /                              \\           /\n");
-for(int i=0;i<33;i++) cout << " ";printf("           \\________/                                \\_________/\n");
-for(int i=0;i<33;i++) cout << " ";printf("\n\n\n");
+CREAR BASICOS ESPACIOS;printf("               _=====_                                  _=====_\n");
+CREAR BASICOS ESPACIOS;printf("              / _____ \\                                / _____ \\\n");
+CREAR BASICOS ESPACIOS;printf("            +.-'_____'-.------------------------------.-'_____'-.+\n");
+CREAR BASICOS ESPACIOS;printf("           /   |     |  '.         S O N Y          .'  |  _  |   \\\n");
+CREAR BASICOS ESPACIOS;printf("          / ___| /|\\ |___ \\                        / ___| /_\\ |___ \\\n");
+CREAR BASICOS ESPACIOS;printf("         / |      |      | ;  __              _   ; | _         _ | ;\n");
+CREAR BASICOS ESPACIOS;printf("         | | <---   ---> | | |__|            |_:> | ||_|       (_)| |\n");
+CREAR BASICOS ESPACIOS;printf("         | |___   |   ___| ;SELECT          START ; |___       ___| ;\n");
+CREAR BASICOS ESPACIOS;printf("         |\\    | \\|/ |    /   _      ___       _   \\    | (X) |    /|\n");
+CREAR BASICOS ESPACIOS;printf("         | \\   |_____|  .' ,'\" \"',  |___|   ,'\" \"', '.  |_____|  .' |\n");
+CREAR BASICOS ESPACIOS;printf("         |  '-.______.-'  /       \\ ANALOG /       \\  '-._____.-'   |\n");
+CREAR BASICOS ESPACIOS;printf("         |               |         |------|        |                |\n");
+CREAR BASICOS ESPACIOS;printf("         |              / \\       /        \\       / \\              |\n");
+CREAR BASICOS ESPACIOS;printf("         |             /   '.___.'          '.___.'   \\             |\n");
+CREAR BASICOS ESPACIOS;printf("         |            /                                \\            |\n");
+CREAR BASICOS ESPACIOS;printf("          \\          /                                  \\          /\n");
+CREAR BASICOS ESPACIOS;printf("           \\________/                                    \\________/\n");
+CREAR BASICOS ESPACIOS;printf("\n\n\n"); 
 
-for(int i=0;i<36;i++) cout << " ";printf("                                                         .--.\n"); 
-for(int i=0;i<36;i++) cout << " ";printf("                                                        /  .  \\\n"); 
-for(int i=0;i<36;i++) cout << " ";printf("                                                       |\\_/|   |\n"); 
-for(int i=0;i<36;i++) cout << " ";printf("                                                       |   |  /|\n"); 
-for(int i=0;i<36;i++) cout << " ";printf("      .------------------------------------------------------' |\n");
-for(int i=0;i<36;i++) cout << " ";printf("     /  .-.       En un mundo muy muy lejano habia una vez...  |\n");
-for(int i=0;i<36;i++) cout << " ";printf("    |  /   \\   No! Alumno PUCP, esta historia no empieza asi,  |\n");
-for(int i=0;i<36;i++) cout << " ";printf("    | |\\_.  |       Esta es la realidad, TU REALIDAD           |\n");
-for(int i=0;i<36;i++) cout << " ";printf("    |\\|  | /|    Pero no te preocupes! Te vamos a ayudar :)    |\n");
-for(int i=0;i<36;i++) cout << " ";printf("    | `---' |  Para que te prepares muy bien para sobrevivir   |\n");
-for(int i=0;i<36;i++) cout << " ";printf("    |       |              en esta Jungla PUCP!                |\n");
-for(int i=0;i<36;i++) cout << " ";printf("    |       |                                                  |\n");
-for(int i=0;i<36;i++) cout << " ";printf("    |       |          ESTO ES ... STUDIES MADNESS 8D          |\n");
-for(int i=0;i<36;i++) cout << " ";printf("    |       |        QUIERES EMPEZAR? (PRESIONA ENTER :D)      /\n");
-for(int i=0;i<36;i++) cout << " ";printf("     \\      |------------------------------------------------'       \n");
-for(int i=0;i<36;i++) cout << " ";printf("      \\    /       \n");
-for(int i=0;i<36;i++) cout << " ";printf("       `--'                            \n");
+CREAR BASICOS+3 ESPACIOS;printf("                                                         .--.\n"); 
+CREAR BASICOS+3 ESPACIOS;printf("                                                        /  .  \\\n"); 
+CREAR BASICOS+3 ESPACIOS;printf("                                                       |\\_/|   |\n"); 
+CREAR BASICOS+3 ESPACIOS;printf("                                                       |   |  /|\n"); 
+CREAR BASICOS+3 ESPACIOS;printf("      .------------------------------------------------------' |\n");
+CREAR BASICOS+3 ESPACIOS;printf("     /  .-.       En un mundo muy muy lejano habia una vez...  |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |  /   \\   No! Alumno PUCP, esta historia no empieza asi,  |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    | |\\_.  |       Esta es la realidad, TU REALIDAD           |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |\\|  | /|    Pero no te preocupes! Te vamos a ayudar :)    |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    | `---' |  Para que te prepares muy bien para sobrevivir   |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |       |              en esta Jungla PUCP!                |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |       |                                                  |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |       |          ESTO ES ... STUDIES MADNESS 8D          |\n");
+CREAR BASICOS+3 ESPACIOS;printf("    |       |        QUIERES EMPEZAR? (PRESIONA ENTER :D)     /\n");
+CREAR BASICOS+3 ESPACIOS;printf("     \\      |------------------------------------------------'       \n");
+CREAR BASICOS+3 ESPACIOS;printf("      \\    /       \n");
+CREAR BASICOS+3 ESPACIOS;printf("       `--'                            \n");
 
 while (cin.get() != '\n');
 }
 
-//int opciones_contiene_palabra_mover(char opcion[], const char*pal) {
-//    for (int i = 0; opcion[i]; i++) {
-//        if (opcion[i] == ' ') opcion[i] = 0;
-//    }
-//    return strcmp(opcion, pal);
-//}
-
 void mostrarOpcionesGenerales() {    
     cout << endl;
-    for(int i=0;i<46;i++) cout << " "; cout << char(201);
+    CREAR GENERALES ESPACIOS; cout << char(201);
     for(int i=0;i<46;i++) cout << char(205);
     cout << char(187) << endl ;
-    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "  OPCIONES:                                   " << char(186) << endl;
+    CREAR GENERALES ESPACIOS;cout << char(186) << "  OPCIONES:                                   " << char(186) << endl;
     //for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Mover        -----> Direcciones         " << endl;
-    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Interactuar  ----->  (a)              " << char(186) << endl;
-    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Usar         ----->  (s)(numero)      " << char(186) << endl;
-    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Botar        ----->  (b)(numero)      " << char(186) << endl;
-    for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Salir        ----->  (p)              " << char(186) << endl;
-    for(int i=0;i<46;i++) cout << " ";cout << char(200);
+    CREAR GENERALES ESPACIOS;cout << char(186) << "        Interactuar  ----->  (a)              " << char(186) << endl;
+    CREAR GENERALES ESPACIOS;cout << char(186) << "        Usar         ----->  (s)(numero)      " << char(186) << endl;
+    CREAR GENERALES ESPACIOS;cout << char(186) << "        Botar        ----->  (b)(numero)      " << char(186) << endl;
+    CREAR GENERALES ESPACIOS;cout << char(186) << "        Salir        ----->  (p)              " << char(186) << endl;
+    CREAR GENERALES ESPACIOS;cout << char(200);
     for(int i=0;i<46;i++) cout << char(205);
     cout << char(188) << endl ;
-    for(int i=0;i<46;i++) cout << " ";cout << "  Escriba una accion                     :";
+    CREAR GENERALES ESPACIOS;cout << "  Escriba una accion                     :";
 }
 
 void LecturaMoviento(char &c1){

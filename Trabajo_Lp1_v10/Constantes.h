@@ -30,14 +30,16 @@
 
 #define CREAR for (int i = 0; i < 
 #define ESPACIOS ; i++) cout << " "
+#define BASICOS 33
+#define GENERALES 46
 
 #define IMAGEN_MONSTRUO 5
 
-#define CENTAURO 45
-#define CABALLO 33
-#define STARDEMON 33
-#define MURCIELAGO 33
-#define CASCO 55
+#define CENTAURO 55
+#define CABALLO 43
+#define STARDEMON 43
+#define MURCIELAGO 43
+#define CASCO 65
 
 #endif	/* CONSTANTES_H */
 

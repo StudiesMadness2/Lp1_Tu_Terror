@@ -10,14 +10,18 @@
 
 class Avatar : public Entidad{
 private:
-         
-
+    int vidas;
+    int flagLabs;
 public:
     Avatar();
     //Avatar(const Avatar& orig);
     virtual ~Avatar();
 
     void mostrarDatosMapa();
+    int getVidas() const;
+    void setVidas(int vidas);
+    void setflagLabs(int flagLabs);
+    int getflagLabs() const;
 };
 
 #endif	/* AVATAR_H */

@@ -84,7 +84,7 @@ void Laberinto::distribuirMonstruosRandom(Monstruo *Mons, int numM, Arma* armas,
             casilla =  getCasilla(i, j);         
             
             if (casilla == MONSTRUO) {                
-                cout << casilla ; 
+                //cout << casilla ; 
                 srand(time(NULL));
               
                 indMonst = (rand()+i+j) % numM;

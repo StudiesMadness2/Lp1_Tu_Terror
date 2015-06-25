@@ -45,15 +45,13 @@ int main(int argc, char** argv) {
     nuevoJuego.iniciarPosicionAvatar();
     
     nuevoJuego.distribuirMonstruosXLaberinto(Mons,numM,ArmM,numAM,Armd,numAd,Poc,numP);
-    
-    // nuevoJuego.GetLaberintoActual().impresion(); //<--- elmetodo de impresio(despues borrarlo))
-    // nuevoJuego.GetAvatar().impresionInformacionAvatar() ; 
 
     PlaySound(NULL, NULL, 0); //Funcion para detener un sonido
     PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
     while (1) {
         if (flag == 1) {
-         //   nuevoJuego.dibujarEsquema();            
+         //dibuja el esquema y muestra las opciones  
+            
             nuevoJuego.dibujador2();
             nuevoJuego.GetAvatar().mostrarDatosMapa();
             nuevoJuego.ImprimirSaco();

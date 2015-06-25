@@ -71,10 +71,11 @@ void Juego::CargarLaberintos(int MaxLevel) {
     desordenar(indices, cant_Labs);
     arreLaberintos = new Laberinto[cant_Labs];
     int tam = int (MaxLevel / cant_Labs);
+    if(tam==0) tam=1;
     for (int i = 0; i < cant_Labs; i++) {
+        arreLaberintos[i] = gestorLaberinto.crear(arreNombArch[indices[i]]);
         if (i == cant_Labs - 1) arreLaberintos[i].setNivelesMonstruo(tam, i * tam, MaxLevel);
         else arreLaberintos[i].setNivelesMonstruo(tam, i*tam, (i * tam) + tam);
-        arreLaberintos[i] = gestorLaberinto.crear(arreNombArch[indices[i]]);
     }
     posLaberintoActual = 0;
     LaberintoActual = arreLaberintos[0];
@@ -94,8 +95,8 @@ void Juego::iniciarPosicionAvatar() {
 void Juego::distribuirMonstruosXLaberinto(Monstruo *Mons, int numM, Arma* armas, int numArmas, Armadura *armaduras, int numArmad, PocionCuracion *pociones, int numPociones) {
     for (int i = 0; i < cantidadDeLaberintos; i++) {
         arreLaberintos[i].distribuirMonstruosRandom(Mons, numM, armas, numArmas, armaduras, numArmad, pociones, numPociones);
-        cout << endl <<cantidadDeLaberintos <<endl ; 
-        cout << arreLaberintos[i].getCantMonstruos() << endl ; 
+        //cout << endl <<cantidadDeLaberintos <<endl ; 
+        //cout << arreLaberintos[i].getCantMonstruos() << endl ; 
     }
 }
 
@@ -130,6 +131,7 @@ void Juego::intentarmosMoverAvatar(char& movimiento, int &flag) {
             avatar.SetPosX(nx); // Se mueve pero no se cambia de laberinto
             avatar.SetPosY(ny);
         } else {
+            avatar.setflagLabs(avatar.getflagLabs()+1);
             posLaberintoActual -= 1; // Se mueve y se cambia de laberinto
             LaberintoActual = arreLaberintos[posLaberintoActual];
             avatar.SetPosX(LaberintoActual.getX_Sig());
@@ -137,6 +139,8 @@ void Juego::intentarmosMoverAvatar(char& movimiento, int &flag) {
 
         }
     } else if (LaberintoActual.getCelda()[ny][nx].GetTipo() == SIGUIENTE) {
+        if(avatar.getflagLabs()==0) avatar.SetDanhoBase(avatar.GetDanhoBase()+10);
+        avatar.setflagLabs(avatar.getflagLabs()-1);
         flag = 1;
         if (posLaberintoActual == cantidadDeLaberintos - 1) {
             movimiento = FIN;
@@ -340,24 +344,47 @@ void Juego::impresionDeMonstruos(int indLabActual, int x, int y) {
 }
 
 void Juego::MostrarDatosPrevioBatalla(Monstruo monster) {
-    cout << endl << "El monstruo tiene:\n" << endl;
-    cout << "Nombre :"<< monster.GetNombre()<<endl;
-    cout << "vida: " << monster.GetMaxVida() << endl;
-    cout << "Danho base: " << monster.GetDanhoBase() << endl;
+    cout << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(201);
+    for(int i=0;i<66;i++) cout << char(205);
+    cout << char(187) << endl ;
+    CREAR BASICOS+4 ESPACIOS;cout << char(186) << " Este es tu Monstruo!";
+    CREAR GENERALES-1 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS;cout << char(186) << " Curso : "<< monster.GetNombre();
+    for(int i=0;i<57-strlen(monster.GetNombre());i++) cout << " "; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS;cout << char(186) << " Vida: " << left << setw(4) << monster.GetMaxVida();
+    CREAR BASICOS+3 ESPACIOS;cout << " Danho base: " << left << left << setw(6)<< monster.GetDanhoBase() << char(186) <<endl;
 
-    if (monster.GetArmadura() != NULL)
-        cout << "armadura:" << monster.GetArmadura()->GetDefensa() << endl;
-    else
-        cout << "armadura: No tiene" << endl;
-    if (monster.GetArma() != NULL) {
-        cout << "arma (danho max): " << monster.GetArma()->GetDanhoMax() << endl;
-        cout << "arma (danho min): " << monster.GetArma()->GetDanhoMin() << endl;
-    } else
-        cout << "arma: No tiene" << endl;
+    if (monster.GetArmadura() != NULL){
+        CREAR BASICOS+4 ESPACIOS; 
+        cout << char(186) << " Armadura:";
+        monster.GetArmadura()->Imprimir();
+        cout << char(186) << endl;
+    }
+    else{
+        CREAR BASICOS+4 ESPACIOS; cout << char(186) << " Armadura: No tiene "; 
+        CREAR GENERALES ESPACIOS; cout << char(186) << endl;
+    } if (monster.GetArma() != NULL) {
+        CREAR BASICOS+4 ESPACIOS; 
+        cout << char(186) << " Arma: ";
+        monster.GetArma()->Imprimir() ;
+        cout << char(186) << endl;
+    } else{
+        CREAR BASICOS+4 ESPACIOS; cout << char(186) << " Arma: No tiene ";
+        CREAR GENERALES+4 ESPACIOS; cout << char(186) << endl;
+    }
+    CREAR BASICOS+4 ESPACIOS;
+    cout << char(200);
+    for (int i = 0; i < 66; i++) cout << char(205);
+    cout << char(188) << endl << endl;  
 
-    cout << endl << "tienes " << this->GetAvatar().GetVidaActual() << " de vida actual\n" << endl;
+    this->GetAvatar().mostrarDatosMapa();
+    CREAR BASICOS+4 ESPACIOS;
+    cout << char(200);
+    for (int i = 0; i < 66; i++) cout << char(205);
+    cout << char(188) << endl << endl << endl; 
 
-    printf("\n\n Deseas pelear con el monstruo ('yes' or 'no') ?   ");
+    CREAR BASICOS+4 ESPACIOS; printf("Deseas pelear con el monstruo ('yes' or 'no') ?   ");
 }
 
 
@@ -378,7 +405,7 @@ int Juego::PreguntarPelearConMonstruo(int indLabActual, int x, int y) {
         yes = (strcmp(linea, "yes") == 0) ? 1 : 0; //si es igual a "yes"
         no = (strcmp(linea, "no") == 0) ? 1 : 0; // si es igual a "no"
         if (yes || no) break; //Si responde correctamente sale del bucle
-        printf("Tienes que escribir \"yes\" o \"no\" :  ");
+        CREAR BASICOS+4 ESPACIOS; cout << "Tienes que escribir \"yes\" o \"no\" :  ";
         gets(linea);
     }
     if (yes) { // en caso acepte la batalla
@@ -388,56 +415,62 @@ int Juego::PreguntarPelearConMonstruo(int indLabActual, int x, int y) {
 }
 
 void imprimirAtaqueMonstruo() {
-    cout << "El Curso usa ";
+    CREAR BASICOS+4 ESPACIOS; cout << char(201);
+    for(int i=0;i<66;i++) cout << char(205);
+    cout << char(187) << endl ;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << "El Curso usa ";
     int num = rand() % 6;
     switch (num) {
         case 0:
-            cout << "Final imposible" << endl;
+            cout << "Final imposible       ";
             break;
         case 1:
-            cout << "Prueba tipo C" << endl;
+            cout << "Prueba tipo C         ";
             break;
         case 2:
-            cout << "Laboratorio innovador" << endl;
+            cout << "Laboratorio innovador ";
             break;
         case 3:
-            cout << "Parcial Nivel asiatico" << endl;
+            cout << "Parcial Nivel asiatico";
             break;
         case 4:
-            cout << "Practica Troll" << endl;
+            cout << "Practica Troll        ";
             break;
         case 5:
-            cout << "a Jp vende humo" << endl;
+            cout << "El Jp vende humo      ";
             break;
-
     }
+    CREAR 31 ESPACIOS; cout << char(186) << endl;
 }
 
 void imprimirContraAtaqueMonstruo() {
-    cout << "Usaste :";
+    CREAR BASICOS+4 ESPACIOS;cout << char(186) << "Usaste  ";
     int num = rand() % 6;
     switch (num) {
         case 0:
-            cout << "Kit Completo en Tetrix" << endl;
+            cout << "Kit Completo en Tetrix         ";
             break;
         case 1:
-            cout << "Planchon salvaje" << endl;
+            cout << "Planchon salvaje               ";
             break;
         case 2:
-            cout << "Usb salvador" << endl;
+            cout << "Usb salvador                   ";
             break;
         case 3:
-            cout << "Estudiar con anticipacion" << endl;
+            cout << "Estudiar con anticipacion      ";
             break;
         case 4:
-            cout << "Amanecida Hardcore" << endl;
+            cout << "Amanecida Hardcore             ";
             break;
         case 5:
-            cout << "Camara de entrenamiento de Goku" << endl;
+            cout << "Camara de entrenamiento de Goku";
             break;
     }
-    cout << endl;
-
+    CREAR 27 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS;
+    cout << char(200);
+    for (int i = 0; i < 66; i++) cout << char(205);
+    cout << char(188) << endl << endl << endl;
 }
 
 void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
@@ -446,12 +479,23 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
     int a, f, s, r = 0;
     while ((avatar.GetVidaActual() > 0) && (monster.GetVidaActual() > 0)) {
         if (!r) {
-            
-            cout << "Elija una opcion: " << endl;
-            cout << "a) Atacar!" << endl;
-            cout << "r) Ataque automatico" << endl;
-            cout << "s) Usar artefacto (sin implementar)" << endl;
-            cout << "f) Retirarse del curso" << endl << endl << "? ";
+            system("cls");
+            CREAR BASICOS+4 ESPACIOS; cout << char(201);
+            for(int i=0;i<66;i++) cout << char(205);
+            cout << char(187) << endl ;
+            CREAR BASICOS+4 ESPACIOS; cout << char(186) << " Elija una opcion:                  ";
+            CREAR BASICOS-2 ESPACIOS; cout << char(186) << endl;
+            CREAR BASICOS+4 ESPACIOS; cout << char(186) << " a) Atacar!                         ";
+            CREAR BASICOS-2 ESPACIOS; cout << char(186) << endl;
+            CREAR BASICOS+4 ESPACIOS; cout << char(186) << " r) Ataque automatico               ";
+            CREAR BASICOS-2 ESPACIOS; cout << char(186) << endl;
+            CREAR BASICOS+4 ESPACIOS; cout << char(186) << " s) Usar artefacto (sin implementar)";
+            CREAR BASICOS-2 ESPACIOS; cout << char(186) << endl;
+            CREAR BASICOS+4 ESPACIOS; cout << char(186) << " f) Retirarse del curso             ";
+            CREAR BASICOS-2 ESPACIOS; cout << char(186) << endl;
+            CREAR BASICOS+4 ESPACIOS; cout << char(200);
+            for (int i = 0; i < 66; i++) cout << char(205); cout << char(188) << endl << endl; 
+            CREAR BASICOS+4 ESPACIOS; cout << "? ";
             cin >> opcion;
 
             while (1) {
@@ -467,13 +511,13 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
 
                 if (a || f || r || s) break;
 
-                cout << "Debe seleccionar una de las dos opciones ";
+                CREAR BASICOS+4 ESPACIOS; cout << "Debe seleccionar una de las dos opciones ";
                 cin >> opcion;
             }
         }
 
         if (s) {
-
+        //FALTA CODEAR
 
 
         }
@@ -481,25 +525,29 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
             system("cls");
             int huida = rand() % 101;
             if (huida < 25) {
-                cout << "Te retiraste del curso\n" << endl;
-                cout << "Perdiste la mitad de tu vida\n" << endl;
+                cout << endl;
+                CREAR BASICOS+4 ESPACIOS; cout << "Te retiraste del curso" << endl;
+                CREAR BASICOS+4 ESPACIOS; cout << "Pero... Perdiste la mitad de tu vida" << endl << endl;
                 int quitaVida = avatar.GetVidaActual();
                 quitaVida = (int) (quitaVida / 2);
                 int vidaRestada = avatar.GetVidaActual() - quitaVida;
                 if (vidaRestada < 0) avatar.SetVidaActual(1);
                 else avatar.SetVidaActual(vidaRestada);
+                CREAR BASICOS+4 ESPACIOS; cout << "Tu vida actual es: " << avatar.GetVidaActual() << endl << endl;
                 break;
             } else {
-                cout << "No has podido retirarte del curso :( " << endl;
-                cout << "sigue luchando campeon!\n" << endl;
+                CREAR BASICOS+4 ESPACIOS; cout << "No has podido retirarte del curso :( " << endl;
+                CREAR BASICOS+4 ESPACIOS; cout << "Sigue luchando campeon!\n" << endl;
             }
+            CREAR BASICOS+4 ESPACIOS; cout << "Aprente una tecla para continuar: ";
+            while (cin.get() != '\n');
         }
 
         if (a || r || f || s) {
 
             system("cls");
-            if (a || !r || s || f)imprimirAtaqueMonstruo();
-            if (a && !r && !s && !f)imprimirContraAtaqueMonstruo();
+            if (a || !r || s || f) imprimirAtaqueMonstruo();
+            if (a && !r && !s && !f) imprimirContraAtaqueMonstruo();
             //////////////////////////////////////////////////
             int maxM = 0;
             if (monster.GetArma() != NULL) maxM = monster.GetArma()->GetDanhoMax();
@@ -531,46 +579,55 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag) {
             }
             monster.SetVidaActual(monster.GetVidaActual() - danhoA);
         }
-
-
-
+        
         if ((monster.GetVidaActual() > 0) && !r) {
-            cout << "El monstruo tiene " << monster.GetVidaActual() << " de vida\n" << endl;
-            cout << "Tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
+            CREAR BASICOS+4 ESPACIOS; cout << "El monstruo tiene " << monster.GetVidaActual() << " de vida\n" << endl;
+            CREAR BASICOS+4 ESPACIOS; cout << "Tienes " << avatar.GetVidaActual() << " de vida\n" << endl << endl ;
             
-            cout << "Elija una opcion: " << endl;
-            cout << "a) Atacar!" << endl;
-            cout << "r) Ataque automatico" << endl;
-            cout << "s) Usar artefacto (sin implementar)" << endl;
-            cout << "f) Retirarse del curso" << endl << endl << "? ";
-            cin >> opcion;
         }
-        if ((monster.GetVidaActual() <= 0)) {
-            cout << "Venciste al Monstruo" << endl;
-            cout << "Te queda " << avatar.GetVidaActual() << " de vida\n" << endl;
+        if ((monster.GetVidaActual() <= 0)&&(avatar.GetVidaActual()>0)) {
+            CREAR BASICOS+4 ESPACIOS; cout << "Venciste al Monstruo" << endl;
+            CREAR BASICOS+4 ESPACIOS; cout << "Te queda " << avatar.GetVidaActual() << " de vida" << endl;
         }
+        if((avatar.GetVidaActual()<=0)){
+            CREAR BASICOS+4 ESPACIOS; cout << "Perdiste! Este curso te vencio" << endl;
+            avatar.setVidas(avatar.getVidas()-1);
+            CREAR BASICOS+4 ESPACIOS; 
+            if(avatar.getVidas()==3) cout << "Pero aun te queda la BICA!" << endl;
+            if(avatar.getVidas()==2) cout << "Pero aun te queda la TRICA!" << endl;
+            if(avatar.getVidas()==1) cout << "Pero aun te queda la CARTA!" << endl;
+            if(avatar.getVidas()==0){
+                CREAR BASICOS+4 ESPACIOS;cout << "Creo que es momento de trasladar tu talento" << endl;
+                //poner un mapa final
+                
+            }
+            avatar.SetMaxVida(avatar.GetMaxVida()-(250*(4-avatar.getVidas())));
+            avatar.SetVidaActual(avatar.GetMaxVida());
+            CREAR BASICOS+4 ESPACIOS;cout << "Tu vida actual es: " << avatar.GetVidaActual() << endl;
+            
+        }
+        CREAR BASICOS+4 ESPACIOS; cout << "Aprente una tecla para continuar: ";
+        while (cin.get() != '\n');
+        while (cin.get() != '\n');
 
     }
-
-    cout << "Aprente una tecla para continuar: ";
-    while (cin.get() != '\n');
-    while (cin.get() != '\n');
+    
     system("cls");
     if ((avatar.GetVidaActual() <= 0)) {
-        cout << "HAS PERDIDO\n" << endl;
+        //CREAR BASICOS+4 ESPACIOS;cout << "HAS PERDIDO \n" << endl;
         flag = 0;
     } else {
 
-        cout << "Ganaste la Batalla! Felicitaciones!\n" << endl;
+        CREAR BASICOS+4 ESPACIOS;cout << "Ganaste la Batalla! Felicitaciones!\n" << endl;
         flag = 1;
        // cout << "tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
         int num = rand() % 10;
 
-        cout << "Te has ganado un:  \n\n";
+        CREAR BASICOS+4 ESPACIOS;cout << "Te has ganado un:  \n\n";
 
     }
-
-    cout << "Aprente una tecla para continuar: ";
+    cout << endl;
+    CREAR BASICOS+4 ESPACIOS;cout << "Aprente una tecla para continuar: ";
     while (cin.get() != '\n');
 }
 
@@ -581,61 +638,6 @@ void Juego::SetDibujador(Dibujador dibujador) {
 Dibujador Juego::GetDibujador() const {
     return dibujador;
 }
-
-//void Juego::dibujarEsquema() {
-//    int posX_Avatar = this->avatar.GetPosX();
-//    int m = this->LaberintoActual.getM();
-//    int n = this->LaberintoActual.getN();
-//    int posY_Avatar = this->avatar.GetPosY();
-//    int mitad_ancho = this->dibujador.GetA();
-//    int mitad_alto = this->dibujador.GetB();
-//
-//    int i_arriba, i_abajo, j_izq, j_der;
-//    i_arriba = posY_Avatar - mitad_alto;
-//
-//    if (i_arriba < 0) i_arriba = 0;
-//    i_abajo = posY_Avatar + mitad_alto;
-//
-//    if (i_abajo > m - 1) i_abajo = m - 1;
-//    j_izq = posX_Avatar - mitad_ancho;
-//
-//    if (j_izq < 0) j_izq = 0;
-//    j_der = posX_Avatar + mitad_ancho;
-//
-//    if (j_der > n - 1) j_der = n - 1;
-//    //for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
-//
-//    system("cls");
-//
-//    for (int i = i_arriba; i <= i_abajo; i++) {
-//        //     for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" "); // Para poder centrar el esquema
-//
-//        for (int j = j_izq; j <= j_der; j++) {
-//
-//            char celda = (char) this->LaberintoActual.getCelda()[i][j].GetTipo();
-//
-//            if (avatar.GetPosX() == j && avatar.GetPosY() == i) {
-//                rlutil::setColor(114);
-//                printf("%c", IMAG_AVATAR);
-//            } else if (celda == '-' || celda == '+') {
-//                rlutil::setColor(121); // Entra  y Sale
-//                printf("%c", celda);
-//            } else if (celda == 'M' ||
-//                    celda == 'A') {
-//                rlutil::setColor(124);
-//                printf("%c", celda);
-//            } else {
-//                rlutil::setColor(112); // 96 176 112
-//                printf("%c", celda);
-//            }
-//        }
-//        printf("\n");
-//    }
-//    rlutil::setColor(7); // Restablece Co
-//    printf("\n");
-//    //   for (int k = 0; k < 40 - (j_der - j_izq) / 2; k++)printf(" ");
-//    //printf("====Esquema_Avatar====\n");
-//}
 
 void Juego::dibujador2() {
     dibujador.dibujarEsquemaVersion2(LaberintoActual, avatar);
@@ -663,20 +665,20 @@ int Juego::GetPosLaberintoActual() const {
 }
 
 void Juego::ImprimirSaco() {
-    for (int i = 0; i < 36; i++) cout << " ";
+    CREAR BASICOS+4 ESPACIOS;
     cout << char(186);
     for (int i = 0; i < 66; i++) cout << " ";
     cout << char(186) << endl;
-    for (int i = 0; i < 36; i++) cout << " ";
+    CREAR BASICOS+4 ESPACIOS;
     cout << char(186) << "  Elementos en el Saco: ";
-    for (int i = 0; i < 42; i++) cout << " ";
+    CREAR GENERALES-4 ESPACIOS;
     cout << char(186) << endl;
     for (int i = 0; i < this->avatar.GetSaco().GetIndice(); i++) {
-        for (int j = 0; j < 36; j++) cout << " ";
+        CREAR BASICOS+4 ESPACIOS;
         cout << char(186) << "  " << right << setw(2) << i << "  ";
         this->avatar.GetSaco()[i]->Imprimir();
     }
-    for (int i = 0; i < 36; i++) cout << " ";
+    CREAR BASICOS+4 ESPACIOS;
     cout << char(200);
     for (int i = 0; i < 66; i++) cout << char(205);
     cout << char(188) << endl;

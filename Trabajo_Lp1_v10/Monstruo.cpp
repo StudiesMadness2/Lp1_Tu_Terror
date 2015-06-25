@@ -32,10 +32,6 @@ void Monstruo::AsignarMons(int level, int max, int vida, char *name,int imagen){
     this->SetImagen(imagen);
 }
 
-//void Monstruo::AsignarImagen(int imagen){
-//    this->SetImagen(imagen);
-//}
-
 void  Monstruo :: imp(){
   cout << this->GetNombre() ; 
   cout << this->GetPosX() ; 
