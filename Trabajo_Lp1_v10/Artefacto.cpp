@@ -9,14 +9,6 @@
 #include "PocionCuracion.h"
 #include "Artefacto.h"
 
-//void Artefacto::Imprimir() {
-//
-//}
-
-//void Artefacto::usar() {
-//
-//}
-
 void Artefacto::SetTipo(int tipo) {
     this->tipo = tipo;
 }

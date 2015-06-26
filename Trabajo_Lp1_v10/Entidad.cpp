@@ -86,10 +86,9 @@ int Entidad::GetDanhoBase() const {
 int Entidad::poseeElSacoLLeno() {
     return this->saco.estaLleno();
 }
-
 int Entidad::usarArteFactor(int ind) {
     if (this->saco[ind]) {
-        this->saco[ind]->usar2(*this, ind);
+        this->saco[ind]->usar(*this, ind);
         return 1;
     }
     return 0;

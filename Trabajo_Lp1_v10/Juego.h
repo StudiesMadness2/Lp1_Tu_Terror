@@ -43,8 +43,8 @@ public:
     friend void imprimirContraAtaqueMonstruo();
     void botarArtefactoGrafico() ;
 
-    void MostrarDatosPrevioBatalla(Monstruo);
-    void PelearConMonstruo(Monstruo monster, int &flag, int,int,int);
+    void MostrarDatosPrevioBatalla(Monstruo &);
+    void PelearConMonstruo(Monstruo & monster, int &flag, int,int,int);
     void ImprimirSaco();
     friend void ImprimirOpcionesDeBatalla();
 
@@ -56,7 +56,7 @@ public:
     Avatar GetAvatar() const;
     void SetPosLaberintoActual(int posLaberintoActual);
     int GetPosLaberintoActual() const;
-    void dibujador2();
+    void dibujadorDeEsquema();
 
 
     void cargarArtefactos();
@@ -67,7 +67,7 @@ public:
     void distribuirMonstruosXLaberinto(Monstruo *Mons, int numM, Arma *armas, int numA, Armadura *armaduras, int numArmad, PocionCuracion *pociones , int numPociones);
     
     void historiaDelJuego();
-
+    void tiempo(int) ; 
 };
 
 #endif	/* JUEGO_H */

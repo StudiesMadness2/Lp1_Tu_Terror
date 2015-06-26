@@ -47,14 +47,6 @@ void Dibujador::dibujarEsquemaVersion2(Laberinto &lab, Avatar Ava) {
     system("cls");
     printf("\n");
 
-    //    for (int i = 0; i < m; i++) {
-    //        for (int j = 0; j < n; j++) {
-    //            printf("%c", lab.getCasilla(i,j));
-    //        }
-    //        printf("\n");
-    //    }
-
-
     for (int i = i_arriba; i <= i_abajo; i++) { //aquí se modifica el alto y bajo del mapa
 
         rlutil::setColor(7);
@@ -74,14 +66,16 @@ void Dibujador::dibujarEsquemaVersion2(Laberinto &lab, Avatar Ava) {
             } else if (celda == '-' || celda == '+') {
                 rlutil::setColor(121); // Entra  y Sale
                 printf("%c", celda);
-            } else if (celda == 'M' || celda == 'A') {
+            } else if (celda == 'M'  ) {
                 rlutil::setColor(124);
                 printf("%c", celda);
+            }else if (celda == 'A'){
+                rlutil::setColor(118);
+                printf("%c", celda);                
             } else {
                 rlutil::setColor(112); // 96 176 112
                 if (celda == ADENTRO) printf("%c", celda);
                 else printf("%c", PAREDVISUAL);
-
             }
         }
         rlutil::setColor(7);

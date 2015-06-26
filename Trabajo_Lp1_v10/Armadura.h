@@ -16,15 +16,12 @@ public:
     Armadura(int def = 0);
     virtual ~Armadura();
     void AsignarArmadura(int, char*);
-    void Imprimir();
-    
+    void Imprimir();    
     void SetDefensa(int defensa);
     int GetDefensa() const;
     void SetNombre(char* nombre);
-    char* GetNombre() const;
-    
-    void usar();
-    void usar2(class Entidad &E, int ind);
+    char* GetNombre() const;        
+    void usar(class Entidad &E, int ind);
 
 };
 

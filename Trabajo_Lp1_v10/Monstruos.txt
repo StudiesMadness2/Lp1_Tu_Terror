@@ -18,27 +18,27 @@ Bases de Datos
 Fundamentos de Programacion
 4
 100
-4
+4	
 Algoritmia
 4
 100
-0
-Lenguaje de Programacion
 5
-120
-1
 Organizacion y Arquitectura de Computadoras
 5
 120
-2
-Aplicaciones de Ciencias de la Computacion
 6
+Lenguaje de Programacion
+5
+120
+7
+Aplicaciones de Ciencias de la Computacion
+7
 145
-3
+8
 Ingenieria de Software
 8
 170
-4
+9
 
 /* NOMBRE
  * NIVEL

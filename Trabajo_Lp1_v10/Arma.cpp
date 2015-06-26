@@ -50,11 +50,9 @@ void Arma::Imprimir() {
     cout << "Arma:     " << left << setw(20) << nombre << " - Danho: " << left << setw(3) << danhoMin << "(Min) - " << left << setw(3) << danhoMax << "(Max) " << char(186) << endl;
 }
 
-void Arma::usar() {
-    cout << "uso Arma \n";
-}
 
-void Arma::usar2(class Entidad &E, int ind) {
+
+void Arma::usar(class Entidad &E, int ind) {
     if (E.GetArma()== NULL) {
         E.SetArma(this);
         E.botarArtefacto(ind);

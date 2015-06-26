@@ -16,12 +16,6 @@ Avatar::Avatar() {
     flagLabs=0;
 }
 
-//Avatar::Avatar(const Avatar& orig) {
-//    this->SetPosX(orig.GetPosX()) ; 
-//    this->SetPosY(orig.GetPosY()) ; 
-//    this->SetMaxVida(orig.GetMaxVida()) ; 
-//}
-
 Avatar::~Avatar() {
 }
 

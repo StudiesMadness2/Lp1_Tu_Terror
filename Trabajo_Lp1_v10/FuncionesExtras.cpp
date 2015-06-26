@@ -9,6 +9,7 @@
 #include "Armadura.h"
 #include "PocionCuracion.h"
 #include "Constantes.h"
+#include <time.h>
 #define KEY_UP 72
 #define KEY_DOWN 80
 #define KEY_LEFT 75

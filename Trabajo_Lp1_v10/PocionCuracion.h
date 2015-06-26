@@ -17,9 +17,8 @@ public:
     PocionCuracion(const PocionCuracion& orig);
     virtual ~PocionCuracion();
     void AsignarPocion(int, char*);
-    void Imprimir();
-    void usar();
-    void usar2(class Entidad &E,int ind);
+    void Imprimir();    
+    void usar(class Entidad &E,int ind);
 };
 
 #endif	/* POCIONCURACION_H */

@@ -23,8 +23,8 @@ public:
     int GetDanhoMin() const;
     void SetNombre(char* nombre);
     char* GetNombre() const;
-    void usar();
-    void usar2(class Entidad &E, int ind);
+    
+    void usar(class Entidad &E, int ind);
 
 };
 

@@ -4,6 +4,7 @@
  * 
  * Created on 5 de junio de 2015, 11:18 AM
  */
+#include <unistd.h>
 #include "Constantes.h"
 #include "rlutil.h"
 #include <fstream>
@@ -21,8 +22,16 @@
 #include <MMSystem.h>
 #include <fstream>
 #include <iomanip>
-
-
+#define GESTION 40
+#define SEGURIDAD 40
+#define ED 40
+#define BASES 40
+#define FUNDA 40
+#define ALGORITMIA 40
+#define OAC 40 
+#define SOFTWARE 40
+#define LP1 40
+#define APLICA 40
 using namespace std;
 
 Juego::Juego() {
@@ -32,6 +41,7 @@ Juego::Juego() {
 }
 
 Juego::~Juego() {
+    delete[] arreLaberintos;
 
 }
 
@@ -183,7 +193,7 @@ void Juego::intentamosInteractuarAvatar(int numAA, int numAd, int numP, Arma *Ar
                             pelea = PreguntarPelearConMonstruo(this->posLaberintoActual, y + f, x + k);
                             PlaySound(NULL, NULL, 0);
                             PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
-                            if (pelea == 1) LaberintoActual.getCelda()[y + f][x + k].SetTipo(ADENTRO);
+                            if (pelea == 1) LaberintoActual.getCelda()[y + f][x + k].SetTipo(ARTEFACTO);
                             k = 3;
                             f = 3; //para salir del bucle
                             break;
@@ -234,112 +244,96 @@ void Juego::impresionDeMonstruos(int indLabActual, int x, int y) {
     
     switch (num) {
         case 0:
-            CREAR MURCIELAGO ESPACIOS;            printf("           \\                  /\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("    _________))                ((__________\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("   /.-------./\\    \\    /    //\\.--------.\\\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("  //#######//##\\   ))  ((   //##\\########\\\n");
-            CREAR MURCIELAGO ESPACIOS;            printf(" //#######//###((  ((    ))  ))###\\########\\\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("((#######((#####\\  \\  //  //#####))########))\n");
-            CREAR MURCIELAGO ESPACIOS;            printf(" \\##' `###\\######\\  \\)(/  //######/####' `##/\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("  )'    ``#)'  `##\\`->oo<-'/##'  `(#''     `(\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("          (       ``\\`..'/''       )\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("                     \\'''\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("                      `- )\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("                      / /\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("                     ( /\\  \n");
-            CREAR MURCIELAGO ESPACIOS;            printf("                     /\\| \\\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("                    (  \\\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("                        )\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("                       /\n");
-            CREAR MURCIELAGO ESPACIOS;            printf("                      (\n\n");
+            CREAR GESTION ESPACIOS; cout << "ooooo ooooo      ooo oooooooooo.     .oooo.     oooooooo   .o " << endl;
+            CREAR GESTION ESPACIOS; cout << "`888' `888b.     `8' `888'   `Y8b  .dP' 'Y88b  dP''''''' o888 " << endl;
+            CREAR GESTION ESPACIOS; cout << " 888   8 `88b.    8   888      888       ]8P' d88888b.    888 " << endl;
+            CREAR GESTION ESPACIOS; cout << " 888   8   `88b.  8   888      888     .d8P'      `Y88b   888 " << endl;
+            CREAR GESTION ESPACIOS; cout << " 888   8     `88b.8   888      888   .dP'           ]88   888 " << endl;
+            CREAR GESTION ESPACIOS; cout << " 888   8       `888   888     d88' .oP     .o o.   .88P   888 " << endl;
+            CREAR GESTION ESPACIOS; cout << "o888o o8o        `8  o888bood8P'   8888888888 `8bd88P'   o888o" << endl;
             break;
         case 1:
-            CREAR CASCO ESPACIOS;            printf("  ,/         \\.\n");
-            CREAR CASCO ESPACIOS;            printf(" ((           ))\n");
-            CREAR CASCO ESPACIOS;            printf("  \\`.       ,'/\n");
-            CREAR CASCO ESPACIOS;            printf("   )')     (`(\n");
-            CREAR CASCO ESPACIOS;            printf(" ,'`/       \\,`.\n");
-            CREAR CASCO ESPACIOS;            printf("(`-(         )-')\n");
-            CREAR CASCO ESPACIOS;            printf(" \\-'\\,-'\"`-./`-/\n");
-            CREAR CASCO ESPACIOS;            printf("  \\-')     (`-/\n");
-            CREAR CASCO ESPACIOS;            printf("  /`'       `'\\\n");
-            CREAR CASCO ESPACIOS;            printf(" (  _       _  )\n");
-            CREAR CASCO ESPACIOS;            printf(" | ( \\     / ) |\n");
-            CREAR CASCO ESPACIOS;            printf(" |  `.\\   /,'  |\n");
-            CREAR CASCO ESPACIOS;            printf(" |    `\\ /'    |\n");
-            CREAR CASCO ESPACIOS;            printf(" (              )\n");
-            CREAR CASCO ESPACIOS;            printf("  \\           /\n");
-            CREAR CASCO ESPACIOS;            printf("   \\  ||||   /\n");
-            CREAR CASCO ESPACIOS;            printf("    `.     ,'\n");
-            CREAR CASCO ESPACIOS;            printf("      `-.-'\n\n");
+           CREAR SEGURIDAD ESPACIOS; cout << "ooooo ooooo      ooo oooooooooo.     .oooo.    .ooooo.     .oooo.  " << endl;
+           CREAR SEGURIDAD ESPACIOS; cout << "`888' `888b.     `8' `888'   `Y8b  .dP' 'Y88b 888' `Y88. d8P' `Y8b " << endl;
+           CREAR SEGURIDAD ESPACIOS; cout << " 888   8 `88b.    8   888      888       ]8P' 888    888 888    888" << endl;
+           CREAR SEGURIDAD ESPACIOS; cout << " 888   8   `88b.  8   888      888     .d8P'   `Vbood888 888    888" << endl;
+           CREAR SEGURIDAD ESPACIOS; cout << " 888   8     `88b.8   888      888   .dP'           888' 888    888" << endl;
+           CREAR SEGURIDAD ESPACIOS; cout << " 888   8       `888   888     d88' .oP     .o     .88P'  `88b  d88'" << endl;
+           CREAR SEGURIDAD ESPACIOS; cout << "o888o o8o        `8  o888bood8P'   8888888888   .oP'      `Y8bd8P' " << endl;
             break;
         case 2:
-            CREAR STARDEMON ESPACIOS;            printf("              ._                                            ,\n");
-            CREAR STARDEMON ESPACIOS;            printf("               (`)..                                    ,.-')\n");
-            CREAR STARDEMON ESPACIOS;            printf("                (',.)-..                            ,.-(..`)\n");
-            CREAR STARDEMON ESPACIOS;            printf("                 (,.' ,.)-..                    ,.-(. `.. )\n");
-            CREAR STARDEMON ESPACIOS;            printf("                  (,.' ..' .)-..            ,.-( `.. `.. )\n");
-            CREAR STARDEMON ESPACIOS;            printf("                   (,.' ,.'  ..')-.     ,.-( `. `.. `.. )\n");
-            CREAR STARDEMON ESPACIOS;            printf("                    (,.'  ,.' ,.'  )-.-('   `. `.. `.. )\n");
-            CREAR STARDEMON ESPACIOS;            printf("                     ( ,.' ,.'    _== ==_     `.. `.. )\n");
-            CREAR STARDEMON ESPACIOS;            printf("                      ( ,.'   _==' ~  ~  `==_    `.. )\n");
-            CREAR STARDEMON ESPACIOS;            printf("                       \\  _=='   ----..----  `==_   )\n");
-            CREAR STARDEMON ESPACIOS;            printf("                    ,.-:    ,----___.  .___----.    -..\n");
-            CREAR STARDEMON ESPACIOS;            printf("                ,.-'   (   _--====_  \\/  _====--_   )  `-..\n");
-            CREAR STARDEMON ESPACIOS;            printf("            ,.-'   .__.'`.  `-_I0_-'    `-_0I_-'  .'`.__.  `-..\n");
-            CREAR STARDEMON ESPACIOS;            printf("        ,.-'.'   .'      (          |  |          )      `.   `.-..\n");
-            CREAR STARDEMON ESPACIOS;            printf("    ,.-'    :    `___--- '`.__.    / __ \\    .__.' `---___'    :   `-..\n");
-            CREAR STARDEMON ESPACIOS;            printf("  -'_________`-____________'__ \\  (O)  (O)  / __`____________-'________`-\n");
-            CREAR STARDEMON ESPACIOS;            printf("                              \\ . _  __  _ . /\n");
-            CREAR STARDEMON ESPACIOS;            printf("                               \\ `V-'  `-V' |\n");
-            CREAR STARDEMON ESPACIOS;            printf("                                | \\ \\ | /  /\n");
-            CREAR STARDEMON ESPACIOS;            printf("                                 V \\ ~| ~/V\n");
-            CREAR STARDEMON ESPACIOS;            printf("                                  |  \\  /|\n");
-            CREAR STARDEMON ESPACIOS;            printf("                                   \\~ | V \n");
-            CREAR STARDEMON ESPACIOS;            printf("                                    \\  |\n");
-            CREAR STARDEMON ESPACIOS;            printf("                                     VV\n\n");
+            CREAR ED ESPACIOS; cout << "ooooo oooooooooooo oooooooooooo   .oooo.     .oooo.    .ooooo.  " << endl;
+            CREAR ED ESPACIOS; cout << "`888' `888'     `8 `888'     `8 .dP' 'Y88b  .dP' 'Y88 888' `Y88." << endl;
+            CREAR ED ESPACIOS; cout << " 888   888          888               ]8P'       ]8P' 888    888" << endl;
+            CREAR ED ESPACIOS; cout << " 888   888oooo8     888oooo8        .d8P'      .d8P'   `Vbood888" << endl;
+            CREAR ED ESPACIOS; cout << " 888   888    '     888    '      .dP'       .dP'           888'" << endl;
+            CREAR ED ESPACIOS; cout << " 888   888       o  888       o .oP     .o .oP     .o     .88P' " << endl;
+            CREAR ED ESPACIOS; cout << "o888o o888ooooood8 o888ooooood8 8888888888 8888888888   .oP'    " << endl;
             break;
         case 3:
-            CREAR CABALLO ESPACIOS;            printf("                   .\n");
-            CREAR CABALLO ESPACIOS;            printf("                 ....8ob.\n");
-            CREAR CABALLO ESPACIOS;            printf("              o88888888888b.\n");
-            CREAR CABALLO ESPACIOS;            printf("          ..o888888888888888b..\n");
-            CREAR CABALLO ESPACIOS;            printf("          888888888888888P""888P\n");
-            CREAR CABALLO ESPACIOS;            printf("         8888888888888888888888.\n");
-            CREAR CABALLO ESPACIOS;            printf("        d88888888888888888888888bc.\n");
-            CREAR CABALLO ESPACIOS;            printf("       o8888888888888888" "\"38888Poo..\n");
-            CREAR CABALLO ESPACIOS;            printf("      .8888888888P888888        \"38888888\n");
-            CREAR CABALLO ESPACIOS;            printf("      88888888888 8888888eeeeee.   \"\"38\"8\n");
-            CREAR CABALLO ESPACIOS;            printf("     P\" 888888888 \"\"'\"\"\"       `\"\"o._.oP\n");
-            CREAR CABALLO ESPACIOS;            printf("        8888888888.\n");
-            CREAR CABALLO ESPACIOS;            printf("        88888888888\n");
-            CREAR CABALLO ESPACIOS;            printf("        '888888888 8b.\n");
-            CREAR CABALLO ESPACIOS;            printf("         \"88888888b  \"\"\"\"3booooooo..\n");
-            CREAR CABALLO ESPACIOS;            printf("          \"888888888888888b         \"b.\n");
-            CREAR CABALLO ESPACIOS;            printf("           \"8888888888888888888888b    \"8\n");
-            CREAR CABALLO ESPACIOS;            printf("            \"8888888888888888888888888   b\n");
-            CREAR CABALLO ESPACIOS;            printf("                \"\"888888888888888888888  c\n");
-            CREAR CABALLO ESPACIOS;            printf("                   \"8888888888888888888  P\n");
-            CREAR CABALLO ESPACIOS;            printf("                    \"88888888888888888888\"\n");
-            CREAR CABALLO ESPACIOS;            printf("                    .88888888888888888888\n");
-            CREAR CABALLO ESPACIOS;            printf("                   .888NICK8888888888888P\n");
-            CREAR CABALLO ESPACIOS;            printf("                 od888888888888888888P\n\n");
+            CREAR BASES ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.         .o       .ooo  " << endl;
+            CREAR BASES ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' '88b      .d88     .88'    " << endl;
+            CREAR BASES ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P'   .d'888    d88'     " << endl;
+            CREAR BASES ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'  .d'  888   d888P Ybo." << endl;
+            CREAR BASES ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'     88ooo888oo Y88[   ]88" << endl;
+            CREAR BASES ESPACIOS; cout << " 888   8       `888   888         .oP     .o      888   `Y88   88P" << endl;
+            CREAR BASES ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888     o888o   `88bod8' " << endl;
             break;
         case 4:
-            CREAR CENTAURO ESPACIOS;            printf("                 __\n");
-            CREAR CENTAURO ESPACIOS;            printf("                / _\\ #\n");
-            CREAR CENTAURO ESPACIOS;            printf("                \\c /  #\n");
-            CREAR CENTAURO ESPACIOS;            printf("                / \\___ #\n");
-            CREAR CENTAURO ESPACIOS;            printf("                \\`----`#==>  \n");
-            CREAR CENTAURO ESPACIOS;            printf("                |  \\  #\n");
-            CREAR CENTAURO ESPACIOS;            printf("     ,%.-\"\"\"---'`--'\\#_\n");
-            CREAR CENTAURO ESPACIOS;            printf("    %%/             |__`\\\n");
-            CREAR CENTAURO ESPACIOS;            printf("   .%'\\     |   \\   /  //\n");
-            CREAR CENTAURO ESPACIOS;            printf("   ,%' >   .'----\\ |  [/\n");
-            CREAR CENTAURO ESPACIOS;            printf("      < <<`       ||\n");
-            CREAR CENTAURO ESPACIOS;            printf("       `\\\\       ||\n");
-            CREAR CENTAURO ESPACIOS;            printf("         )\\\\      )\\\n\n");
+            CREAR FUNDA ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.     .oooo.     .oooo.  " << endl;
+            CREAR FUNDA ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' 'Y88b  .dP' 'Y88  d8P'`Y8b " << endl;
+            CREAR FUNDA ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P'       ]8P' 888    888" << endl;
+            CREAR FUNDA ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'      .d8P'  888    888" << endl;
+            CREAR FUNDA ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'       .dP'     888    888" << endl;
+            CREAR FUNDA ESPACIOS; cout << " 888   8       `888   888         .oP     .o .oP     .o `88b  d88'" << endl;
+            CREAR FUNDA ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888 8888888888  `Y8bd8P' " << endl;
+            break ; 
+        case 5 : 
+            CREAR ALGORITMIA ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.       .ooo     .oooo.  " << endl;
+            CREAR ALGORITMIA ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' 'Y88b    .88'    .dP' 'Y88b " << endl;
+            CREAR ALGORITMIA ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P'  d88'            ]8P'" << endl;
+            CREAR ALGORITMIA ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'  d888P'Ybo.     <88b. " << endl;
+            CREAR ALGORITMIA ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'     Y88[   ]88      `88b." << endl;
+            CREAR ALGORITMIA ESPACIOS; cout << " 888   8       `888   888         .oP     .o `Y88   88P o.   .88P " << endl;
+            CREAR ALGORITMIA ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888  `88bod8'  `8bd88P'  " << endl;
             break;
+        case 6:
+            CREAR OAC ESPACIOS; cout << "ooooo oooooooooooo oooooooooooo   .oooo.         .o     .oooo.  " << endl;
+            CREAR OAC ESPACIOS; cout << "`888' `888'     `8 `888'     `8 .dP' 'Y88b      .d88    d8P'`Y8b " << endl;
+            CREAR OAC ESPACIOS; cout << " 888   888          888               ]8P'   .d'888   888    888" << endl;
+            CREAR OAC ESPACIOS; cout << " 888   888oooo8     888oooo8        .d8P'  .d'  888   888    888" << endl;
+            CREAR OAC ESPACIOS; cout << " 888   888          888    '      .dP'     88ooo888oo 888    888" << endl;
+            CREAR OAC ESPACIOS; cout << " 888   888       o  888       o .oP     .o      888   `88b  d88'" << endl;
+            CREAR OAC ESPACIOS; cout << "o888o o888ooooood8 o888ooooood8 8888888888     o888o   `Y8bd8P' " << endl;
+            break; 
+      case 7 : 
+            CREAR LP1 ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.    .ooooo.     .o " << endl;
+            CREAR LP1 ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' 'Y88b  d88'   `8. o888 " << endl;
+            CREAR LP1 ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P' Y88..  .8'  888 " << endl;
+            CREAR LP1 ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'   `88888b.   888 " << endl;
+            CREAR LP1 ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'     .8'  ``88b  888 " << endl;
+            CREAR LP1 ESPACIOS; cout << " 888   8       `888   888         .oP     .o `8.   .88P  888 " << endl;
+            CREAR LP1 ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888  `boood8'  o888o" << endl;
+            break ; 
+        case 8 : 
+            CREAR APLICA ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.       .ooo     oooooooo" << endl;
+            CREAR APLICA ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' 'Y88b   .88'     dP'''''''" << endl;
+            CREAR APLICA ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P'  d88'      d88888b.  " << endl;
+            CREAR APLICA ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'  d888P'Ybo.     `Y88b " << endl;
+            CREAR APLICA ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'     Y88[   ]88       ]88 " << endl;
+            CREAR APLICA ESPACIOS; cout << " 888   8       `888   888         .oP     .o `Y88   88P o.   .88P " << endl;
+            CREAR APLICA ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888  `88bod8'  `8bd88P'  " << endl;
+            break ; 
+     
+        case 9 : 
+            CREAR SOFTWARE ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.         .o     oooooooo" << endl;
+            CREAR SOFTWARE ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' 'Y88b      .d88   dP'''''''" << endl;
+            CREAR SOFTWARE ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P'   .d'888   d88888b.  " << endl;
+            CREAR SOFTWARE ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'  .d'  888       `Y88b " << endl;
+            CREAR SOFTWARE ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'     88ooo888oo       ]88 " << endl;
+            CREAR SOFTWARE ESPACIOS; cout << " 888   8       `888   888         .oP     .o      888   o.   .88P " << endl;
+            CREAR SOFTWARE ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888     o888o  `8bd88P'  " << endl;
+            break ; 
     }
 }
 
@@ -347,22 +341,23 @@ void ImprimirOpcionesDeBatalla(){
     CREAR BASICOS+4 ESPACIOS; cout << char(201);
     for(int i=0;i<66;i++) cout << char(205);
     cout << char(187) << endl ;
-    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " Elija una opcion:                  ";
-    CREAR BASICOS-3 ESPACIOS; cout << char(186) << endl;
-    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " a) Atacar!                         ";
-    CREAR BASICOS-3 ESPACIOS; cout << char(186) << endl;
-    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " r) Ataque automatico               ";
-    CREAR BASICOS-3 ESPACIOS; cout << char(186) << endl;
-    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " s) Usar artefacto (sin implementar)";
-    CREAR BASICOS-3 ESPACIOS; cout << char(186) << endl;
-    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " f) Retirarse del curso             ";
-    CREAR BASICOS-3 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << " Elija una opcion:                            ";
+    CREAR BASICOS-13 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << "            Atacar!          ----> (a)        ";
+    CREAR BASICOS-13 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << "            Ataque automatico----> (r)        ";
+    CREAR BASICOS-13 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << "            Usar artefacto   ----> (s)        ";
+    CREAR BASICOS-13 ESPACIOS; cout << char(186) << endl;
+    CREAR BASICOS+4 ESPACIOS; cout << char(186) << "            Retirarse del curso--> (f)        ";
+    CREAR BASICOS-13 ESPACIOS; cout << char(186) << endl;
     CREAR BASICOS+4 ESPACIOS; cout << char(200);
     for (int i = 0; i < 66; i++) cout << char(205); cout << char(188) << endl << endl; 
+    CREAR BASICOS+4 ESPACIOS; cout << "Escriba una opcion :\n";
     CREAR BASICOS+4 ESPACIOS; cout << "? ";
 }
 
-void Juego::MostrarDatosPrevioBatalla(Monstruo monster) {
+void Juego::MostrarDatosPrevioBatalla(Monstruo & monster ) {
     cout << endl;
     CREAR BASICOS+4 ESPACIOS; cout << char(201);
     for(int i=0;i<66;i++) cout << char(205);
@@ -371,7 +366,7 @@ void Juego::MostrarDatosPrevioBatalla(Monstruo monster) {
     CREAR GENERALES-1 ESPACIOS; cout << char(186) << endl;
     CREAR BASICOS+4 ESPACIOS;cout << char(186) << " Curso : "<< monster.GetNombre();
     for(int i=0;i<57-strlen(monster.GetNombre());i++) cout << " "; cout << char(186) << endl;
-    CREAR BASICOS+4 ESPACIOS;cout << char(186) << " Vida: " << left << setw(4) << monster.GetMaxVida();
+    CREAR BASICOS+4 ESPACIOS;cout << char(186) << " Vida: " << left << setw(4) << monster.GetVidaActual();
     CREAR BASICOS+3 ESPACIOS;cout << " Danho base: " << left << left << setw(6)<< monster.GetDanhoBase() << char(186) <<endl;
 
     if (monster.GetArmadura() != NULL){
@@ -401,9 +396,7 @@ void Juego::MostrarDatosPrevioBatalla(Monstruo monster) {
     CREAR BASICOS+4 ESPACIOS;
     cout << char(200);
     for (int i = 0; i < 66; i++) cout << char(205);
-    cout << char(188) << endl << endl << endl; 
-
-    CREAR BASICOS+4 ESPACIOS; printf("Deseas pelear con el monstruo ('yes' or 'no') ?   ");
+    cout << char(188) << endl << endl << endl;     
 }
 
 
@@ -417,6 +410,8 @@ int Juego::PreguntarPelearConMonstruo(int indLabActual, int x, int y) {
     system("cls");
     impresionDeMonstruos(indLabActual,x,y);
     MostrarDatosPrevioBatalla(monster);
+    fflush( stdin );
+    CREAR BASICOS+4 ESPACIOS; printf("Deseas pelear con el monstruo ('yes' or 'no') ?   ");
     gets(linea);
     int yes, no, flag;
 
@@ -513,7 +508,7 @@ void imprimirContraAtaqueMonstruo() {
     cout << char(188) << endl << endl << endl;
 }
 
-void Juego::PelearConMonstruo(Monstruo monster, int &flag,int indLabActual,int x,int y) {
+void Juego::PelearConMonstruo(Monstruo &monster, int &flag,int indLabActual,int x,int y) {
     char opcion[30];
     system("cls");
     int a, f, s, r = 0;
@@ -523,22 +518,17 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag,int indLabActual,int x
             
             impresionDeMonstruos(indLabActual,x,y);
             //////////////////////////////////////77
-            CREAR BASICOS+4 ESPACIOS;
-            cout << char(201);
-            for (int i = 0; i < 66; i++) cout << char(205);
-            cout << char(187) << endl;
-            this->ImprimirSaco();
-            ///////////////////////////////////////77
+            MostrarDatosPrevioBatalla(monster);
+            /////            
             ImprimirOpcionesDeBatalla();
+            ////////////////////////////////////////
             
             cin >> opcion;
 
             while (1) {
 
-                a = 0;
-                s = 0; //para que no entré al if que baja vida al mosntruo
-                f = 0;
-
+                a =s = f =  0;
+                //para que no entré al if que baja vida al mosntruo                
                 s = (strcmp(opcion, "s") == 0) ? 1 : 0;
                 r = (strcmp(opcion, "r") == 0) ? 1 : 0;
                 a = (strcmp(opcion, "a") == 0) ? 1 : 0;
@@ -554,25 +544,40 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag,int indLabActual,int x
         if (s) {
             int ind;
             
-            system("cls");
-            
-            CREAR BASICOS+4 ESPACIOS;
-            cout << char(201);
-            for (int i = 0; i < 66; i++) cout << char(205);
-            cout << char(187) << endl;
-            this->ImprimirSaco();
-            
-            cout << endl << "Elija un artefacto: ";
-            cin >> ind;
-            
-            while (!usarArtefacto(ind)) {
+         //   system("cls");
+            if (this->GetAvatar().cantArtefactos()>0){
+                CREAR BASICOS+4 ESPACIOS;
+                cout << char(201);
+                for (int i = 0; i < 66; i++) cout << char(205);
+                cout << char(187) << endl;
+                this->ImprimirSaco();
                 for (int i = 0; i < 46; i++) putchar(' ');
-                cout << "     Elige un Artefacto Correcto\n";
+                cout << "Escribe un indice\n";
                 for (int i = 0; i < 46; i++) putchar(' ');
-                cout << "  Escriba una accion         :";
-                flag = 0;
+                cout << "? : ";
+                cin >>ind;
+                while(1){
+                    if (!usarArtefacto(ind)) {
+                        for (int i = 0; i < 46; i++) putchar(' ');
+                        cout << "     Elige un Artefacto Correcto\n";
+                        for (int i = 0; i < 46; i++) putchar(' ');
+                        cout << "Escribe un indice\n";
+                        for (int i = 0; i < 46; i++) putchar(' ');                                    
+                        cout << "? : ";
+                        cin >>ind;
+                        flag = 0;                
+                    }else{                    
+                        for (int i = 0; i < 46; i++) putchar(' ');
+                        cout <<  "Se utilizo correctamente " << endl ;
+                        tiempo(2);
+                        break ;
+                    }
+                }
+            }else {
+                for (int i = 0; i < 46; i++) putchar(' ');
+                cout <<  "Sin elementos en el saco " << endl ;                        
+                tiempo(2);
             }
-            
         }
         if (f) {
             system("cls");
@@ -592,13 +597,14 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag,int indLabActual,int x
                 CREAR BASICOS+4 ESPACIOS; cout << "No has podido retirarte del curso :( " << endl;
                 CREAR BASICOS+4 ESPACIOS; cout << "Sigue luchando campeon!\n" << endl;
             }
-            CREAR BASICOS+4 ESPACIOS; cout << "Aprente una tecla para continuar: ";
+            CREAR BASICOS+4 ESPACIOS; cout << "Aprente 1 o 2 veces ENTER para continuar: ";
             while (cin.get() != '\n');
         }
 
         if (a || r || f || s) {
 
             system("cls");
+            impresionDeMonstruos(indLabActual,x,y);
             if (a || !r || s || f) imprimirAtaqueMonstruo();
             if (a && !r && !s && !f) imprimirContraAtaqueMonstruo();
             //////////////////////////////////////////////////
@@ -659,7 +665,7 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag,int indLabActual,int x
             CREAR BASICOS+4 ESPACIOS;cout << "Tu vida actual es: " << avatar.GetVidaActual() << endl;
             
         }
-        CREAR BASICOS+4 ESPACIOS; cout << "Aprente una tecla para continuar: ";
+        CREAR BASICOS+4 ESPACIOS; cout << "Aprente 1 o 2 veces ENTER para continuar: ";
         while (cin.get() != '\n');
         while (cin.get() != '\n');
 
@@ -670,17 +676,26 @@ void Juego::PelearConMonstruo(Monstruo monster, int &flag,int indLabActual,int x
         //CREAR BASICOS+4 ESPACIOS;cout << "HAS PERDIDO \n" << endl;
         flag = 0;
     } else {
-
-        CREAR BASICOS+4 ESPACIOS;cout << "Ganaste la Batalla! Felicitaciones!\n" << endl;
+        for(int i = 0 ; i < 20 ; i++) putchar('\n');
+        CREAR BASICOS+4 ESPACIOS;
+        cout << char(201);
+        for (int i = 0; i < 66; i++) cout << char(205);
+        cout << char(187) << endl;        
+        CREAR BASICOS+4 ESPACIOS;cout << char(186) << "Ganaste la Batalla! Felicitaciones! "  ;         
+        CREAR 30 ESPACIOS ;
+        cout << char(186)<< endl;
         flag = 1;
        // cout << "tienes " << avatar.GetVidaActual() << " de vida\n" << endl;
-        int num = rand() % 10;
-
-        CREAR BASICOS+4 ESPACIOS;cout << "Te has ganado un:  \n\n";
-
+       CREAR BASICOS+4 ESPACIOS;
+        cout << char(200);
+        for (int i = 0; i < 66; i++) cout << char(205);
+        cout << char(188) << endl;
+        
+        CREAR BASICOS+4 ESPACIOS;cout << "\n\n";
+               
     }
     cout << endl;
-    CREAR BASICOS+4 ESPACIOS;cout << "Aprente una tecla para continuar: ";
+    CREAR BASICOS+4 ESPACIOS;cout << "Aprente 1 o 2 veces ENTER para continuar: ";
     while (cin.get() != '\n');
 }
 
@@ -692,7 +707,7 @@ Dibujador Juego::GetDibujador() const {
     return dibujador;
 }
 
-void Juego::dibujador2() {
+void Juego::dibujadorDeEsquema() {
     dibujador.dibujarEsquemaVersion2(LaberintoActual, avatar);
 }
 
@@ -756,6 +771,18 @@ int Juego::botarArtefacto(int ind) {
     return 0;
 }
 
+void Juego :: tiempo(int t) {
+    clock_t t_ini, t_fin;
+    double secs;
+    t_ini = clock();
+    while (1) {
+        t_fin = clock();
+        secs = (double) (t_fin - t_ini) / CLOCKS_PER_SEC;
+        if (secs * 1000.0 > t*1000) break ; 
+    }
+    //printf("%.16g milisegundos\n", secs * 1000.0);
+}
+
 void Juego::historiaDelJuego() {
     
     cout << endl << endl;
@@ -797,9 +824,10 @@ CREAR BASICOS+3 ESPACIOS;printf("     \\      |---------------------------------
 CREAR BASICOS+3 ESPACIOS;printf("      \\    /       \n");
 CREAR BASICOS+3 ESPACIOS;printf("       `--'                            \n");
 
-CREAR BASICOS+8 ESPACIOS; printf("Nombre: ");
+CREAR BASICOS+8 ESPACIOS; printf("                Nombre: ");
 char nombre[200];
 cin.getline(nombre,200);
 if (strlen(nombre)>50) nombre[50]='\0';
+else if (strlen(nombre) == 0) strcpy(nombre, "Player 1");
 avatar.SetNombre(nombre);
 }

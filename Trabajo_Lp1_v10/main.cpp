@@ -53,10 +53,8 @@ int main(int argc, char** argv) {
     PlaySound(NULL, NULL, 0); //Funcion para detener un sonido
     PlaySound(("Doom_2-Level_1.wav"), NULL, SND_ASYNC);
     while (1) {
-        if (flag == 1) {
-            //dibuja el esquema y muestra las opciones  
-
-            nuevoJuego.dibujador2();
+        if (flag == 1) {   
+            nuevoJuego.dibujadorDeEsquema();
             nuevoJuego.GetAvatar().mostrarDatosMapa();
             nuevoJuego.ImprimirSaco();
             mostrarOpcionesGenerales();
@@ -65,9 +63,7 @@ int main(int argc, char** argv) {
         int ind;
 
         if (c1 == DIR_ARRIBA || c1 == DIR_ABAJO || c1 == DIR_DERECHA || c1 == DIR_IZQUIERDA && c1 != FIN) {
-
             nuevoJuego.intentarmosMoverAvatar(c1, flag);
-
             if (c1 == FIN) {
                 MessageBox(NULL, "Y0U WIN", "Congratulations", MB_OK);
                 printf("\nYOU WIN :D\n");
@@ -85,7 +81,6 @@ int main(int argc, char** argv) {
                 cout << "  Escriba un indice correcto             :s";
                 gets(cadena);
             }
-
             if (!nuevoJuego.usarArtefacto(ind)) {
                 for (int i = 0; i < 46; i++) putchar(' ');
                 cout << "     Elige un Artefacto Correcto\n";
@@ -93,7 +88,9 @@ int main(int argc, char** argv) {
                 cout << "  Escriba una accion         :";
                 flag = 0;
             } else {
-                // sleep(3); // 
+                for (int i = 0; i < 46; i++) putchar(' ');
+                cout << " Se utilizo el artefacto correctamente " << endl;
+                nuevoJuego.tiempo(2);
                 flag = 1;
             }
         } else if (c1 == 'b') {
@@ -108,10 +105,10 @@ int main(int argc, char** argv) {
                 flag = 0;
             }
             else {
-                nuevoJuego.botarArtefactoGrafico();
+              //  nuevoJuego.botarArtefactoGrafico();
                 for (int i = 0; i < 46; i++) putchar(' ');
-                cout << "Se boto perdio correctamene el artefacto " << ind << endl;
-                // sleep(3); // 
+                cout << "Se boto y perdio el artefacto :( " << ind << endl;
+                nuevoJuego.tiempo(2);
                 flag = 1;
             }
             // botar 

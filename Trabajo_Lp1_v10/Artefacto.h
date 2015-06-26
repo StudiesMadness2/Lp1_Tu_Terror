@@ -9,9 +9,8 @@ private:
 public:
     virtual void Imprimir() = 0;
     void SetTipo(int tipo);
-    int GetTipo() const;
-    virtual void usar( ) = 0;
-    virtual void usar2(class Entidad &E,int ind)=0;
+    int GetTipo() const;    
+    virtual void usar(class Entidad &E,int ind)=0;
     
 };
 
