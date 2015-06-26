@@ -43,6 +43,6 @@ Ingenieria de Software
 /* NOMBRE
  * NIVEL
  * VIDA
- * IMAGEN ASIGNADA
+ *
  */
 
