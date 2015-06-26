@@ -32,6 +32,22 @@
 #define SOFTWARE 40
 #define LP1 40
 #define APLICA 40
+#define INGECO 40
+#define SISTEMAS_1 40
+#define SISTEMAS_2  40
+#define METODOS  40
+#define COMUNICACIONES   40
+#define IOP  40
+#define CGI  40
+#define TESIS_1  40
+#define TESIS_2  40
+#define PCP    40
+#define ETICA   40
+#define PROGRAMAS_1   40
+#define PROGRAMAS_2   40
+#define OPERATIVOS   40
+
+
 using namespace std;
 
 Juego::Juego() {
@@ -333,6 +349,134 @@ void Juego::impresionDeMonstruos(int indLabActual, int x, int y) {
             CREAR SOFTWARE ESPACIOS; cout << " 888   8       `888   888         .oP     .o      888   o.   .88P " << endl;
             CREAR SOFTWARE ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888     o888o  `8bd88P'  " << endl;
             break ; 
+        case 10 : 
+            CREAR INGECO ESPACIOS; cout << "ooooo ooooo      ooo oooooooooo.     .oooo.     .oooo.     .o " << endl;
+            CREAR INGECO ESPACIOS; cout << "`888' `888b.     `8' `888'   `Y8b  .dP""Y88b  .dP""Y88b  o888 " << endl;
+            CREAR INGECO ESPACIOS; cout << " 888   8 `88b.    8   888      888       ]8P'       ]8P'  888 " << endl;
+            CREAR INGECO ESPACIOS; cout << " 888   8   `88b.  8   888      888     .d8P'      <88b.   888 " << endl;
+            CREAR INGECO ESPACIOS; cout << " 888   8     `88b.8   888      888   .dP'          `88b.  888 " << endl;
+            CREAR INGECO ESPACIOS; cout << " 888   8       `888   888     d88' .oP     .o o.   .88P   888 " << endl;
+            CREAR INGECO ESPACIOS; cout << "o888o o8o        `8  o888bood8P'   8888888888 `8bd88P'   o888o" << endl;
+            break ; 
+        case 11 : 
+            CREAR SISTEMAS_1 ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.         .o    .ooooo.  " << endl;
+            CREAR SISTEMAS_1 ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' 'Y88b      .d88   d88'   `8." << endl;
+            CREAR SISTEMAS_1 ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P'   .d'888   Y88..  .8'" << endl;
+            CREAR SISTEMAS_1 ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'  .d'  888    `88888b. " << endl;
+            CREAR SISTEMAS_1 ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'     88ooo888oo .8'  ``88b" << endl;
+            CREAR SISTEMAS_1 ESPACIOS; cout << " 888   8       `888   888         .oP     .o      888   `8.   .88P" << endl;
+            CREAR SISTEMAS_1 ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888     o888o   `boood8' " << endl;
+            break ; 
+        case 12 : 
+            CREAR SISTEMAS_2 ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.     oooooooo   .oooo.  " << endl;
+            CREAR SISTEMAS_2 ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' '88b   dP'''''''  d8P'`Y8b " << endl;
+            CREAR SISTEMAS_2 ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P' d88888b.   888    888" << endl;
+            CREAR SISTEMAS_2 ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'      `Y88b  888    888" << endl;
+            CREAR SISTEMAS_2 ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'           ]88  888    888" << endl;
+            CREAR SISTEMAS_2 ESPACIOS; cout << " 888   8       `888   888         .oP     .o o.   .88P  `88b  d88'" << endl;
+            CREAR SISTEMAS_2 ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888 `8bd88P'    `Y8bd8P' " << endl;
+
+            break ; 
+        case 13 : 
+            CREAR METODOS ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.    .ooooo.     .o " << endl;
+            CREAR METODOS ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' '88b  888' `Y88. o888 " << endl;
+            CREAR METODOS ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P' 888    888  888 " << endl;
+            CREAR METODOS ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'   `Vbood888  888 " << endl;
+            CREAR METODOS ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'           888'  888 " << endl;
+            CREAR METODOS ESPACIOS; cout << " 888   8       `888   888         .oP     .o     .88P'   888 " << endl;
+            CREAR METODOS ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888   .oP'     o888o" << endl;
+
+            break ; 
+        case 14 : 
+            CREAR OPERATIVOS ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.     .oooo.    .ooooo.  " << endl;
+            CREAR OPERATIVOS ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP""Y88b  .dP""Y88b  888' `Y88." << endl;
+            CREAR OPERATIVOS ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P'       ]8P' 888    888" << endl;
+            CREAR OPERATIVOS ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'      <88b.   `Vbood888" << endl;
+            CREAR OPERATIVOS ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'          `88b.       888'" << endl;
+            CREAR OPERATIVOS ESPACIOS; cout << " 888   8       `888   888         .oP     .o o.   .88P      .88P' " << endl;
+            CREAR OPERATIVOS ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888 `8bd88P'     .oP'    " << endl;
+            break ; 
+        case 15 : 
+            CREAR COMUNICACIONES ESPACIOS; cout << "ooooooooooooo oooooooooooo ooooo          .oooo.     .oooo.     .o " << endl;
+            CREAR COMUNICACIONES ESPACIOS; cout << "8'   888   `8 `888'     `8 `888'        .dP""Y88b   d8P'`Y8b  o888 " << endl;
+            CREAR COMUNICACIONES ESPACIOS; cout << "     888       888          888               ]8P' 888    888  888 " << endl;
+            CREAR COMUNICACIONES ESPACIOS; cout << "     888       888oooo8     888             .d8P'  888    888  888 " << endl;
+            CREAR COMUNICACIONES ESPACIOS; cout << "     888       888    '     888           .dP'     888    888  888 " << endl;
+            CREAR COMUNICACIONES ESPACIOS; cout << "     888       888       o  888       o .oP     .o `88b  d88'  888 " << endl;
+            CREAR COMUNICACIONES ESPACIOS; cout << "    o888o     o888ooooood8 o888ooooood8 8888888888  `Y8bd8P'  o888o" << endl;
+            break ; 
+        case 16 : 
+            CREAR IOP ESPACIOS; cout << "ooooo ooooo      ooo oooooooooo.     .oooo.    ooooooooo   .oooo.  " << endl;
+            CREAR IOP ESPACIOS; cout << "`888' `888b.     `8' `888'   `Y8b  .dP""Y88b  d''''''''8' .dP""Y88b " << endl;
+            CREAR IOP ESPACIOS; cout << " 888   8 `888.    8   888      888       ]8P'       .8'        ]8P'" << endl;
+            CREAR IOP ESPACIOS; cout << " 888   8   `88b.  8   888      888     .d8P'       .8'       <88b. " << endl;
+            CREAR IOP ESPACIOS; cout << " 888   8     `88b.8   888      888   .dP'         .8'         `88b." << endl;
+            CREAR IOP ESPACIOS; cout << " 888   8       `888   888     d88' .oP     .o    .8'     o.   .88P " << endl;
+            CREAR IOP ESPACIOS; cout << "o888o o8o        `8  o888bood8P'   8888888888   .8'      `8bd88P'  " << endl;
+            break ; 
+        case 17 :
+            CREAR CGI ESPACIOS; cout << "ooooo ooooo      ooo oooooooooo.     .oooo.    ooooooooo   oooooooo" << endl;
+            CREAR CGI ESPACIOS; cout << "`888' `888b.     `8' `888'   `Y8b  .dP' 'Y88b  d''''''8'  dP'''''''" << endl;
+            CREAR CGI ESPACIOS; cout << " 888   8 `88b.    8   888      888       ]8P'       .8'  d88888b.  " << endl;
+            CREAR CGI ESPACIOS; cout << " 888   8   `88b.  8   888      888     .d8P'       .8'       `Y88b " << endl;
+            CREAR CGI ESPACIOS; cout << " 888   8     `88b.8   888      888   .dP'         .8'          ]88 " << endl;
+            CREAR CGI ESPACIOS; cout << " 888   8       `888   888     d88' .oP     .o    .8'     o.   .88P " << endl;
+            CREAR CGI ESPACIOS; cout << "o888o o8o        `8  o888bood8P'   8888888888   .8'      `8bd88P'  " << endl;
+            break ;             
+        case 18 :
+            CREAR TESIS_1 ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.    .ooooo.     .o " << endl;
+            CREAR TESIS_1 ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' 'Y88b  888' `Y88. o888 " << endl;
+            CREAR TESIS_1 ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P' 888    888  888 " << endl;
+            CREAR TESIS_1 ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        <88b.   `Vbood888  888 " << endl;
+            CREAR TESIS_1 ESPACIOS; cout << " 888   8     `88b.8   888    '         `88b.       888'  888 " << endl;
+            CREAR TESIS_1 ESPACIOS; cout << " 888   8       `888   888         o.   .88P      .88P'   888 " << endl;
+            CREAR TESIS_1 ESPACIOS; cout << "o888o o8o        `8  o888o        `8bd88P'     .oP'     o888o" << endl;
+            break ;
+        case 19 :
+            CREAR TESIS_2 ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.    .ooooo.     .oooo.  " << endl;
+            CREAR TESIS_2 ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' 'Y88b  888' `Y88..dP' 'Y88b " << endl;
+            CREAR TESIS_2 ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P' 888    888       ]8P'" << endl;
+            CREAR TESIS_2 ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        <88b.   `Vbood888     .d8P' " << endl;
+            CREAR TESIS_2 ESPACIOS; cout << " 888   8     `88b.8   888    '         `88b.       888'   .dP'    " << endl;
+            CREAR TESIS_2 ESPACIOS; cout << " 888   8       `888   888         o.   .88P      .88P'  .oP     .o" << endl;
+            CREAR TESIS_2 ESPACIOS; cout << "o888o o8o        `8  o888o        `8bd88P'     .oP'     8888888888" << endl;            
+            break ;
+        case 20 :
+            CREAR PCP ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.     .oooo.    .ooooo.  " << endl;
+            CREAR PCP ESPACIOS; cout << "`888' `888b.     `8' `888'     `8  d8P'`Y8b   d8P'`Y8b  d88'   `8." << endl;
+            CREAR PCP ESPACIOS; cout << " 888   8 `88b.    8   888         888    888 888    888 Y88..  .8'" << endl;
+            CREAR PCP ESPACIOS; cout << " 888   8   `88b.  8   888oooo8    888    888 888    888  `88888b. " << endl;
+            CREAR PCP ESPACIOS; cout << " 888   8     `88b.8   888    '    888    888 888    888 .8'  ``88b" << endl;
+            CREAR PCP ESPACIOS; cout << " 888   8       `888   888         `88b  d88' `88b  d88' `8.   .88P" << endl;
+            CREAR PCP ESPACIOS; cout << "o888o o8o        `8  o888o         `Y8bd8P'   `Y8bd8P'   `boood8' " << endl;            
+            break ;
+        case 21 :
+            CREAR ETICA ESPACIOS; cout << "ooooo ooooo      ooo   .oooooo.      .oooo.     .oooo.     .oooo.  " << endl;
+            CREAR ETICA ESPACIOS; cout << "`888' `888b.     `8'  d8P'  `Y8b   .dP""Y88b  .dP""Y88b   d8P'`Y8b " << endl;
+            CREAR ETICA ESPACIOS; cout << " 888   8 `88b.    8  888                 ]8P'       ]8P' 888    888" << endl;
+            CREAR ETICA ESPACIOS; cout << " 888   8   `88b.  8  888               .d8P'      .d8P'  888    888" << endl;
+            CREAR ETICA ESPACIOS; cout << " 888   8     `88b.8  888     ooooo   .dP'       .dP'     888    888" << endl;
+            CREAR ETICA ESPACIOS; cout << " 888   8       `888  `88.    .88'  .oP     .o .oP     .o `88b  d88'" << endl;
+            CREAR ETICA ESPACIOS; cout << "o888o o8o        `8   `Y8bood8P'   8888888888 8888888888  `Y8bd8P' " << endl;            
+            break ;       
+        case 22 :             
+            CREAR PROGRAMAS_1 ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.     .oooo.       .ooo  " << endl;
+            CREAR PROGRAMAS_1 ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' 'Y88b  .dP' 'Y88b    .88'    " << endl;
+            CREAR PROGRAMAS_1 ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P'       ]8P'  d88'     " << endl;
+            CREAR PROGRAMAS_1 ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'      .d8P'  d888P''Ybo." << endl;
+            CREAR PROGRAMAS_1 ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'       .dP'     Y88[   ]88" << endl;
+            CREAR PROGRAMAS_1 ESPACIOS; cout << " 888   8       `888   888         .oP     .o .oP     .o `Y88   88P" << endl;
+            CREAR PROGRAMAS_1 ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888 8888888888  `88bod8' " << endl;
+            break ; 
+        case 23 : 
+            CREAR PROGRAMAS_2 ESPACIOS; cout << "ooooo ooooo      ooo oooooooooooo   .oooo.     .oooo.    ooooooooo" << endl;
+            CREAR PROGRAMAS_2 ESPACIOS; cout << "`888' `888b.     `8' `888'     `8 .dP' 'Y88b  .dP' 'Y88b d'''''''8'" << endl;
+            CREAR PROGRAMAS_2 ESPACIOS; cout << " 888   8 `88b.    8   888               ]8P'       ]8P'       .8' " << endl;
+            CREAR PROGRAMAS_2 ESPACIOS; cout << " 888   8   `88b.  8   888oooo8        .d8P'      .d8P'       .8'  " << endl;
+            CREAR PROGRAMAS_2 ESPACIOS; cout << " 888   8     `88b.8   888    '      .dP'       .dP'         .8'   " << endl;
+            CREAR PROGRAMAS_2 ESPACIOS; cout << " 888   8       `888   888         .oP     .o .oP     .o    .8'    " << endl;
+            CREAR PROGRAMAS_2 ESPACIOS; cout << "o888o o8o        `8  o888o        8888888888 8888888888   .8'     " << endl;
+            break ; 
     }
 }
 
@@ -536,7 +680,7 @@ void Juego::PelearConMonstruo(Monstruo &monster, int &flag,int indLabActual,int 
 
                 if (a || f || r || s) break;
 
-                CREAR BASICOS+4 ESPACIOS; cout << "Debe seleccionar una de las dos opciones ";
+                CREAR BASICOS+4 ESPACIOS; cout << "Debe seleccionar una de las opciones ";
                 cin >> opcion;
             }
         }

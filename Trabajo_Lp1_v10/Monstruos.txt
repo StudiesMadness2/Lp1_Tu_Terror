@@ -39,6 +39,62 @@ Ingenieria de Software
 8
 170
 9
+Ingenieria Economica
+4
+100
+10
+Sistemas de Informacion 1
+5
+120
+11
+Sistemas de Informacion 2
+7
+150
+12
+Metodos y Procedimientos
+3
+85
+13
+Sistemas Operativos
+7
+150
+14
+Teoría de Comunicaciones
+8
+170
+15
+Investigacion Operativa
+9
+200
+16
+Control de Gestion Industrial
+9
+200
+17
+Proyecto de Tesis 1
+13
+250
+18
+Proyecto de Tesis 2
+14
+280
+19
+Practica Supervisada Profesional
+10
+215
+20
+Etica Profesional
+11
+230
+21
+Desarrollo de Programas 1
+12
+240
+22
+Desarrollo de Programas 1
+13
+260
+23
 
 /* NOMBRE
  * NIVEL
