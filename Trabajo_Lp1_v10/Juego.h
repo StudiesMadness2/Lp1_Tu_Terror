@@ -36,15 +36,15 @@ public:
     void iniciarPosicionAvatar();
 
     void intentarmosMoverAvatar(char&, int&);
-    void intentamosInteractuarAvatar(int, int, int, Arma *, Armadura *, PocionCuracion *, int& flag);
-    int PreguntarPelearConMonstruo(int, int , int);
+    void intentamosInteractuarAvatar(int, int, int, Arma *, Armadura *, PocionCuracion *, int& , int &);
+    int PreguntarPelearConMonstruo(int, int , int, int &);
     void impresionDeMonstruos(int,int, int);
     friend void imprimirAtaqueMonstruo();
     friend void imprimirContraAtaqueMonstruo();
     void botarArtefactoGrafico() ;
 
     void MostrarDatosPrevioBatalla(Monstruo &);
-    void PelearConMonstruo(Monstruo & monster, int &flag, int,int,int);
+    void PelearConMonstruo(Monstruo & , int &, int,int,int, int &);
     void ImprimirSaco();
     friend void ImprimirOpcionesDeBatalla();
 
@@ -68,6 +68,7 @@ public:
     
     void historiaDelJuego();
     void tiempo(int) ; 
+    Laberinto FinalDelJuego();
 };
 
 #endif	/* JUEGO_H */

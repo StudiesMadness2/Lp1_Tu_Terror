@@ -7,7 +7,7 @@
 #include "Arma.h"
 #include "Armadura.h"
 #include "PocionCuracion.h"
-
+#include "Laberinto.h"
 #include <unistd.h>
 
 #include "Artefacto.h"
@@ -21,7 +21,7 @@ int main(int argc, char** argv) {
     system("mode 140, 45");
     PlaySound(("castlevania.wav"), NULL, SND_ASYNC); //funcion para iniciar un sonido
     char c1;
-    int flag = 1, numM, numAM, numAA, numAd, numP;
+    int flag = 1, numM, numAM, numAA, numAd, numP, flagLoser=0;
 
     Juego nuevoJuego;
 
@@ -66,12 +66,21 @@ int main(int argc, char** argv) {
             nuevoJuego.intentarmosMoverAvatar(c1, flag);
             if (c1 == FIN) {
                 MessageBox(NULL, "Y0U WIN", "Congratulations", MB_OK);
-                printf("\nYOU WIN :D\n");
+                CREAR BASICOS ESPACIOS;printf("\nYOU WIN :D\n");
                 break;
             }
         } else if (c1 == 'a') { // iteractuira con el monstruo o artefacto
 
-            nuevoJuego.intentamosInteractuarAvatar(numAA, numAd, numP, ArmA, Armd, Poc, flag);
+            nuevoJuego.intentamosInteractuarAvatar(numAA, numAd, numP, ArmA, Armd, Poc, flag, flagLoser);
+            if(flagLoser==1){
+                system("cls");
+                Laberinto final;
+                final = nuevoJuego.FinalDelJuego();
+                //DIBUJAR TODO EL LABERINTO
+                MessageBox(NULL, "Y0U LOSE", "Rayos! Esfuerzate mas...", MB_OK);
+                CREAR BASICOS ESPACIOS; printf("\nPerdiste :(\n");
+                break;
+            }
 
         } else if (c1 == 's') { // usar algo 
             printf("s");
