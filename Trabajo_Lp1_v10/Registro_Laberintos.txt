@@ -1,9 +1,11 @@
 Lab_laberintoHarcord.txt
+Lab_mapaGrande.txt
+Lab_Confusion.txt
 Lab_N1.txt
 Lab_N2.txt
 Lab_N3.txt
 Lab_N4.txt
 Lab_N5.txt
 Lab_N6.txt
-Lab_mapaGrande.txt
-Lab_Confusion.txt
+
+

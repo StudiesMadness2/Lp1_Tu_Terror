@@ -42,7 +42,6 @@ Juego::Juego() {
 
 Juego::~Juego() {
     delete[] arreLaberintos;
-
 }
 
 void desordenar(int arre[], int N_elementos) {
@@ -341,6 +340,7 @@ void ImprimirOpcionesDeBatalla(){
     CREAR BASICOS+4 ESPACIOS; cout << char(201);
     for(int i=0;i<66;i++) cout << char(205);
     cout << char(187) << endl ;
+    
     CREAR BASICOS+4 ESPACIOS; cout << char(186) << " Elija una opcion:                            ";
     CREAR BASICOS-13 ESPACIOS; cout << char(186) << endl;
     CREAR BASICOS+4 ESPACIOS; cout << char(186) << "            Atacar!          ----> (a)        ";
