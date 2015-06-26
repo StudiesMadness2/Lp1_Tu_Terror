@@ -59,7 +59,7 @@ public:
     void dibujadorDeEsquema();
 
 
-    void cargarArtefactos();
+    
 
     int usarArtefacto(int);
     int botarArtefacto(int);

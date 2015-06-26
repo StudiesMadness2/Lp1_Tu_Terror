@@ -22,7 +22,7 @@ void mostrarOpcionesGenerales() {
     for(int i=0;i<46;i++) cout << char(205);
     cout << char(187) << endl ;
     CREAR GENERALES ESPACIOS;cout << char(186) << "  OPCIONES:                                   " << char(186) << endl;
-    //for(int i=0;i<46;i++) cout << " ";cout << char(186) << "        Mover        -----> Direcciones         " << endl;
+    CREAR GENERALES ESPACIOS;cout << char(186) << "        Mover        -----> Direcciones       " << char(186) << endl;
     CREAR GENERALES ESPACIOS;cout << char(186) << "        Interactuar  ----->  (a)              " << char(186) << endl;
     CREAR GENERALES ESPACIOS;cout << char(186) << "        Usar         ----->  (s)(numero)      " << char(186) << endl;
     CREAR GENERALES ESPACIOS;cout << char(186) << "        Botar        ----->  (b)(numero)      " << char(186) << endl;

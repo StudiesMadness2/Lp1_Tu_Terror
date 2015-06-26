@@ -909,12 +909,19 @@ void Juego::ImprimirSaco() {
     cout << char(186) << endl;
     CREAR BASICOS+4 ESPACIOS;
     cout << char(186) << "  Elementos en el Saco: ";
+    if(this->avatar.GetSaco().GetIndice() == 0) {
+        cout << " Vacio "; 
+        for (int i = 0; i < 35; i++) cout << " ";
+        cout <<char(186) <<endl;                
+    }
+    else {    
     CREAR GENERALES-4 ESPACIOS;
     cout << char(186) << endl;
-    for (int i = 0; i < this->avatar.GetSaco().GetIndice(); i++) {
-        CREAR BASICOS+4 ESPACIOS;
-        cout << char(186) << "  " << right << setw(2) << i << "  ";
-        this->avatar.GetSaco()[i]->Imprimir();
+        for (int i = 0; i < this->avatar.GetSaco().GetIndice(); i++) {
+            CREAR BASICOS+4 ESPACIOS;
+            cout << char(186) << "  " << right << setw(2) << i << "  ";
+             this->avatar.GetSaco()[i]->Imprimir();
+         }       
     }
     CREAR BASICOS+4 ESPACIOS;
     cout << char(200);
@@ -922,9 +929,7 @@ void Juego::ImprimirSaco() {
     cout << char(188) << endl;
 }
 
-void Juego::cargarArtefactos() {
 
-}
 
 int Juego::usarArtefacto(int ind) {
     if (ind >= 0 && ind < this->avatar.cantArtefactos()) {
@@ -1004,7 +1009,8 @@ avatar.SetNombre(nombre);
 
 Laberinto Juego::FinalDelJuego(){
     Laberinto *final;
+    char upc[] = "UPC.txt";
     final = new Laberinto;
-    *final = gestorLaberinto.crear("UPC.txt");
+    *final = gestorLaberinto.crear(upc);
     return *final;
 }

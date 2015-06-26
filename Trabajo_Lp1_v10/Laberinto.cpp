@@ -7,6 +7,7 @@
 #include "Laberinto.h"
 #include "GestorLaberinto.h"
 #include "FuncionesExtras.h"
+#include "rlutil.h"
 #include <iostream>
 using namespace std;
 
@@ -37,8 +38,8 @@ Laberinto::Laberinto(int m, int n) {
     srand(unsigned(time(NULL)));
     pctArtefacto = (rand() % 1000) / 1000.0;
     pctMonstruo = (rand() % 1000) / 1000.0;
-    nivelesArtefacto = new int[10]; // Falta 
-    nivelesMonstruo = new int[10]; // Falta 
+    nivelesArtefacto = new int[10]; 
+    nivelesMonstruo = new int[10]; 
     celda = new Celda*[M];
     for (int i = 0; i < M; i++) {
         celda[i] = new Celda[N];
@@ -115,12 +116,31 @@ int Laberinto::getCantMonstruos() const {
 }
 
 void Laberinto::impresion() {
+    char cel ; 
+    for (int i = 0 ; i < 11 ; i++) putchar('\n');
     for (int i = 0; i < M; i++) {
+        rlutil::setColor(7);
+        for (int k = 0; k <40; k++)printf(" ");
         for (int j = 0; j < N; j++) {
-            cout << (char) celda[i][j].GetTipo();
+            cel = this->getCasilla(i, j);
+            if (cel == '-' || cel == '+') {
+                rlutil::setColor(121); // Entra  y Sale
+                printf("%c", cel);
+            } else if (cel == 'M'  ) {
+                rlutil::setColor(124);
+                printf("%c", cel);
+            }else if (cel == 'A'){
+                rlutil::setColor(118);
+                printf("%c", cel);                
+            } else {
+                rlutil::setColor(112); // 96 176 112
+                if (cel == ADENTRO) printf("%c", celda);
+                else printf("%c", PAREDVISUAL);
+            }
         }
         cout << endl;
     }
+    rlutil::setColor(7);    
 }
 
 void Laberinto::setY_sig(int y_sig) {

@@ -8,8 +8,6 @@
 #include "Armadura.h"
 #include "PocionCuracion.h"
 #include "Laberinto.h"
-#include <unistd.h>
-
 #include "Artefacto.h"
 #include <WINDOWS.h> 
 #include <MMSystem.h>
@@ -17,12 +15,12 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-    //system("mode CON: COLS=50");
+    
     system("mode 140, 45");
     PlaySound(("castlevania.wav"), NULL, SND_ASYNC); //funcion para iniciar un sonido
-    char c1;
-    int flag = 1, numM, numAM, numAA, numAd, numP, flagLoser=0;
-
+    char opcion,cadena[50] ; 
+    int flag = 1, numM, numAM, numAA, numAd, numP, flagLoser=0;    
+    
     Juego nuevoJuego;
 
     Monstruo *Mons;
@@ -59,32 +57,32 @@ int main(int argc, char** argv) {
             nuevoJuego.ImprimirSaco();
             mostrarOpcionesGenerales();
         }
-        LecturaMoviento(c1);
+        LecturaMoviento(opcion);
         int ind;
 
-        if (c1 == DIR_ARRIBA || c1 == DIR_ABAJO || c1 == DIR_DERECHA || c1 == DIR_IZQUIERDA && c1 != FIN) {
-            nuevoJuego.intentarmosMoverAvatar(c1, flag);
-            if (c1 == FIN) {
+        if (opcion == DIR_ARRIBA || opcion == DIR_ABAJO || opcion == DIR_DERECHA || opcion == DIR_IZQUIERDA && opcion != FIN) {
+            nuevoJuego.intentarmosMoverAvatar(opcion, flag);
+            if (opcion == FIN) {
                 MessageBox(NULL, "Y0U WIN", "Congratulations", MB_OK);
                 CREAR BASICOS ESPACIOS;printf("\nYOU WIN :D\n");
                 break;
             }
-        } else if (c1 == 'a') { // iteractuira con el monstruo o artefacto
+        } else if (opcion == 'a') { // iteractuira con el monstruo o artefacto
 
             nuevoJuego.intentamosInteractuarAvatar(numAA, numAd, numP, ArmA, Armd, Poc, flag, flagLoser);
             if(flagLoser==1){
                 system("cls");
                 Laberinto final;
                 final = nuevoJuego.FinalDelJuego();
+                final.impresion();
                 //DIBUJAR TODO EL LABERINTO
                 MessageBox(NULL, "Y0U LOSE", "Rayos! Esfuerzate mas...", MB_OK);
                 CREAR BASICOS ESPACIOS; printf("\nPerdiste :(\n");
                 break;
             }
 
-        } else if (c1 == 's') { // usar algo 
-            printf("s");
-            char cadena[50] ; 
+        } else if (opcion == 's') { // usar algo 
+            printf("s");            
             while (scanf("%d", &ind) == 0) {
                 for (int i = 0; i < 46; i++) putchar(' ');
                 cout << "  Escriba un indice correcto             :s";
@@ -99,13 +97,18 @@ int main(int argc, char** argv) {
             } else {
                 for (int i = 0; i < 46; i++) putchar(' ');
                 cout << " Se utilizo el artefacto correctamente " << endl;
+                for (int i = 0; i < 46; i++) putchar(' ');
+                cout << " Cargando ... " << endl;
                 nuevoJuego.tiempo(2);
                 flag = 1;
             }
-        } else if (c1 == 'b') {
-            printf("%b");
-            scanf("%d", &ind);
-
+        } else if (opcion == 'b') {
+            printf("%b");            
+            while (scanf("%d", &ind) == 0) {
+                for (int i = 0; i < 46; i++) putchar(' ');
+                cout << "  Escriba un indice correcto             :s";
+                gets(cadena);
+            }
             if (!nuevoJuego.botarArtefacto(ind)) {
                 for (int i = 0; i < 46; i++) putchar(' ');
                 cout << "     Elige un Artefacto Correcto\n";
@@ -117,14 +120,16 @@ int main(int argc, char** argv) {
               //  nuevoJuego.botarArtefactoGrafico();
                 for (int i = 0; i < 46; i++) putchar(' ');
                 cout << "Se boto y perdio el artefacto :( " << ind << endl;
+                for (int i = 0; i < 46; i++) putchar(' ');
+                cout << " Cargando ... " << endl;
                 nuevoJuego.tiempo(2);
                 flag = 1;
             }
             // botar 
-        } else if (c1 == FIN) { // Falta reconocoer Escape
+        } else if (opcion == FIN) { // Falta reconocoer Escape
             MessageBox(NULL, "CLOSE SUCCESFULLY", "Why bro !!!", MB_OK);
             putchar('\n');
-            for (int i = 0; i < 36; i++) cout << " ";
+            for (int i = 0; i < 56; i++) cout << " ";
             printf(">>>>CLOSE SUCCESFULLY<<<<\n");
             break;
         } else flag = 0;
