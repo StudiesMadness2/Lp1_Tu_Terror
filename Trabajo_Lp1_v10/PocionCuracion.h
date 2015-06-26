@@ -14,8 +14,7 @@ private:
     char *nombre;
 public:
     PocionCuracion(int ptos=0);
-    PocionCuracion(const PocionCuracion& orig);
-    virtual ~PocionCuracion();
+    PocionCuracion(const PocionCuracion& orig);    
     void AsignarPocion(int, char*);
     void Imprimir();    
     void usar(class Entidad &E,int ind);

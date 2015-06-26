@@ -47,9 +47,6 @@ Laberinto::Laberinto(int m, int n) {
     cantMonstruos = 0;
 }
 
-Laberinto::~Laberinto() {
-
-}
 
 char Laberinto::getCasilla(int x, int y) {
     return this->celda[x][y].GetTipo();

@@ -15,8 +15,7 @@ Armadura::Armadura(int def) {
     nombre = NULL;
 }
 
-Armadura::~Armadura() {
-}
+
 
 void Armadura::AsignarArmadura(int def, char *name) {
     defensa = def;

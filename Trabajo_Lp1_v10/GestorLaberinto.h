@@ -15,8 +15,7 @@ private:
 
 public:
     Laberinto crear(char *);
-    GestorLaberinto();
-    virtual ~GestorLaberinto();
+ 
 };
 
 #endif	/* GESTORLABERINTO_H */

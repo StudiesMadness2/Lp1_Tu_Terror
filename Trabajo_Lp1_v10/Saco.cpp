@@ -19,8 +19,7 @@ Saco::Saco() {
         artefacto[i] = NULL;
 }
 
-Saco::~Saco() {
-}
+
 
 int Saco::estaLleno() {
     if (indice < MAX_ARTEF_EN_SACO) {

@@ -30,8 +30,7 @@ private:
 public:
     // Constuctores y destructores 
     Laberinto();
-    Laberinto(int m, int n);
-    virtual ~Laberinto();
+    Laberinto(int m, int n);    
     // Get y Set 
     void setCelda(Celda** celda);
     Celda** getCelda() const;

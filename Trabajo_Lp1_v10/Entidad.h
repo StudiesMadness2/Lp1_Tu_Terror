@@ -29,8 +29,7 @@ public:
     Entidad(int max = 0, int vida = 0);
     virtual ~Entidad();
     void agregarArtefactoAlSaco(Artefacto*, int);  
-    Saco GetSaco() const;
-    //    int GetSacoIndice();
+    Saco GetSaco() const;    
     void SetNombre(char* nombre);
     char* GetNombre() const;
     void SetVidaActual(int VidaActual);

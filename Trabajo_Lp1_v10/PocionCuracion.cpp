@@ -23,9 +23,6 @@ PocionCuracion::PocionCuracion(int ptos) {
 PocionCuracion::PocionCuracion(const PocionCuracion& orig) {
 }
 
-PocionCuracion::~PocionCuracion() {
-
-}
 
 void PocionCuracion::AsignarPocion(int ptos, char *name) {
     puntosVida = ptos;

@@ -13,8 +13,7 @@ private:
     int defensa;
     char * nombre;
 public:
-    Armadura(int def = 0);
-    virtual ~Armadura();
+    Armadura(int def = 0);    
     void AsignarArmadura(int, char*);
     void Imprimir();    
     void SetDefensa(int defensa);

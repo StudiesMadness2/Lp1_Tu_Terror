@@ -18,8 +18,7 @@ private:
     Artefacto *artefacto[MAX_ARTEF_EN_SACO]; //genera un máximo de 10 artefactos en la bolsa
     int indice;
 public:
-    Saco();
-    virtual ~Saco();
+    Saco();    
     void AgregarAlSaco(Artefacto *, int);
     int estaLleno();
     int botarArteFacto(int ind);

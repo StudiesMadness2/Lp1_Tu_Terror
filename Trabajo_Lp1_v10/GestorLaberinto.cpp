@@ -14,11 +14,7 @@
 #include <stdlib.h>
 using namespace std;
 
-GestorLaberinto::GestorLaberinto() {
-}
 
-GestorLaberinto::~GestorLaberinto() {
-}
 
 Laberinto GestorLaberinto::crear(char *nombreArchivo) {
     //Laberinto lab ; 
