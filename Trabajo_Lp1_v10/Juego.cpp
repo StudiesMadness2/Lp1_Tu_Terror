@@ -688,6 +688,7 @@ void Juego::PelearConMonstruo(Monstruo &monster, int &flag,int indLabActual,int 
 
         if (s) {
             int ind;
+            char key[10], c;
             system("cls");
             sacoUsado=1;
             if (this->GetAvatar().cantArtefactos()>0){
@@ -702,7 +703,9 @@ void Juego::PelearConMonstruo(Monstruo &monster, int &flag,int indLabActual,int 
                     cout << "Escribe un indice\n";
                     for (int i = 0; i < 46; i++) putchar(' ');
                     cout << "? : ";
-                    cin >> ind;
+                    cin.get(c);
+                    cin.getline(key,10);
+                    ind = atoi(key);
                     if(ind==1||ind==2||ind==3||ind==4||ind==5||ind==6||ind==7||ind==8||ind==9||ind==0){
                         while(1){
                             if (!usarArtefacto(ind)) {
