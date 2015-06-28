@@ -7,5 +7,12 @@ Lab_N3.txt
 Lab_N4.txt
 Lab_N5.txt
 Lab_N6.txt
+Lab_Laberinto1.txt
+Lab_Laberinto2.txt
+Lab_Laberinto3.txt
+Lab_Laberinto4.txt
+Lab_Laberinto5.txt
+Lab_MundoNuevo.txt
+
 
 
